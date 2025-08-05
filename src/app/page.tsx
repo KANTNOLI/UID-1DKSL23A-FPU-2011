@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <section className={styles.main}>    
-        <Header />
         <Main />
         <Footer/>
     </section>
