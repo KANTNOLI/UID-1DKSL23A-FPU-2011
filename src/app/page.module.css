@@ -1,0 +1,13 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+
+  .test {
+    position: absolute;
+    transform: translateX(10%);
+    width: 120vw;
+    height: 50px;
+    background-color: red;
+  }
+}
