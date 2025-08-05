@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <section className={styles.main}>
       <div className={styles.test}>
-        ASASDASD
       </div>
     </section>
   );

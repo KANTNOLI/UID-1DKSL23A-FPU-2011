@@ -22,6 +22,7 @@ const fontKhula = Khula({
 export const metadata: Metadata = {
   title: "KANTNOLI",
   description: "KANTNOLI",
+  icons: "./logo.jpg"
 };
 
 export default function RootLayout({

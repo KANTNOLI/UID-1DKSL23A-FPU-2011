@@ -1,6 +1,60 @@
-.header{
-    width: 100%;
-    height: 70px;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    background-color: red;
+  width: 100%;
+  height: 100px;
+
+  padding: 0 50px;
+  box-sizing: border-box;
+
+  .headerNav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .headerNavPage:first-child {
+      margin-left: 0;
+    }
+
+    .headerNavPage {
+      margin-left: 50px;
+
+      font-size: 20px;
+      font-family: var(--m_plus_1p);
+      font-weight: bold;
+
+      text-decoration: none;
+
+      color: var(--color-white);
+      color: var(--color-blue);
+
+      transition: 0.1s ease-in-out;
+    }
+
+    .headerNavPage:hover {
+      opacity: 0.5;
+    }
+
+    .headerNavPage:active {
+      transform: scale(0.9);
+      transition: 0.05s ease-in-out;
+    }
+  }
+
+  .headerLogo {
+    border-radius: 20px;
+    width: 80px;
+  }
+}
+
+.activeLink {
+  position: absolute;
+  top: 27px;
+
+  width: 40px;
+  height: 3px;
+  background-color: var(--color-blue);
 }
