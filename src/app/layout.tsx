@@ -10,7 +10,7 @@ const fontPaytone = Paytone_One({
 const fontMPLUS1 = M_PLUS_1({
   variable: "--m_plus_1p",
   subsets: ["latin"]
-});
+});  
 const fontKhula = Khula({
   variable: "--khula",
   weight: ["400", "700", "800", "400"],

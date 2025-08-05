@@ -5,3 +5,7 @@
   
   background-color: black;
 }
+
+html {
+  overflow-x: hidden;
+}
