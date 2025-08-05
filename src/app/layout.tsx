@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Paytone_One, M_PLUS_1, Khula } from "next/font/google";
 import "./globals.css";
 
-import Header from "./components/Header";
-import Main  from "./components/Main";
-
 const fontPaytone = Paytone_One({
   variable: "--paytone_one",
   weight: ["400"],
@@ -19,7 +16,7 @@ const fontKhula = Khula({
   weight: ["400", "600"],
   subsets: ["latin"]
 });
-   
+
 
 
 export const metadata: Metadata = {
@@ -30,7 +27,7 @@ export const metadata: Metadata = {
 
 
 
-export default function RootLayout({  
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -38,9 +35,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
-        
-        <Header />
-        <Main />
         {children}
       </body>
     </html>
