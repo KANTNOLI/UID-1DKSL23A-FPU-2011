@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   icons: "./logo.jpg"
 };
 
-export default function RootLayout({
+export default function RootLayout({  
   children,
 }: Readonly<{
   children: React.ReactNode;
