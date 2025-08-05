@@ -2,7 +2,14 @@
   border: 0;
   padding: 0;
   margin: 0;
-  
+  max-width: 100%; 
+
+  font-family: var(--paytone_one);
+  /* font-family: var(--m_plus_1p); */
+  /* font-family: var(--khula); */
+}
+
+body{
   background-color: black;
 }
 
