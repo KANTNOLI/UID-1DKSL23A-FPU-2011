@@ -11,5 +11,5 @@ function Main() {
         <p className={styles.mainDescR}>We take great care in our work with our clients, specifying every detail to create something amazing</p>
     </section>);
 }
-
+ 
 export default Main;
