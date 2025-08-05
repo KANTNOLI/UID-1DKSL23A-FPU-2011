@@ -1,17 +1,9 @@
 .main {
   position: relative;
   width: 100vw;
-  max-width: 100%;
-  height: 100vh;
-  background-color: rgb(143, 143, 176);
+  
+  min-height: 50vh;
+  /* background-color: rgba(143, 143, 176, 0.171); */
 
   overflow-x: hidden;
-
-  .test { 
-    position: absolute;
-    transform: translateX(10%);
-    width: 120vw;
-    height: 50px;
-    background-color: red;
-  }
 }
