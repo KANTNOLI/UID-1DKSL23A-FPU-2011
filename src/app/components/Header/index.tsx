@@ -8,7 +8,7 @@ import Navigate from "./navigate";
 function Header() {
     const [Mobile, setMobile] = useState<boolean>(false)
     const [MenuActive, setMenuActive] = useState<boolean>(false)
- 
+
     useEffect(() => {
     
         if (window.innerWidth < 1000) {

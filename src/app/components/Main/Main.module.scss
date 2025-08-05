@@ -60,3 +60,264 @@
     text-align: center;
   }
 }
+
+@media (max-width: 1200px) {
+  .main {
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    .mainTitle {
+      font-family: var(--paytone_one);
+
+      font-size: 150px;
+      font-size: bold;
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      z-index: 1;
+    }
+
+    .mainCanvas {
+      position: relative;
+      top: -200px;
+      width: 400px;
+      height: 600px;
+
+      background-color: rgba(255, 0, 0, 0.252);
+
+      z-index: 2;
+    }
+
+    .mainDescL {
+      font-family: var(--khula);
+      position: absolute;
+      top: 50%;
+      left: 8%;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .mainDescR {
+      font-family: var(--khula);
+      position: absolute;
+      top: 70%;
+      right: 8%;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .main {
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    .mainTitle {
+      font-family: var(--paytone_one);
+
+      font-size: 100px;
+      font-size: bold;
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      z-index: 1;
+    }
+
+    .mainCanvas {
+      position: relative;
+      top: -100px;
+      width: 50%;
+      height: 500px;
+
+      background-color: rgba(255, 0, 0, 0.252);
+
+      z-index: 2;
+    }
+
+    .mainDescL {
+      font-family: var(--khula);
+      position: absolute;
+      top: 50%;
+      left: 8%;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .mainDescR {
+      font-family: var(--khula);
+      position: absolute;
+      top: 70%;
+      right: 8%;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+  .main {
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    .mainTitle {
+      font-family: var(--paytone_one);
+
+      font-size: 80px;
+      font-size: bold;
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      z-index: 1;
+    }
+
+    .mainCanvas {
+      position: relative;
+      top: -100px;
+      width: 300px;
+      height: 500px;
+
+      background-color: rgba(255, 0, 0, 0.252);
+
+      z-index: 2;
+    }
+
+    .mainDescL {
+      font-family: var(--khula);
+      position: absolute;
+      top: 40%;
+      left: auto;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .mainDescR {
+      font-family: var(--khula);
+      position: absolute;
+      top: 65%;
+      right: auto;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: auto;
+
+    .mainTitle {
+      font-family: var(--paytone_one);
+
+      font-size: 60px;
+      font-size: bold;
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      z-index: 1;
+    }
+
+    .mainCanvas {
+      position: relative;
+      top: -40px;
+      width: 300px;
+      height: 500px;
+
+      background-color: rgba(255, 0, 0, 0.252);
+
+      z-index: 2;
+    }
+
+    .mainDescL {
+      font-family: var(--khula);
+      position: absolute;
+      top: 40%;
+      left: auto;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .mainDescR {
+      font-family: var(--khula);
+      position: absolute;
+      top: 65%;
+      right: auto;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+  }
+}
