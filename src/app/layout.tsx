@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Paytone_One, M_PLUS_1, Khula } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const fontPaytone = Paytone_One({
   variable: "--paytone_one",
@@ -35,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
