@@ -3,6 +3,7 @@ import { Paytone_One, M_PLUS_1, Khula } from "next/font/google";
 import "./globals.css";
 
 import Header from "./components/Header";
+import Main  from "./components/Main";
 
 const fontPaytone = Paytone_One({
   variable: "--paytone_one",
@@ -12,12 +13,14 @@ const fontPaytone = Paytone_One({
 const fontMPLUS1 = M_PLUS_1({
   variable: "--m_plus_1p",
   subsets: ["latin"]
-});  
+});
 const fontKhula = Khula({
   variable: "--khula",
-  weight: ["400", "700", "800", "400"],
+  weight: ["400", "600"],
   subsets: ["latin"]
 });
+   
+
 
 export const metadata: Metadata = {
   title: "KANTNOLI",
@@ -25,7 +28,9 @@ export const metadata: Metadata = {
   icons: "./logo.jpg"
 };
 
-export default function RootLayout({
+
+
+export default function RootLayout({  
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -33,7 +38,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
-        <Header></Header>
+        
+        <Header />
+        <Main />
         {children}
       </body>
     </html>

@@ -23,9 +23,9 @@ function Navigate() {
     return (
         <nav className={styles.headerNav}>
             <Link href="/" className={styles.headerNavPage}>home</Link>
-            <Link href="/a" className={styles.headerNavPage}>product</Link>
-            <Link href="/b" className={styles.headerNavPage}>vacancy</Link>
-            <Link href="/c" className={styles.headerNavPage}>contacts</Link>
+            <Link href="/product" className={styles.headerNavPage}>product</Link>
+            <Link href="/vacancy" className={styles.headerNavPage}>vacancy</Link>
+            <Link href="/contacts" className={styles.headerNavPage}>contacts</Link>
         </nav>
     );
 }
