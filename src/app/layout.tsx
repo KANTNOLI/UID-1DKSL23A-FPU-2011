@@ -16,7 +16,7 @@ const fontMPLUS1 = M_PLUS_1({
 });
 const fontKhula = Khula({
   variable: "--khula",
-  weight: ["400", "700", "800", "400"],
+  weight: ["400", "600"],
   subsets: ["latin"]
 });
 
@@ -34,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
+        
         <Header />
         <Main />
         {children}
