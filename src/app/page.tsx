@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <section className={styles.main}>
       <div className={styles.test}>
-        wqwad1
+        ASASDASD
       </div>
     </section>
   );
