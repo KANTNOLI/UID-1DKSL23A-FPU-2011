@@ -19,6 +19,8 @@ const fontKhula = Khula({
   weight: ["400", "600"],
   subsets: ["latin"]
 });
+   
+
 
 export const metadata: Metadata = {
   title: "KANTNOLI",
