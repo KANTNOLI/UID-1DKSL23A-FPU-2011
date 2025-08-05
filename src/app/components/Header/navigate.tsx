@@ -7,7 +7,7 @@ import { useEffect } from "react";
 interface props {
     Mobile: boolean,
     Active: boolean,
-    setActive: () => any
+    setActive: () => unknown
 }
 
 function Navigate({ Mobile, Active, setActive }: props) {
