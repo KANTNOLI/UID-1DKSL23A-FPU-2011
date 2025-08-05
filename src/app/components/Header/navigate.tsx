@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styles from "./Header.module.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface props {
     Mobile: boolean,
@@ -10,20 +10,33 @@ interface props {
     setActive: () => unknown
 }
 
+
 function Navigate({ Mobile, Active, setActive }: props) {
+    const [OpenPage, setOpenPage] = useState<number>(0)
+
+    const pageRender = [{ path: "/", name: "home", }, { path: "/product", name: "product" },
+    { path: "/vacancy", name: "vacancy" }, { path: "/contacts", name: "contacts" },]
+
 
     useEffect(() => {
 
-    }, [Active])
+        console.log(OpenPage);
 
+
+    }, [OpenPage])
+
+
+    useEffect(() => {
+
+    }, [Mobile, Active])
 
     return (
 
         <nav className={Active ? styles.headerNavMobile : Mobile ? styles.headerOff : styles.headerNav}>
-            <Link onClick={() => setActive()} href="/" className={styles.headerNavPage}>home</Link>
-            <Link onClick={() => setActive()} href="/product" className={styles.headerNavPage}>product</Link>
-            <Link onClick={() => setActive()} href="/vacancy" className={styles.headerNavPage}>vacancy</Link>
-            <Link onClick={() => setActive()} href="/contacts" className={styles.headerNavPage}>contacts</Link>
+            {pageRender.map((page, id) => (
+                <Link key={id} onClick={() => { setActive(); setOpenPage(id) }} href={page.path}
+                    className={OpenPage == id ? styles.active : styles.headerNavPage}>{page.name}</Link>
+            ))}
         </nav>
     );
 }

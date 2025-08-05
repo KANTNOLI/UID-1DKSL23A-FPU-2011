@@ -29,7 +29,6 @@
       text-decoration: none;
 
       color: var(--color-white);
-      color: var(--color-blue);
 
       transition: 0.1s ease-in-out;
     }
@@ -38,7 +37,35 @@
       opacity: 0.5;
     }
 
-    .headerNavPage:active {
+    .active:active {
+      transform: scale(0.9);
+      transition: 0.05s ease-in-out;
+    }
+
+    .active:first-child {
+      margin-left: 0;
+    }
+
+    .active {
+      margin-left: 50px;
+
+      font-size: 20px;
+      font-family: var(--m_plus_1p);
+      font-weight: bold;
+
+      text-decoration: none;
+
+      color: var(--color-blue);
+      text-decoration: underline;
+
+      transition: 0.1s ease-in-out;
+    }
+
+    .active:hover {
+      opacity: 0.5;
+    }
+
+    .active:active {
       transform: scale(0.9);
       transition: 0.05s ease-in-out;
     }
@@ -59,8 +86,8 @@
     background-color: black;
 
     z-index: 9;
-    transition: .2s ease-in-out;
-    
+    transition: 0.2s ease-in-out;
+
     .headerNavPage {
       margin-top: 20px;
       font-size: 24px;
@@ -70,8 +97,6 @@
       text-decoration: none;
 
       color: var(--color-white);
-      color: var(--color-blue);
-
       transition: 0.1s ease-in-out;
     }
 
@@ -80,6 +105,27 @@
     }
 
     .headerNavPage:active {
+      transform: scale(0.9);
+      transition: 0.05s ease-in-out;
+    }
+
+    .active {
+      margin-top: 20px;
+      font-size: 24px;
+      font-family: var(--m_plus_1p);
+      font-weight: bold;
+
+      text-decoration: none;
+
+      color: var(--color-blue);
+      transition: 0.1s ease-in-out;
+    }
+
+    .active:hover {
+      opacity: 0.5;
+    }
+
+    .active:active {
       transform: scale(0.9);
       transition: 0.05s ease-in-out;
     }
