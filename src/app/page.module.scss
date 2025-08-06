@@ -1,9 +1,10 @@
 .main {
   position: relative;
   width: 100vw;
-  
-  min-height: 50vh;
+  max-width: 100%;
+
+  min-height: auto;
   /* background-color: rgba(143, 143, 176, 0.171); */
 
-  overflow-x: hidden;
+  overflow: hidden;
 }

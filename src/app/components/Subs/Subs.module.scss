@@ -1,0 +1,205 @@
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 800px;
+  height: auto;
+
+  z-index: 1;
+
+  .wave {
+    position: absolute;
+    bottom: -5px;
+
+    width: 100%;
+    height: 60px;
+    z-index: 3;
+
+    background-image: url("../../../../public/contacts/wave.png");
+    background-repeat: repeat;
+    background-size: contain;
+  }
+}
+
+.animBack {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  overflow: hidden;
+
+  .animBackDiv1 {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+
+    width: 40%;
+    height: 60%;
+
+    border-radius: 0 50% 0 50%;
+
+    background: #1045af;
+
+    animation: AnimBackDiv1 infinite alternate-reverse 4s;
+  }
+
+  @keyframes AnimBackDiv1 {
+    0% {
+      width: 40%;
+      height: 60%;
+    }
+    100% {
+      width: 40%;
+      height: 50%;
+    }
+  }
+
+  .animBackDiv2 {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    width: 70%;
+    height: 30%;
+
+    border-radius: 0;
+
+    background: #39a2fe;
+    animation: AnimBackDiv2 infinite alternate-reverse 2s;
+  }
+
+  @keyframes AnimBackDiv2 {
+    0% {
+      width: 70%;
+      height: 30%;
+    }
+    100% {
+      width: 50%;
+      height: 30%;
+    }
+  }
+
+  .animBackDiv3 {
+    position: absolute;
+    bottom: 0px;
+    left: 10%;
+
+    width: 10%;
+    height: 30%;
+
+    border-radius: 50%;
+
+    background: #b8faff;
+    animation: AnimBackDiv3 infinite alternate 4s;
+  }
+
+  @keyframes AnimBackDiv3 {
+    0% {
+      width: 10%;
+      height: 30%;
+    }
+    100% {
+      width: 20%;
+      height: 40%;
+    }
+  }
+
+  .animBackDiv4 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    width: 50%;
+    height: 60%;
+
+    border-radius: 50% 0 0 0;
+
+    background: #4d3589;
+
+    animation: AnimBackDiv4 infinite alternate-reverse 4s;
+  }
+
+  @keyframes AnimBackDiv4 {
+    0% {
+      width: 50%;
+      height: 60%;
+    }
+    100% {
+      width: 45%;
+      height: 50%;
+    }
+  }
+
+  .animBackDiv5 {
+    position: absolute;
+    bottom: 0%;
+    right: 10%;
+
+    width: 50%;
+    height: 30%;
+
+    background: #a07df8;
+
+    animation: AnimBackDiv5 infinite alternate-reverse 3s;
+  }
+
+  @keyframes AnimBackDiv5 {
+    0% {
+      width: 50%;
+      height: 30%;
+    }
+    100% {
+      width: 40%;
+      height: 30%;
+    }
+  }
+
+  .animBackDiv6 {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+
+    width: 20%;
+    height: 30%;
+
+    border: 50%;
+
+    background: #ded3ff;
+
+    animation: AnimBackDiv6 infinite alternate 4s;
+  }
+
+  @keyframes AnimBackDiv6 {
+    0% {
+      width: 20%;
+      height: 30%;
+    }
+    100% {
+      width: 30%;
+      height: 40%;
+    }
+  }
+
+  .animBackResult {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 2;
+
+    backdrop-filter: blur(110px);
+
+    animation: bluring infinite alternate-reverse 2s;
+  }
+
+  @keyframes bluring {
+    0% {
+      backdrop-filter: blur(110px);
+    }
+    100% {
+      backdrop-filter: blur(90px);
+    }
+  }
+}
