@@ -1,3 +1,4 @@
+import SubCarts from "./SubCarts";
 import styles from "./Subs.module.scss"
 
 function Subs() {
@@ -16,7 +17,8 @@ function Subs() {
                 <div className={styles.animBackResult}></div>
             </div>
 
-            123
+            <SubCarts />
+
             <div className={styles.wave}></div>
             {/* <img className={styles.test} src="./contacts/wave.png" alt="wave.png" /> */}
         </section>);

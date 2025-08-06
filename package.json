@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "next": "15.4.5",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-id-swiper": "^4.0.0",
     "sass": "^1.89.2",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
