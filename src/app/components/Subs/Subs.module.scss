@@ -1,8 +1,7 @@
 .container {
   position: relative;
   width: 100%;
-  min-height: 800px;
-  height: auto;
+  height: 750px;
 
   z-index: 1;
 
@@ -12,11 +11,9 @@
 
     width: 100%;
     min-height: 5vh;
-    z-index: 3;
 
     background-image: url("../../../../public/contacts/wave.png");
     background-repeat: repeat-x;
-    background-position: -140% 0;
     background-size: auto 100%;
   }
 }
@@ -188,8 +185,6 @@
     width: 100%;
     height: 100%;
 
-    z-index: 2;
-
     backdrop-filter: blur(110px);
 
     animation: bluring infinite alternate-reverse 2s;
@@ -201,6 +196,68 @@
     }
     100% {
       backdrop-filter: blur(90px);
+    }
+  }
+}
+
+.carts {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 90%;
+
+  z-index: 5;
+
+  .cartsTitle {
+    font-size: 35px;
+    font-weight: bold;
+    font-family: var(--m_plus_1p);
+    color: var(--color-white);
+  }
+
+  .subs {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    margin-top: 80px;
+
+    width: 100%;
+    height: 550px;
+
+    .subsCart {
+      cursor: pointer;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      position: relative;
+      width: 350px;
+      height: 500px;
+
+      border-radius: 20px;
+
+      background-size: cover;
+    }
+
+    .subsCart1{
+      background-image: url("../../../../public/CART\ 1.png");
+    }
+
+
+    .subsCart2{
+      background-image: url("../../../../public/CART\ 2.png");
+    }
+
+
+    .subsCart3{
+      background-image: url("../../../../public/CART\ 3.png");
     }
   }
 }
