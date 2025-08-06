@@ -280,7 +280,7 @@
 
       z-index: 1;
 
-      animation: runTitle 10s infinite alternate-reverse linear;
+      animation: runTitle 3s infinite linear;
     }
 
     @keyframes runTitle {
@@ -289,7 +289,7 @@
       }
 
       100% {
-        transform: translateX(-500%);
+        transform: translateX(-179%);
       }
     }
 
