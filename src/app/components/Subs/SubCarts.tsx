@@ -1,10 +1,18 @@
 "use client"
 
+import React, { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
 import 'swiper/css';
 
 import styles from "./Subs.module.scss"
-import { useEffect, useState } from 'react';
+
 
 function SubCarts() {
     const [Mobile, setMobile] = useState<boolean>(false)
@@ -21,8 +29,20 @@ function SubCarts() {
 
             {Mobile ? (
                 <Swiper className={styles.subs}
-                    spaceBetween={50}
-                    slidesPerView={1}>
+                    effect={'coverflow'}
+                    slidesPerView={window.innerWidth < 800 ? 1 : 2}
+                    grabCursor={true}
+                    initialSlide={1}
+                    centeredSlides={true}
+                    pagination={true}
+                    coverflowEffect={{
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: false,
+                    }}
+                    modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={`${styles.subsCart} ${styles.subsCart1}`}></div>
                     </SwiperSlide>
