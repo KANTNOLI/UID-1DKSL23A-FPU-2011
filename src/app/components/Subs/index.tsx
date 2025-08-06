@@ -15,7 +15,10 @@ function Subs() {
 
                 <div className={styles.animBackResult}></div>
             </div>
-            asd
+
+            123
+            <div className={styles.wave}></div>
+            {/* <img className={styles.test} src="./contacts/wave.png" alt="wave.png" /> */}
         </section>);
 }
 
