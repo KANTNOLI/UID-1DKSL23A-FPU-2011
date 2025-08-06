@@ -10,7 +10,7 @@
     bottom: -5px;
 
     width: 100%;
-    min-height: 5vh;
+    height: 50px;
 
     background-image: url("../../../../public/contacts/wave.png");
     background-repeat: repeat-x;
@@ -39,7 +39,7 @@
 
     background: #1045af;
 
-    animation: AnimBackDiv1 infinite alternate-reverse 4s;
+    animation: AnimBackDiv1 infinite alternate-reverse 2s;
   }
 
   @keyframes AnimBackDiv1 {
@@ -64,7 +64,7 @@
     border-radius: 0;
 
     background: #39a2fe;
-    animation: AnimBackDiv2 infinite alternate-reverse 2s;
+    animation: AnimBackDiv2 infinite alternate-reverse 1s;
   }
 
   @keyframes AnimBackDiv2 {
@@ -89,7 +89,7 @@
     border-radius: 50%;
 
     background: #b8faff;
-    animation: AnimBackDiv3 infinite alternate 4s;
+    animation: AnimBackDiv3 infinite alternate 2s;
   }
 
   @keyframes AnimBackDiv3 {
@@ -115,7 +115,7 @@
 
     background: #4d3589;
 
-    animation: AnimBackDiv4 infinite alternate-reverse 4s;
+    animation: AnimBackDiv4 infinite alternate-reverse 2s;
   }
 
   @keyframes AnimBackDiv4 {
@@ -139,7 +139,7 @@
 
     background: #a07df8;
 
-    animation: AnimBackDiv5 infinite alternate-reverse 3s;
+    animation: AnimBackDiv5 infinite alternate-reverse 1.5s;
   }
 
   @keyframes AnimBackDiv5 {
@@ -165,7 +165,7 @@
 
     background: #ded3ff;
 
-    animation: AnimBackDiv6 infinite alternate 4s;
+    animation: AnimBackDiv6 infinite alternate 2s;
   }
 
   @keyframes AnimBackDiv6 {
@@ -187,7 +187,7 @@
 
     backdrop-filter: blur(110px);
 
-    animation: bluring infinite alternate-reverse 2s;
+    animation: bluring infinite alternate-reverse 1s;
   }
 
   @keyframes bluring {
