@@ -191,7 +191,6 @@
   }
 }
 
-
 @media (max-width: 600px) {
   .main {
     margin-top: 100px;
@@ -266,17 +265,32 @@
     align-items: center;
 
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     height: auto;
 
     .mainTitle {
+      white-space: nowrap;
       font-family: var(--paytone_one);
 
-      font-size: 60px;
+      font-size: 120px;
       font-size: bold;
       text-transform: uppercase;
       color: var(--color-white);
 
       z-index: 1;
+
+      animation: runTitle 10s infinite alternate-reverse linear;
+    }
+
+    @keyframes runTitle {
+      0% {
+        transform: translateX(-20%);
+      }
+
+      100% {
+        transform: translateX(-500%);
+      }
     }
 
     .mainCanvas {
