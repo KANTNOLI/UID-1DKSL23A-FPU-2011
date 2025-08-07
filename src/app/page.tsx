@@ -2,6 +2,7 @@ import styles from "./page.module.scss";
 import Main from "./components/Main";
 import Subs from "./components/Subs";
 import IdeaToWork from "./components/IdeaToWork";
+import Why from "./components/Why";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Main />
       <Subs />
       <IdeaToWork />
+      <Why />
     </section>
   );
 }
