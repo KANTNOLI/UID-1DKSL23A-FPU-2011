@@ -187,7 +187,7 @@
 
     backdrop-filter: blur(110px);
 
-    animation: bluring infinite alternate-reverse 1s;
+    animation: bluring infinite alternate-reverse 0.8s;
   }
 
   @keyframes bluring {
@@ -213,9 +213,9 @@
   z-index: 5;
 
   .cartsTitle {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: bold;
-    font-family: var(--m_plus_1p);
+    font-family: var(--paytone_one);
     color: var(--color-white);
   }
 
