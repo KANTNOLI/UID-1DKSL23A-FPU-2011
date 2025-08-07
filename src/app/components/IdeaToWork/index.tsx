@@ -10,8 +10,12 @@ function IdeaToWork() {
                 <div className={`${styles.line} ${styles.line2}`}></div>
                 <div className={`${styles.line} ${styles.line3}`}></div>
                 <div className={`${styles.line} ${styles.line4}`}></div>
-                <div className={`${styles.backline1}`}></div>
-                <div className={`${styles.backline2}`}></div>
+                <div className={`${styles.backline} ${styles.backline1}`}></div>
+                <div className={`${styles.backline} ${styles.backline2}`}></div>
+                <div className={`${styles.backline} ${styles.backline3}`}></div>
+                <div className={`${styles.backline} ${styles.backline4}`}></div>
+                <div className={`${styles.backline} ${styles.backline5}`}></div>
+                <div className={`${styles.backline} ${styles.backline6}`}></div>
 
                 <div className={`${styles.plan} ${styles.p1}`}>
                     <p className={styles.planTitle}>Analysis & Technical Specification</p>
