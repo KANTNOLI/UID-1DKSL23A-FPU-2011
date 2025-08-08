@@ -76,7 +76,7 @@
       width: 50%;
       height: 30%;
     }
-  } 
+  }
 
   .animBackDiv3 {
     position: absolute;
@@ -188,6 +188,41 @@
     backdrop-filter: blur(110px);
 
     animation: bluring infinite alternate-reverse 0.8s;
+  }
+
+  .animBackResult::after {
+    position: absolute;
+    width: 125%;
+    height: 125%;
+
+    opacity: 0.25;
+    background-image: url("../../../../public/p.png");
+    content: "";
+
+    animation: sharp infinite alternate linear 3s;
+  }
+
+  @keyframes sharp {
+    0% {
+      top: 0;
+      left: 0;
+    }
+    25% {
+      top: -12.5%;
+      left: -25%;
+    }
+    50% {
+      top: -25%;
+      left: -12.5%;
+    }
+    75% {
+      left: -12.5%;
+      left: 0;
+    }
+    100% {
+      top: -12.5%;
+      left: -25%;
+    }
   }
 
   @keyframes bluring {
