@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import * as THREE from "three";
 import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-import { ModelPosition, ModelShadow } from "./OtherScripts.interface.js";
-import { DEGREE, PositionObject3D } from "../Constants.interface.js";
-import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox.js";
-import { CuttingCustomShadowBox } from "../Shaders/Snippets/CuttingCustomShadowBox.js";
+import { ModelPosition, ModelShadow } from "./OtherScripts.interface";
+import { DEGREE, PositionObject3D } from "../Constants.interface";
+import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox";
+import { CuttingCustomShadowBox } from "../Shaders/Snippets/CuttingCustomShadowBox";
 
 // где-то в вашем коде, где определяется CustomCube:
 export interface CustomCube {
