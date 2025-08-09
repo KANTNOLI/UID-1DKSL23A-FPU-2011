@@ -11,7 +11,7 @@ function Main() {
         setTimeout(() => {
 
             if (canvas.current) {
-                let sizes = canvas.current.getBoundingClientRect()
+                const sizes = canvas.current.getBoundingClientRect()
                 Frame3D({ canvas: canvas.current, height: sizes.height, width: sizes.width })
                 console.log('123');
             }
