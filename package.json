@@ -15,13 +15,15 @@
     "react-id-swiper": "^4.0.0",
     "sass": "^1.89.2",
     "scss": "^0.2.4",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.179.0",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
     "typescript": "^5"
