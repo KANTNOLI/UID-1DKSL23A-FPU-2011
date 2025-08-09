@@ -23,7 +23,7 @@ function Frame3D({ canvas, width, height }: props) {
   const scene = new CreateScene();
   scene.scene.background = null;
 
-  const l = DirectionalLightCfg(scene.scene, { x: 10, y: 10, z: 10 });
+  const l = DirectionalLightCfg(scene.scene, { x: 10, y: 10, z: 10 }, {color: 0xff0000});
   scene.addScene(l);
 
   const renderer = WebGLEngine({}, { height, width });
@@ -39,7 +39,7 @@ function Frame3D({ canvas, width, height }: props) {
   canvas.appendChild(renderer.domElement);
 
   const modelsLoader = new GLTFLoader();
-  modelsLoader.load("http://172.20.10.3:3000/main2.glb", (model: GLTF) => {
+  modelsLoader.load("http://172.20.10.3:3000/main.glb", (model: GLTF) => {
     if (!model) {
       throw new Error("Failed to load model");
     }
