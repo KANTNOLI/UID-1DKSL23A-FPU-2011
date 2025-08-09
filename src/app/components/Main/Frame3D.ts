@@ -39,7 +39,7 @@ function Frame3D({ canvas, width, height }: props) {
   canvas.appendChild(renderer.domElement);
 
   const modelsLoader = new GLTFLoader();
-  modelsLoader.load("http://172.20.10.3:3000/main.glb", (model: GLTF) => {
+  modelsLoader.load("/main.glb", (model: GLTF) => {
     if (!model) {
       throw new Error("Failed to load model");
     }
