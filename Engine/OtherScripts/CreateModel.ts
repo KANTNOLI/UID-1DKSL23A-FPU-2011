@@ -3,8 +3,8 @@ import * as THREE from "three";
 import { GLTF, GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { ModelPosition, ModelShadow } from "./OtherScripts.interface";
 import { DEGREE, PositionObject3D } from "../Constants.interface";
-import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox";
 import { CuttingCustomShadowBox } from "../Shaders/Snippets/CuttingCustomShadowBox";
+import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox";
 
 
 
