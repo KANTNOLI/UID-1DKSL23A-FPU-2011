@@ -6,10 +6,6 @@ import { DEGREE, PositionObject3D } from "../Constants.interface";
 // import { CuttingCustomShadowBox } from "../Shaders/Snippets/CuttingCustomShadowBox";
 // import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox";
 
-
-
-
-
 // где-то в вашем коде, где определяется CustomCube:
 export interface CustomCube {
   matrix: THREE.Matrix4 | any;
@@ -30,18 +26,6 @@ export interface Shaders {
   Coords: CustomCube;
   object: THREE.Mesh;
 }
-
-// interface Mapping {
-//   map: any;
-// }
-
-// interface ShadowParams {
-//   shadowMap: THREE.Texture;
-//   lightMatrix: THREE.Matrix4;
-//   lightPosition: THREE.Vector3;
-//   shadowBias?: number;
-//   shadowDarkness?: number;
-// }
 
 export class CreateModel {
   model: THREE.Object3D = new THREE.Object3D();
@@ -95,96 +79,6 @@ export class CreateModel {
     });
   }
 
-  async shaderUpdate(Coords: CustomCube): Promise<void> {
-    return new Promise((resolve) => {
-      const waitLoading = setInterval(() => {
-        if (this.model) {
-          this.model.traverse((node: THREE.Object3D) => {
-            if (node instanceof THREE.Mesh) {
-              const mat = node.material as THREE.ShaderMaterial;
-              if (!mat.uniforms) return;
-
-              mat.uniforms.u_CoordLT.value = Coords.CoordLT;
-              mat.uniforms.u_CoordLB.value = Coords.CoordLB;
-              mat.uniforms.u_CoordRT.value = Coords.CoordRT;
-              mat.uniforms.u_CoordRB.value = Coords.CoordRB;
-              mat.uniforms.u_startZ.value = Coords.startZ;
-              mat.uniforms.u_endZ.value = Coords.endZ;
-              mat.uniforms.u_posWorld.value = Coords.positionWorld;
-              mat.uniforms.u_modelMatrix.value = node.matrixWorld;
-            }
-          });
-          clearInterval(waitLoading);
-          resolve();
-        }
-      }, 0);
-    });
-  }
-
-  // shaderCreate(cumHelper: Shaders) {
-  //   this.setNodeParam((node) => {
-  //     const originalMaterial = node.material as any;
-
-  //     const ShaderMaterial = CuttingCustomBox({
-  //       CoordLB: cumHelper.Coords.CoordLB,
-  //       CoordLT: cumHelper.Coords.CoordLT,
-  //       CoordRB: cumHelper.Coords.CoordRB,
-  //       CoordRT: cumHelper.Coords.CoordRT,
-  //       depth: cumHelper.Coords.depth,
-  //       startZ: cumHelper.Coords.startZ,
-  //       endZ: cumHelper.Coords.endZ,
-  //       positionWorld: cumHelper.Coords.positionWorld,
-  //       texture: originalMaterial,
-  //       matrix: node.matrixWorld,
-  //     });
-
-  //     node.material = ShaderMaterial;
-  //   });
-  // }
-
-  // shaderCreateLigth(cumHelper: Shaders) {
-  //   this.setNodeParam((node) => {
-  //     const material = node.material as any;
-  //     let textureOrMaterial:
-  //       | THREE.Texture
-  //       | THREE.Material
-  //       | THREE.Color
-  //       | null = null;
-
-  //     console.log(material.opacity);
-  //     console.log(material.transparent);
-
-  //     if (Array.isArray(material)) {
-  //       // Для мультиматериалов выберите первый материал с текстурой или первый материал
-  //       textureOrMaterial =
-  //         material.find((m: any) => m.map && m.map.isTexture) ||
-  //         material[0] ||
-  //         null;
-  //     } else {
-  //       textureOrMaterial = material; // Передайте сам материал
-  //     }
-
-  //     if (!textureOrMaterial) {
-  //       console.warn(`❌ Меш без материала: "${node.name}"`);
-  //       textureOrMaterial = new THREE.Color(0xffaa66); // Используйте цвет по умолчанию
-  //     }
-
-  //     const ShaderMaterial = CuttingCustomShadowBox({
-  //       CoordLB: cumHelper.Coords.CoordLB,
-  //       CoordLT: cumHelper.Coords.CoordLT,
-  //       CoordRB: cumHelper.Coords.CoordRB,
-  //       CoordRT: cumHelper.Coords.CoordRT,
-  //       depth: cumHelper.Coords.depth,
-  //       startZ: cumHelper.Coords.startZ,
-  //       endZ: cumHelper.Coords.endZ,
-  //       positionWorld: cumHelper.Coords.positionWorld,
-  //       texture: textureOrMaterial,
-  //       matrix: node.matrixWorld,
-  //     });
-
-  //     node.material = ShaderMaterial;
-  //   });
-  // }
 
   setCustomNodeParam(callback: (node: any) => any) {
     this.intervalSnippet(() => {
