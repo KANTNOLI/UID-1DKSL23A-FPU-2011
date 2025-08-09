@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { GeometryTypes, MaterialTypes } from "../../Constants.interface.js";
-import { BoxGeometry } from "../Geometry/BoxGeometry.js";
-import { BasicMaterial } from "../Materials/BasicMaterial.js";
+import { BoxGeometry } from "../Geometry/BoxGeometry";
+import { BasicMaterial } from "../Materials/BasicMaterial";
 
 const CustomObject = (
   Geometry: GeometryTypes = BoxGeometry(),

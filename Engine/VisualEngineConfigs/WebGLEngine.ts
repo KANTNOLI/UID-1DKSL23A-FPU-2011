@@ -28,6 +28,7 @@ export const WebGLEngine = (
     depth: quality.depth || true, // ✔️ если не нужен z-buffer
     alpha: false, // ✔️ не нужен прозрачный фон
     stencil: false, // ✔️ если не используете маски
+    
   });
 
   renderer.setSize(sizes.width, sizes.height);
