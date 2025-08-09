@@ -6,6 +6,10 @@ import { DEGREE, PositionObject3D } from "../Constants.interface";
 import { CuttingCustomBox } from "../Shaders/Snippets/CuttingCustomBox";
 import { CuttingCustomShadowBox } from "../Shaders/Snippets/CuttingCustomShadowBox";
 
+
+
+
+
 // где-то в вашем коде, где определяется CustomCube:
 export interface CustomCube {
   matrix: THREE.Matrix4 | any;
