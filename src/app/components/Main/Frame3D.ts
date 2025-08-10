@@ -23,14 +23,24 @@ function Frame3D({ canvas, width, height }: props) {
   const scene = new CreateScene();
   scene.scene.background = null;
 
-  const l = DirectionalLightCfg(scene.scene, { x: 10, y: 10, z: 10 }, {color: 0xff0000});
-  scene.addScene(l);
+  const l = DirectionalLightCfg(
+    scene.scene,
+    { x: 10, y: 10, z: 10 },
+    { color: 0xffffff }
+  );
+
+  const l2 = DirectionalLightCfg(
+    scene.scene,
+    { x: -10, y: -10, z: 10 },
+    { color: 0x242c4d, intensity: 0.2 }
+  );
+  scene.addScene([l, l2]);
 
   const renderer = WebGLEngine({}, { height, width });
   renderer.setClearColor(0x000000, 0);
 
   const camera = DefaultCameraSettings(
-    { x: 0, y: 1, z: 3.8 },
+    { x: 0, y: 1, z: 3 },
     { aspect: width / height }
   );
 
@@ -39,7 +49,7 @@ function Frame3D({ canvas, width, height }: props) {
   canvas.appendChild(renderer.domElement);
 
   const modelsLoader = new GLTFLoader();
-  modelsLoader.load("/main.glb", (model: GLTF) => {
+  modelsLoader.load("/main2.glb", (model: GLTF) => {
     if (!model) {
       throw new Error("Failed to load model");
     }
@@ -48,17 +58,24 @@ function Frame3D({ canvas, width, height }: props) {
     scene.addScene(loadedModel);
     scene.scene.lookAt(0, 0, 0);
 
-    loadedModel.rotation.set(0 * DEGREE, 100 * DEGREE, 0 * DEGREE);
+    // loadedModel.rotation.set(0 * DEGREE, 100 * DEGREE, 0 * DEGREE);
+    loadedModel.position.set(0, -1, 0);
   });
+
+  const controls = OrbitControl(renderer, camera, { max: 90, min: 90 });
+  controls.maxDistance = 3;
+  controls.minDistance = 3;
+
   const animate = () => {
     console.log(123);
 
     if (loadedModel) {
-      loadedModel.rotation.y += 0.01;
+      loadedModel.rotation.y += 0.005;
       //   loadedModel.rotation.z += 0.01;
       //   loadedModel.rotation.x += 0.01;
     }
 
+    controls.update();
     renderer.render(scene.scene, camera);
     requestAnimationFrame(animate);
   };
