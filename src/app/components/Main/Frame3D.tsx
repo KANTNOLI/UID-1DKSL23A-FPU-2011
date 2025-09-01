@@ -1,231 +1,227 @@
-'use client';
-import { Canvas, useFrame, extend } from '@react-three/fiber';
-import { useRef, Suspense } from 'react';
-import { useGLTF } from '@react-three/drei';
+import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import { shaderMaterial } from '@react-three/drei';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-// Объявляем глобальные JSX элементы ДО создания материала
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      oilSlickMaterial: any;
-    }
-  }
+interface Frame3DProps {
+  width?: number | string;
+  height?: number | string;
+  modelPath?: string;
 }
 
-// Создаем кастомный шейдерный материал для эффекта бензинового пятна
-const OilSlickMaterial = shaderMaterial(
-  {
-    time: 0,
-  },
-  // Вершинный шейдер
-  `
-  varying vec2 vUv;
-  varying vec3 vPosition;
-  varying vec3 vNormal;
-  
-  void main() {
-    vUv = uv;
-    vPosition = position;
-    vNormal = normal;
-    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-  }
+const Frame3D: React.FC<Frame3DProps> = ({
+  width = '100%',
+  height = '100%',
+  modelPath = '123123'
+}) => {
+  const mountRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!mountRef.current) return;
+
+    // Инициализация
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, mountRef.current.clientWidth / mountRef.current.clientHeight, 0.1, 1000);
+    camera.position.z = 2.6;
+    camera.position.y = 1.2;
+
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true // Прозрачный фон
+    });
+    renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    renderer.setClearColor(0x000000, 0); // Полностью прозрачный фон
+    mountRef.current.appendChild(renderer.domElement);
+
+    // Освещение
+    // const light = new THREE.DirectionalLight(0xffffff, 0);
+    // light.position.set(1, 1, 1);
+    // scene.add(light);
+    // scene.add(new THREE.AmbientLight(0x404040));
+
+
+
+
+
+
+    const hologramShader = new THREE.ShaderMaterial({
+      uniforms: {
+        time: { value: 0 },
+        fresnelPower: { value: 2.5 },
+        colorIntensity: { value: 1.2 },
+        glossiness: { value: 0.8 }
+      },
+      vertexShader: `
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    varying vec3 vViewDir;
+    
+    void main() {
+      vUv = uv;
+      vNormal = normalize(normalMatrix * normal);
+      
+      vec4 viewPosition = modelViewMatrix * vec4(position, 1.0);
+      vViewDir = -viewPosition.xyz;
+      
+      gl_Position = projectionMatrix * viewPosition;
+    }
   `,
-  // Фрагментный шейдер - улучшенная версия для бензинового эффекта
-  `
-  uniform float time;
-  varying vec2 vUv;
-  varying vec3 vPosition;
-  varying vec3 vNormal;
-
-  // Функция для создания шума
-  float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453);
-  }
-
-  // Функция для создания плавного шума
-  float noise(vec2 p) {
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    vec2 u = f * f * (3.0 - 2.0 * f);
-    return mix(mix(hash(i + vec2(0.0,0.0)), 
-                   hash(i + vec2(1.0,0.0)), u.x),
-               mix(hash(i + vec2(0.0,1.0)), 
-                   hash(i + vec2(1.0,1.0)), u.x), u.y);
-  }
-
-  // Функция для создания фрактального шума
-  float fbm(vec2 p) {
-    float value = 0.0;
-    float amplitude = 0.5;
-    float frequency = 1.0;
+      fragmentShader: `
+    uniform float time;
+    uniform float fresnelPower;
+    uniform float colorIntensity;
+    uniform float glossiness;
     
-    for (int i = 0; i < 5; i++) {
-        value += amplitude * noise(p * frequency);
-        frequency *= 2.0;
-        amplitude *= 0.5;
-    }
-    return value;
-  }
-
-  void main() {
-    // Создаем волнообразные искажения для эффекта жидкости
-    vec2 center = vUv - 0.5;
-    float angle = atan(center.y, center.x);
-    float radius = length(center);
+    varying vec2 vUv;
+    varying vec3 vNormal;
+    varying vec3 vViewDir;
     
-    // Создаем интерференционные узоры как у бензинового пятна
-    float interference = sin(radius * 20.0 - time * 2.0) * 
-                         cos(angle * 12.0 + time * 1.5) * 0.5;
-    
-    // Создаем эффект толщины пленки
-    float thickness = fbm(vUv * 2.0 + time * 0.1) + interference * 0.3;
-    
-    // Основной цветовой сдвиг на основе толщины пленки и угла
-    float colorShift = thickness * 5.0 + angle * 2.0 + time * 0.5;
-    
-    // Создаем радужные цвета с акцентом на синие, фиолетовые и золотые оттенки
-    vec3 rainbow = vec3(
-        0.6 + 0.4 * sin(colorShift * 3.0),      // Красный/розовый
-        0.5 + 0.5 * sin(colorShift * 2.0 + 1.0), // Зеленый/бирюзовый
-        0.7 + 0.3 * sin(colorShift * 1.0 + 2.0)  // Синий/фиолетовый
-    );
-    
-    // Добавляем золотистые акценты
-    vec3 gold = vec3(1.0, 0.8, 0.3) * (0.5 + 0.5 * sin(colorShift * 0.7));
-    rainbow = mix(rainbow, gold, 0.3);
-    
-    // Добавляем фиолетовые и пурпурные оттенки
-    vec3 purple = vec3(0.8, 0.3, 1.0) * (0.5 + 0.5 * cos(colorShift * 0.9 + 1.0));
-    rainbow = mix(rainbow, purple, 0.2);
-    
-    // Создаем эффект свечения
-    float glow = pow(1.0 - radius, 2.0) * 0.5;
-    rainbow += vec3(0.5, 0.7, 1.0) * glow * 0.3;
-    
-    // Добавляем блики на основе нормалей
-    vec3 viewDir = normalize(-vPosition);
-    float fresnel = pow(1.0 - dot(vNormal, viewDir), 3.0);
-    rainbow += vec3(1.0) * fresnel * 0.5;
-    
-    // Усиливаем насыщенность
-    rainbow = pow(rainbow, vec3(1.5));
-    
-    // Финальный цвет
-    gl_FragColor = vec4(rainbow, 1.0);
-  }
-  `
-);
-
-// Регистрируем материал для использования в JSX
-extend({ OilSlickMaterial });
-
-// Тип для рефа материала
-interface OilSlickMaterialRef {
-  uniforms: {
-    time: { value: number };
-  };
-}
-
-function ModelWithOilSlickEffect() {
-  const group = useRef<THREE.Group>(null);
-  const materialRef = useRef<OilSlickMaterialRef>(null);
-  const { nodes } = useGLTF('./123.glb');
-
-  useFrame(({ clock }) => {
-    if (group.current) {
-      // Плавное вращение модели
-      group.current.rotation.y = clock.getElapsedTime() * 0.2;
-    }
-    if (materialRef.current) {
-      // Обновляем время для шейдера
-      materialRef.current.uniforms.time.value = clock.getElapsedTime();
-    }
-  });
-
-  // Функция для применения материала ко всем мешам модели
-  const applyMaterial = (node: THREE.Object3D): any => {
-    if ((node as THREE.Mesh).isMesh) {
-      const mesh = node as THREE.Mesh;
-      return (
-        <mesh
-          key={mesh.uuid}
-          geometry={mesh.geometry}
-          position={mesh.position}
-          rotation={mesh.rotation}
-          scale={mesh.scale}
-        >
-          {/* @ts-ignore */}
-          <oilSlickMaterial ref={materialRef} />
-        </mesh>
-      );
+    // Функция для получения цвета из градиента на основе позиции
+    vec3 getGradientColor(float pos) {
+      // Цвета из предоставленной палитры
+      vec3 color0 = vec3(1.0, 0.705, 0.968);    // #FFB4F7
+      vec3 color1 = vec3(1.0, 0.816, 0.875);    // #FFD0DF
+      vec3 color2 = vec3(1.0, 0.925, 0.776);    // #FFECC6
+      vec3 color3 = vec3(1.0, 0.619, 0.925);    // #FF9EEC 
+      vec3 color4 = vec3(0.733, 0.553, 0.961);  // #BB8DF5
+      vec3 color5 = vec3(0.745, 0.678, 1.0);    // #BEADFF
+      vec3 color6 = vec3(0.812, 0.553, 0.992);  // #CF8DFD
+      vec3 color7 = vec3(1.0, 0.494, 0.964);    // #FF7EF6
+      
+      // Позиции цветов в градиенте
+      float p0 = 0.0;
+      float p1 = 0.13;
+      float p2 = 0.24;
+      float p3 = 0.38;
+      float p4 = 0.51;
+      float p5 = 0.67;
+      float p6 = 0.84;
+      float p7 = 0.93;
+      
+      // Интерполяция между цветами
+      if (pos < p1) {
+        return mix(color0, color1, (pos - p0) / (p1 - p0));
+      } else if (pos < p2) {
+        return mix(color1, color2, (pos - p1) / (p2 - p1));
+      } else if (pos < p3) {
+        return mix(color2, color3, (pos - p2) / (p3 - p2));
+      } else if (pos < p4) {
+        return mix(color3, color4, (pos - p3) / (p4 - p3));
+      } else if (pos < p5) {
+        return mix(color4, color5, (pos - p4) / (p5 - p4));
+      } else if (pos < p6) {
+        return mix(color5, color6, (pos - p5) / (p6 - p5));
+      } else if (pos < p7) {
+        return mix(color6, color7, (pos - p6) / (p7 - p6));
+      } else {
+        return mix(color7, color0, (pos - p7) / (1.0 - p7));
+      }
     }
     
-    if (node.children && node.children.length > 0) {
-      return (
-        <group key={node.uuid}>
-          {node.children.map((child: THREE.Object3D) => applyMaterial(child))}
-        </group>
-      );
+    void main() {
+      // Нормализуем векторы
+      vec3 normal = normalize(vNormal);
+      vec3 viewDir = normalize(vViewDir);
+      
+      // Френелевский эффект
+      float fresnel = pow(1.0 - abs(dot(normal, viewDir)), fresnelPower);
+      
+      // Получаем позицию в градиенте на основе времени и UV координат
+      float gradientPos = fract(time * 0.3 + vUv.x * 2.0 + vUv.y * 1.5);
+      
+      // Получаем цвет из градиента
+      vec3 gradientColor = getGradientColor(gradientPos);
+      
+      // Усиливаем цвета
+      gradientColor = pow(gradientColor, vec3(2)) * colorIntensity;
+      
+      // Серебристая основа
+      vec3 silverBase = vec3(0.9, 0.9, 0.95);
+      
+      // Смешиваем серебристую основу с градиентными цветами
+      vec3 color = mix(silverBase, gradientColor, fresnel);
+      
+      // Добавляем блики
+      vec3 lightDir = normalize(vec3(0.5, 1.0, 0.5));
+      vec3 halfDir = normalize(lightDir + viewDir);
+      float highlight = pow(max(dot(normal, halfDir), 0.0), 32.0) * glossiness;
+      color += highlight * vec3(2.0);
+      
+      // Повышаем контрастность
+      color = pow(color, vec3(3.5));
+      
+      // Финальный цвет без прозрачности
+      gl_FragColor = vec4(color, ${1.0});
     }
-    
-    return null;
-  };
+  `, transparent: true
+    });
 
-  // Получаем корневой узел модели
-  const rootNode = nodes.scene || Object.values(nodes)[0] as THREE.Object3D;
+
+
+
+
+    let model: THREE.Group;
+
+    // Загрузка модели
+    const loader = new GLTFLoader();
+    loader.load(modelPath, (gltf) => {
+      model = gltf.scene;
+      model.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          child.material = hologramShader;
+        }
+      });
+      scene.add(model);
+      setLoading(false);
+    });
+
+    // Анимация
+    const clock = new THREE.Clock();
+    const animate = () => {
+      requestAnimationFrame(animate);
+
+      const elapsedTime = clock.getElapsedTime();
+      hologramShader.uniforms.time.value = elapsedTime;
+
+      // Медленное вращение модели вправо
+      if (model) {
+        model.rotation.y = elapsedTime * 0.3; // Медленное вращение
+      }
+
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    // Очистка
+    return () => {
+      if (mountRef.current && renderer.domElement.parentNode === mountRef.current) {
+        mountRef.current.removeChild(renderer.domElement);
+      }
+      renderer.dispose();
+    };
+  }, [modelPath]);
 
   return (
-    <group ref={group}>
-      {applyMaterial(rootNode)}
-    </group>
-  );
-}
-
-// Компонент-заглушка для загрузки
-function Loader() {
-  return (
-    <mesh>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial color="#333333" />
-    </mesh>
-  );
-}
-
-export default function OilSlickModelViewer() {
-  return (
-    <div style={{ 
-      width: '500px', 
-      height: '800px',
-      background: 'linear-gradient(135deg, #000000, #1a1a2e)',
-      overflow: 'hidden',
-    }}>
-      <Canvas
-        camera={{ 
-          position: [3, 3, 3], 
-          fov: 50,
-        }}
-        gl={{ 
-          antialias: true,
-        }}
-      >
-        <ambientLight intensity={0.3} />
-        <directionalLight 
-          position={[2, 5, 3]} 
-          intensity={0.8} 
-          color="#4a6fc3"
-        />
-        <pointLight 
-          position={[0, 0, 2]} 
-          intensity={0.5} 
-          color="#ff6b9d"
-        />
-        
-        <Suspense fallback={<Loader />}>
-          <ModelWithOilSlickEffect />
-        </Suspense>
-      </Canvas>
+    <div
+      ref={mountRef}
+      style={{
+        width,
+        height,
+        background: 'transparent' // Прозрачный фон
+      }}
+    >
+      {loading && (
+        <div style={{
+          color: 'white',
+          padding: '20px',
+          textAlign: 'center',
+          fontSize: '14px'
+        }}>
+          Loading
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Frame3D;
