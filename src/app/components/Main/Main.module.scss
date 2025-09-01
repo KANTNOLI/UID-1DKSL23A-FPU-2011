@@ -23,11 +23,10 @@
 
   .mainCanvas {
     position: relative;
-    top: -200px;
-    width: 600px;
+    top: -250px;
+    width: 500px;
     height: 800px;
 
-    border: 2px solid #220000;
     // background-color: rgba(255, 0, 0, 0.252);
     z-index: 2;
   }
@@ -91,8 +90,6 @@
       width: 400px;
       height: 600px;
 
-      background-color: rgba(255, 0, 0, 0.252);
-
       z-index: 2;
     }
 
@@ -153,11 +150,8 @@
     .mainCanvas {
       position: relative;
       top: -100px;
-      width: 50%;
-      height: 500px;
-
-      background-color: rgba(255, 0, 0, 0.252);
-
+      width: 80%;
+      height: 600px;
       z-index: 2;
     }
 
@@ -174,6 +168,9 @@
       font-weight: 600;
       color: var(--color-white);
       text-align: center;
+
+      z-index: 3;
+      text-shadow: rgb(0, 0, 0) 3px 0 5px;
     }
 
     .mainDescR {
@@ -189,6 +186,9 @@
       font-weight: 600;
       color: var(--color-white);
       text-align: center;
+
+      z-index: 3;
+      text-shadow: rgb(0, 0, 0) 3px 0 5px;
     }
   }
 }
@@ -218,10 +218,8 @@
     .mainCanvas {
       position: relative;
       top: -100px;
-      width: 300px;
-      height: 500px;
-
-      background-color: rgba(255, 0, 0, 0.252);
+      width: 90%;
+      height: 600px;
 
       z-index: 2;
     }
@@ -230,7 +228,7 @@
       font-family: var(--khula);
       position: absolute;
       top: 40%;
-      left: auto;
+      left: 50px;
 
       width: 280px;
 
@@ -245,7 +243,7 @@
       font-family: var(--khula);
       position: absolute;
       top: 65%;
-      right: auto;
+      right: 50px;
 
       width: 280px;
 
@@ -254,6 +252,7 @@
       font-weight: 600;
       color: var(--color-white);
       text-align: center;
+
     }
   }
 }
@@ -275,7 +274,7 @@
       white-space: nowrap;
       font-family: var(--paytone_one);
 
-      font-size: 60px;
+      font-size: 80px;
       font-size: bold;
       text-transform: uppercase;
       color: var(--color-white);
@@ -285,16 +284,15 @@
 
     .mainCanvas {
       position: relative;
-      top: -70px;
+      top: -80px;
       width: 300px;
       height: 500px;
-
-      background-color: rgba(255, 0, 0, 0.252);
 
       z-index: 2;
     }
 
     .mainDescL {
+      opacity: 0;
       font-family: var(--khula);
       position: absolute;
       top: 40%;
@@ -310,6 +308,7 @@
     }
 
     .mainDescR {
+      opacity: 0;
       font-family: var(--khula);
       position: absolute;
       top: 70%;
@@ -322,6 +321,8 @@
       font-weight: 600;
       color: var(--color-white);
       text-align: center;
+
+      z-index: 1;
     }
   }
 }
