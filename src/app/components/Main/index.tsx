@@ -8,12 +8,13 @@ import Frame3D from "./Frame3D";
 
 function Main() {
     const [Sizes, setSizes] = useState<DOMRect>()
+    const [WinW, setWinW] = useState<number>(0)
+
 
     const canvas = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        console.log(window.innerWidth);
-        
+        setWinW(window.innerWidth)
 
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas])
@@ -21,7 +22,7 @@ function Main() {
 
 
     return (<section className={styles.main}>
-        <p className={styles.mainTitle}>{window.innerWidth > 500 ? "Chazen" : "Chazen"}</p>
+        <p className={styles.mainTitle}>{WinW > 500 ? "Chazen" : "Chazen"}</p>
         <div ref={canvas} className={styles.mainCanvas}>
             <Frame3D height={Sizes?.height} width={Sizes?.width} modelPath="./homeM.glb"></Frame3D>
         </div>
