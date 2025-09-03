@@ -24,7 +24,7 @@ function Main() {
     return (<section className={styles.main}>
         <p className={styles.mainTitle}>{WinW > 500 ? "Chazen" : "Chazen"}</p>
         <div ref={canvas} className={styles.mainCanvas}>
-            <Frame3D height={Sizes?.height} width={Sizes?.width} modelPath="./homeM.glb"></Frame3D>
+            <Frame3D position={{y: 47, z: 80}} height={Sizes?.height} width={Sizes?.width} modelPath="./women.glb"></Frame3D>
         </div>
 
         <p className={styles.mainDescL}>We take great care in our work with our clients, specifying every detail to create something amazing</p>
