@@ -22,15 +22,15 @@ function Main() {
 
 
     return (<section className={styles.main}>
-        <p className={styles.mainTitle}>{WinW > 500 ? "Chazen" : "Chazen"}</p>
+        <p className={styles.mainTitle}>Chazen</p>
         <div ref={canvas} className={styles.mainCanvas}>
             <Frame3D position={{y: 47, z: 80}} height={Sizes?.height} width={Sizes?.width} modelPath="./women.glb"></Frame3D>
         </div>
 
-        <p className={styles.mainDescL}>We take great care in our work with our clients, specifying every detail to create something amazing</p>
+        <p className={styles.mainDescL}>Ihr Ziel ist unsere Mission. Wir kümmern uns um jedes Detail, damit Sie sich auf das Wesentliche konzentrieren können</p>
 
 
-        <p className={styles.mainDescR}>We take great care in our work with our clients, specifying every detail to create something amazing</p>
+        <p className={styles.mainDescR}>Von der ersten Idee bis zur perfekten Lösung: Ihr Vision führt uns zu außergewöhnlichen Ergebnissen</p>
     </section>);
 }
 
