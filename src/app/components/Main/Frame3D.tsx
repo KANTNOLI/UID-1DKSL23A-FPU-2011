@@ -1,17 +1,26 @@
+'use client'
+
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+interface position {
+  z: number;
+  y: number
+}
 
 interface Frame3DProps {
   width?: number | string;
   height?: number | string;
   modelPath?: string;
+  position?: position
 }
 
 const Frame3D: React.FC<Frame3DProps> = ({
   width = '100%',
   height = '100%',
-  modelPath = '123123'
+  modelPath = '123123',
+  position = { y: 1.2, z: 2.6 }
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -22,8 +31,8 @@ const Frame3D: React.FC<Frame3DProps> = ({
     // Инициализация
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, mountRef.current.clientWidth / mountRef.current.clientHeight, 0.1, 1000);
-    camera.position.z = 2.6;
-    camera.position.y = 1.2;
+    camera.position.z = position.z
+    camera.position.y = position.y
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -38,11 +47,6 @@ const Frame3D: React.FC<Frame3DProps> = ({
     // light.position.set(1, 1, 1);
     // scene.add(light);
     // scene.add(new THREE.AmbientLight(0x404040));
-
-
-
-
-
 
     const hologramShader = new THREE.ShaderMaterial({
       uniforms: {
@@ -127,7 +131,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
       float fresnel = pow(1.0 - abs(dot(normal, viewDir)), fresnelPower);
       
       // Получаем позицию в градиенте на основе времени и UV координат
-      float gradientPos = fract(time * 0.3 + vUv.x * 2.0 + vUv.y * 1.5);
+      float gradientPos = fract(time * 0.05 + vUv.x * 2.0 + vUv.y * 1.5);
       
       // Получаем цвет из градиента
       vec3 gradientColor = getGradientColor(gradientPos);
@@ -148,17 +152,13 @@ const Frame3D: React.FC<Frame3DProps> = ({
       color += highlight * vec3(2.0);
       
       // Повышаем контрастность
-      color = pow(color, vec3(3.5));
+      color = pow(color, vec3(5.0));
       
       // Финальный цвет без прозрачности
-      gl_FragColor = vec4(color, ${1.0});
+      gl_FragColor = vec4(color, 1.0);
     }
   `, transparent: true
     });
-
-
-
-
 
     let model: THREE.Group;
 
@@ -185,7 +185,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
 
       // Медленное вращение модели вправо
       if (model) {
-        model.rotation.y = elapsedTime * 0.3; // Медленное вращение
+        model.rotation.y = (elapsedTime + (4.5 * Math.PI)) * 0.15; // Медленное вращение
       }
 
       renderer.render(scene, camera);
