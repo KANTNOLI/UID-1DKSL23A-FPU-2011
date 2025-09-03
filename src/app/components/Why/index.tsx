@@ -18,37 +18,37 @@ function Why() {
 
             <div className={styles.cont}>
                 <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Client-first mindset</p>
+                    <p className={styles.whyContTitle}>Kundenorientierte Denkweise</p>
 
-                    <p className={styles.whyContDesc}>your comfort, not just our profit</p>
+                    <p className={styles.whyContDesc}>Ihr Komfort, nicht nur unser Gewinn</p>
                 </div>
 
                 <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Modern design</p>
+                    <p className={styles.whyContTitle}>Aktuelle Designlösungen</p>
 
-                    <p className={styles.whyContDesc}>beautiful, user-focused interfaces</p>
+                    <p className={styles.whyContDesc}>Schöne, benutzerzentrierte Oberflächen</p>
                 </div>
 
                 <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Complex? We love it</p>
+                    <p className={styles.whyContTitle}>Komplex? Wir lieben das!</p>
 
-                    <p className={styles.whyContDesc}>no project is “too hard</p>
+                    <p className={styles.whyContDesc}>Kein Projekt ist „zu schwierig“</p>
                 </div>
 
                 <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Clean code</p>
+                    <p className={styles.whyContTitle}>Sauberer Code</p>
 
-                    <p className={styles.whyContDesc}>easy to support even without us</p>
+                    <p className={styles.whyContDesc}>Einfach zu warten, auch ohne uns</p>
                 </div>
 
                 <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Transparency</p>
+                    <p className={styles.whyContTitle}>Transparenz</p>
 
-                    <p className={styles.whyContDesc}>full control stays in your hands</p>
+                    <p className={styles.whyContDesc}>Die volle Kontrolle bleibt in Ihren Händen</p>
                 </div>
             </div>
 
-            <p className={styles.title}>Why Choose Us</p>
+            <p className={styles.title}>Warum wir?</p>
             <div className={styles.wave}>
             </div>
         </section>

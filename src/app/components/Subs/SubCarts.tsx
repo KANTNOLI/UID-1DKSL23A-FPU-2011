@@ -25,7 +25,7 @@ function SubCarts() {
 
     return (
         <div className={styles.carts}>
-            <p className={styles.cartsTitle}>Subscription Plans</p>
+            <p className={styles.cartsTitle}>Abonnement-Pakete</p>
 
             {Mobile ? (
                 <Swiper className={styles.subs}
