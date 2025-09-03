@@ -14,8 +14,11 @@ interface props {
 function Navigate({ Mobile, Active, setActive }: props) {
     const [OpenPage, setOpenPage] = useState<number>(-1)
 
-    const pageRender = [{ path: "/", name: "home", }, { path: "/product", name: "product" },
-    { path: "/vacancy", name: "vacancy" }, { path: "/contacts", name: "contacts" },]
+    const pageRender = [
+        { path: "/", name: "Startseite", },
+        { path: "/product", name: "Produkt" },
+        { path: "/vacancy", name: "Stellenangebot" },
+        { path: "/contacts", name: "Kontakte" },]
 
     const pathname = usePathname(); // вернет '/product'
     const segment = pathname.split('/')[1]; // вернет 'product'
