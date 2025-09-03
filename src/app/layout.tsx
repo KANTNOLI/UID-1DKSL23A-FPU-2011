@@ -3,6 +3,7 @@ import { Paytone_One, M_PLUS_1, Khula } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Main from "./components/Main";
 
 const fontPaytone = Paytone_One({
   variable: "--paytone_one",
@@ -27,8 +28,6 @@ export const metadata: Metadata = {
   icons: "./logo.jpg"
 };
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
         <Header />
+        <Main></Main>
         {children}
         <Footer />
       </body>

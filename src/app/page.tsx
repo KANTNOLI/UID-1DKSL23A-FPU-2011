@@ -7,7 +7,6 @@ import Why from "./components/Why";
 export default function Home() {
   return (
     <section className={styles.main}>
-      <Main />
       <Subs />
       <IdeaToWork />
       <Why />
