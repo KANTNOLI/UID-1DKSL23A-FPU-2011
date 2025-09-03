@@ -19,10 +19,6 @@
   /* font-family: var(--khula); */
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background-color: black;
 }

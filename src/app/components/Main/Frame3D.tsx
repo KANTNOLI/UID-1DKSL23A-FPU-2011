@@ -217,7 +217,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
           textAlign: 'center',
           fontSize: '14px'
         }}>
-          Loading
+          
         </div>
       )}
     </div>
