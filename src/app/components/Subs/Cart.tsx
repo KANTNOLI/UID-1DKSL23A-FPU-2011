@@ -9,18 +9,43 @@ interface position {
 }
 
 interface CartProps {
+    texts: texts,
     width?: number | string;
     height?: number | string;
     position?: position;
 }
- 
 
+interface position {
+    x: number,
+    y: number,
+    z: number,
+}
 
+interface sizes {
+    w: number,
+    h: number,
+}
+
+interface text {
+    text: string,
+    pos: position,
+    sizes: sizes,
+}
+
+interface texts {
+    title: text,
+    price: text,
+    desc1: text,
+    desc2: text,
+    desc3: text,
+    select: text,
+}
 
 const Cart: React.FC<CartProps> = ({
     width = '100%',
     height = '100%',
-    position = { y: 0, z: 2 }
+    position = { y: 0, z: 2 },
+    texts,
 }) => {
     const mountRef = useRef<HTMLDivElement>(null);
     const [loading, setLoading] = useState(true);
@@ -83,7 +108,7 @@ const Cart: React.FC<CartProps> = ({
       vec2 distortedUv = vUv + sin(vUv.y * 8.0 + time * 0.7) * 0.03;
       
       // Увеличиваем размытие
-      float blur = 0.015; // Увеличено с 0.005
+      float blur = 0.09; // Увеличено с 0.005
       vec4 color = vec4(0.0);
       float total = 0.0;
       
@@ -132,7 +157,8 @@ const Cart: React.FC<CartProps> = ({
             fontFamily: string,
             fontSize: number,
             color: string,
-            bgColor: string = 'rgba(0,0,0,0)'
+            bgColor: string = 'rgba(0,0,0,0)',
+            n: string,
         ): THREE.Texture | null => {
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
@@ -141,7 +167,7 @@ const Cart: React.FC<CartProps> = ({
 
             // Рассчитываем размер canvas
             const padding = 20;
-            context.font = `600 ${fontSize}px ${fontFamily}`;
+            context.font = `${n} ${fontSize}px ${fontFamily}`;
             const textWidth = Math.min(context.measureText(text).width + padding * 2, planeWidth * 150);
             const textHeight = fontSize + padding * 2;
 
@@ -153,7 +179,7 @@ const Cart: React.FC<CartProps> = ({
             context.fillRect(0, 0, canvas.width, canvas.height);
 
             // Рисуем текст
-            context.font = `600 ${fontSize}px ${fontFamily}`;
+            context.font = `${n} ${fontSize}px ${fontFamily}`;
             context.fillStyle = color;
             context.textAlign = 'center';
             context.textBaseline = 'middle';
@@ -167,17 +193,24 @@ const Cart: React.FC<CartProps> = ({
             return texture;
         };
 
-        // Создаем первую текстовую текстуру - заголовок
-        const texture1 = createTextTexture(
-            "TITLE 1",
-            "Khula",
-            32,
-            "#ffffff",
-            'rgba(0,0,0,0.0)'
-        );
+        //
+        // M_PLUS_1
+        // Khula 
+        // Paytone_One
 
+
+
+        // 
+        const texture1 = createTextTexture(
+            texts.title.text,
+            "Khula",
+            64,
+            "#ffffffbe",
+            'rgba(0,0,0,0.0)',
+            "800"
+        );
         if (texture1) {
-            const textGeometry1 = new THREE.PlaneGeometry(1.5, 0.7);
+            const textGeometry1 = new THREE.PlaneGeometry(texts.title.sizes.w, texts.title.sizes.h);
             const textMaterial1 = new THREE.MeshBasicMaterial({
                 map: texture1,
                 transparent: true,
@@ -185,21 +218,21 @@ const Cart: React.FC<CartProps> = ({
             });
 
             const textMesh1 = new THREE.Mesh(textGeometry1, textMaterial1);
-            textMesh1.position.set(0, 1.1, 0.01);
+            textMesh1.position.set(texts.title.pos.x, texts.title.pos.y, texts.title.pos.z);
             scene.add(textMesh1);
         }
 
-        // Создаем вторую текстовую текстуру - основной текст
+        // 
         const texture2 = createTextTexture(
-            "TITLE 2",
+            texts.price.text,
             "M_PLUS_1",
-            40,
-            "#ffffff",
-            'rgba(0,0,0,0.0)'
+            90,
+            "#ffffffd3",
+            'rgba(0,0,0,0.0)',
+            "bold"
         );
-
         if (texture2) {
-            const textGeometry2 = new THREE.PlaneGeometry(1.5, 0.4);
+            const textGeometry2 = new THREE.PlaneGeometry(texts.price.sizes.w, texts.price.sizes.h);
             const textMaterial2 = new THREE.MeshBasicMaterial({
                 map: texture2,
                 transparent: true,
@@ -207,21 +240,22 @@ const Cart: React.FC<CartProps> = ({
             });
 
             const textMesh2 = new THREE.Mesh(textGeometry2, textMaterial2);
-            textMesh2.position.set(0, 0, 0.01);
+            textMesh2.position.set(texts.price.pos.x, texts.price.pos.y, texts.price.pos.z);
             scene.add(textMesh2);
         }
 
-        // Создаем третью текстовую текстуру - подпись
-        const texture3 = createTextTexture(
-            "TITLE 3",
-            "Paytone_One",
-            36,
-            "#e0e0e0",
-            'rgba(0,0,0,0.0)'
-        );
 
+        // 
+        const texture3 = createTextTexture(
+            texts.select.text,
+            "Khula",
+            48,
+            "#ffffffd3",
+            'rgba(0,0,0,0.0)',
+            "bold"
+        );
         if (texture3) {
-            const textGeometry3 = new THREE.PlaneGeometry(1.4, 0.35);
+            const textGeometry3 = new THREE.PlaneGeometry(texts.select.sizes.w, texts.select.sizes.h);
             const textMaterial3 = new THREE.MeshBasicMaterial({
                 map: texture3,
                 transparent: true,
@@ -229,12 +263,77 @@ const Cart: React.FC<CartProps> = ({
             });
 
             const textMesh3 = new THREE.Mesh(textGeometry3, textMaterial3);
-            textMesh3.position.set(0, -1.0, 0.01);
+            textMesh3.position.set(texts.select.pos.x, texts.select.pos.y, texts.select.pos.z);
             scene.add(textMesh3);
         }
 
 
+        // 
+        const texture4 = createTextTexture(
+            texts.desc1.text,
+            "Khula",
+            30,
+            "#ffffff8d",
+            'rgba(255, 0, 0, 0)',
+            "bold"
+        );
+        if (texture4) {
+            const textGeometry4 = new THREE.PlaneGeometry(texts.desc1.sizes.w, texts.desc1.sizes.h);
+            const textMaterial4 = new THREE.MeshBasicMaterial({
+                map: texture4,
+                transparent: true,
+                side: THREE.DoubleSide
+            });
 
+            const textMesh4 = new THREE.Mesh(textGeometry4, textMaterial4);
+            textMesh4.position.set(texts.desc1.pos.x, texts.desc1.pos.y, texts.desc1.pos.z);
+            scene.add(textMesh4);
+        }
+
+
+        // 
+        const texture5 = createTextTexture(
+            texts.desc2.text,
+            "Khula",
+            24,
+            "#ffffff8d",
+            'rgba(255, 0, 0, 0)',
+            "bold"
+        );
+        if (texture5) {
+            const textGeometry5 = new THREE.PlaneGeometry(texts.desc2.sizes.w, texts.desc2.sizes.h);
+            const textMaterial5 = new THREE.MeshBasicMaterial({
+                map: texture5,
+                transparent: true,
+                side: THREE.DoubleSide
+            });
+
+            const textMesh5 = new THREE.Mesh(textGeometry5, textMaterial5);
+            textMesh5.position.set(texts.desc2.pos.x, texts.desc2.pos.y, texts.desc2.pos.z);
+            scene.add(textMesh5);
+        }
+
+        // 
+        const texture6 = createTextTexture(
+            texts.desc3.text,
+            "Khula",
+            28,
+            "#ffffff8d",
+            'rgba(255, 0, 0, 0)',
+            "bold"
+        );
+        if (texture6) {
+            const textGeometry6 = new THREE.PlaneGeometry(texts.desc3.sizes.w, texts.desc3.sizes.h);
+            const textMaterial6 = new THREE.MeshBasicMaterial({
+                map: texture6,
+                transparent: true,
+                side: THREE.DoubleSide
+            });
+
+            const textMesh6 = new THREE.Mesh(textGeometry6, textMaterial6);
+            textMesh6.position.set(texts.desc3.pos.x, texts.desc3.pos.y, texts.desc3.pos.z);
+            scene.add(textMesh6);
+        }
 
         //
         //
