@@ -37,7 +37,7 @@
 
     border-radius: 0 50% 0 50%;
 
-    background: #7fadca;
+    background: #FF7EF6;
 
     animation: AnimBackDiv1 infinite alternate-reverse 2s;
   }
@@ -63,7 +63,7 @@
 
     border-radius: 0;
 
-    background: #a6b5c4;
+    background: #CF8DFD;
     animation: AnimBackDiv2 infinite alternate-reverse 1s;
   }
 
@@ -88,7 +88,7 @@
 
     border-radius: 50%;
 
-    background: #ffffff;
+    background: #BEADFF;
     animation: AnimBackDiv3 infinite alternate 2s;
   }
 
@@ -113,7 +113,7 @@
 
     border-radius: 50% 0 0 0;
 
-    background: #b47c0d;
+    background: #FFB4F7;
 
     animation: AnimBackDiv4 infinite alternate-reverse 2s;
   }
@@ -137,7 +137,7 @@
     width: 50%;
     height: 30%;
 
-    background: #e6a94e;
+    background: #FFD0DF;
 
     animation: AnimBackDiv5 infinite alternate-reverse 1.5s;
   }
@@ -163,7 +163,7 @@
 
     border: 50%;
 
-    background: #d6be91;
+    background: #FFECC6;
 
     animation: AnimBackDiv6 infinite alternate 2s;
   }
@@ -274,8 +274,8 @@
       position: relative;
       width: 350px;
       height: 500px;
-
       border-radius: 20px;
+      overflow: hidden;
 
       background-size: cover;
     }
