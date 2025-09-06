@@ -12,6 +12,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 import styles from "./Subs.module.scss"
+import Cart from './Cart';
 
 
 function SubCarts() {
@@ -44,20 +45,28 @@ function SubCarts() {
                     }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart} ${styles.subsCart1}`}></div>
+                        <div className={`${styles.subsCart}`}>
+                            <Cart></Cart>
+                        </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart} ${styles.subsCart2}`}></div>
+                        <div className={`${styles.subsCart}`}>
+                            <Cart></Cart></div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart} ${styles.subsCart3}`}></div>
+                        <div className={`${styles.subsCart}`}>
+                            <Cart></Cart></div>
                     </SwiperSlide>
                 </Swiper>
             ) : (
                 <div className={styles.subs}>
-                    <div className={`${styles.subsCart} ${styles.subsCart1}`}></div>
-                    <div className={`${styles.subsCart} ${styles.subsCart2}`}></div>
-                    <div className={`${styles.subsCart} ${styles.subsCart3}`}></div>
+                    <div className={`${styles.subsCart}`}>
+                        <Cart></Cart>
+                    </div>
+                    <div className={`${styles.subsCart}`}>
+                        <Cart></Cart></div>
+                    <div className={`${styles.subsCart}`}>
+                        <Cart></Cart></div>
                 </div>
             )}
 
