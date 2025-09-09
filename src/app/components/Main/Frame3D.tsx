@@ -38,6 +38,9 @@ const Frame3D: React.FC<Frame3DProps> = ({
       antialias: true,
       alpha: true // Прозрачный фон
     });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
     renderer.setClearColor(0x000000, 0); // Полностью прозрачный фон
     mountRef.current.appendChild(renderer.domElement);
@@ -217,7 +220,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
           textAlign: 'center',
           fontSize: '14px'
         }}>
-          
+
         </div>
       )}
     </div>
