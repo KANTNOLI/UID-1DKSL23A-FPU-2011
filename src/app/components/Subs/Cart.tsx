@@ -72,6 +72,7 @@ const Cart: React.FC<CartProps> = ({
         renderer.setClearColor(0x000000, 0); // Полностью прозрачный фон
         mountRef.current.appendChild(renderer.domElement);
 
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         // Создаем плоскость с эффектом стекла
         const planeWidth = 2.2;
         const planeHeight = 3.2;
@@ -415,7 +416,7 @@ const Cart: React.FC<CartProps> = ({
                     textAlign: 'center',
                     fontSize: '14px'
                 }}>
-                    
+
                 </div>
             )}
         </div>
