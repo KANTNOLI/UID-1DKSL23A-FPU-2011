@@ -44,21 +44,45 @@ function SubCarts() {
                     }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart}`}>
-                        </div>
+                        <a href='/2' className={`${styles.subsCart}`}>
+                            <p className={styles.scTitle}>Basis</p>
+                            <p className={styles.scPrice}>5€</p>
+
+                            <p className={styles.scDesc1}>Website-Installation</p>
+                            <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
+                            <p className={styles.scDesc3}>Qualitätsgarantie</p>
+
+                            <p className={styles.scSelect}>Select</p>
+                        </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart}`}>
-                        </div>
+                        <a href='/2' className={`${styles.subsCart}`}>
+                            <p className={styles.scTitle}>Standard</p>
+                            <p className={styles.scPrice}>10€</p>
+
+                            <p className={styles.scDesc1}>Erweiterter Schutzn</p>
+                            <p className={styles.scDesc2}>Premium-Garantie</p>
+                            <p className={styles.scDesc3}>Website-Support</p>
+
+                            <p className={styles.scSelect}>Select</p>
+                        </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <div className={`${styles.subsCart}`}>
-                        </div>
+                        <a href='/2' className={`${styles.subsCart}`}>
+                            <p className={styles.scTitle}>Premium</p>
+                            <p className={styles.scPrice}>25€</p>
+
+                            <p className={styles.scDesc1}>Aktive Unterstützung</p>
+                            <p className={styles.scDesc2}>Rund-um-die-Uhr-Monitoring</p>
+                            <p className={styles.scDesc3}>Intelligente Automation</p>
+
+                            <p className={styles.scSelect}>Select</p>
+                        </a>
                     </SwiperSlide>
                 </Swiper>
             ) : (
                 <div className={styles.subs}>
-                    <div className={`${styles.subsCart}`}>
+                    <a href='/2' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Basis</p>
                         <p className={styles.scPrice}>5€</p>
 
@@ -67,8 +91,8 @@ function SubCarts() {
                         <p className={styles.scDesc3}>Qualitätsgarantie</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </div>
-                    <div className={`${styles.subsCart}`}>
+                    </a>
+                    <a href='/2' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Standard</p>
                         <p className={styles.scPrice}>10€</p>
 
@@ -77,8 +101,8 @@ function SubCarts() {
                         <p className={styles.scDesc3}>Website-Support</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </div>
-                    <div className={`${styles.subsCart}`}>
+                    </a>
+                    <a href='/2' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Premium</p>
                         <p className={styles.scPrice}>25€</p>
 
@@ -87,7 +111,7 @@ function SubCarts() {
                         <p className={styles.scDesc3}>Intelligente Automation</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </div>
+                    </a>
                 </div>
             )}
 
