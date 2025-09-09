@@ -3,12 +3,12 @@ import styles from "./Footer.module.scss"
 function Footer() {
     return (
         <footer className={styles.footer}>
-            <p className={styles.footerTitle}>Contact with us</p>
+            <p className={styles.footerTitle}>Kontaktieren Sie uns</p>
             <div className={styles.footerContacts}>
                 <a className={styles.footerContactsImg} href="https://fonts.google.com/specimen/Paytone+One" target="_blank" rel="noopener noreferrer">
                     <img src="./contacts/Facebook.png" alt="Facebook" />
                 </a>
-
+ 
                 <a className={styles.footerContactsImg} href="http://#" target="_blank" rel="noopener noreferrer">
                     <img src="./contacts/Telegram.png" alt="Telegram" />
                 </a>

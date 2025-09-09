@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 interface position {
+  x: number;
   z: number;
   y: number
 }
@@ -20,7 +21,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
   width = '100%',
   height = '100%',
   modelPath = '123123',
-  position = { y: 1.2, z: 2.6 }
+  position = { x: 0, y: 1.2, z: 2.6 }
 }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
     const camera = new THREE.PerspectiveCamera(75, mountRef.current.clientWidth / mountRef.current.clientHeight, 0.1, 1000);
     camera.position.z = position.z
     camera.position.y = position.y
+    camera.position.x = position.x
 
     const renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -174,6 +176,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
           child.material = hologramShader;
         }
       });
+      // model.scale.setX(10000)
       scene.add(model);
       setLoading(false);
     });
