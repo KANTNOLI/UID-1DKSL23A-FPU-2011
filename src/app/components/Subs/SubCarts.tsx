@@ -287,13 +287,14 @@ function SubCarts() {
             ) : (
                 <div className={styles.subs}>
                     <div className={`${styles.subsCart}`}>
-                        
+                        <Cart texts={text1}
+                        ></Cart>
                     </div>
                     <div className={`${styles.subsCart}`}>
-                        123
+                        <Cart texts={text2}></Cart>
                     </div>
                     <div className={`${styles.subsCart}`}>
-                        123
+                        <Cart texts={text3}></Cart>
                     </div>
                 </div>
             )}
