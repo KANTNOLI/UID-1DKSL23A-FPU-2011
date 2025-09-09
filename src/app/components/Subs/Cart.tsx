@@ -415,7 +415,7 @@ const Cart: React.FC<CartProps> = ({
                     textAlign: 'center',
                     fontSize: '14px'
                 }}>
-                    Загрузка...
+                    
                 </div>
             )}
         </div>
