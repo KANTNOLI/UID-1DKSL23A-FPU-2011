@@ -37,7 +37,7 @@
 
     border-radius: 0 50% 0 50%;
 
-    background: #FF7EF6;
+    background: #ff7ef6;
 
     animation: AnimBackDiv1 infinite alternate-reverse 2s;
   }
@@ -63,7 +63,7 @@
 
     border-radius: 0;
 
-    background: #CF8DFD;
+    background: #cf8dfd;
     animation: AnimBackDiv2 infinite alternate-reverse 1s;
   }
 
@@ -88,7 +88,7 @@
 
     border-radius: 50%;
 
-    background: #BEADFF;
+    background: #beadff;
     animation: AnimBackDiv3 infinite alternate 2s;
   }
 
@@ -113,7 +113,7 @@
 
     border-radius: 50% 0 0 0;
 
-    background: #FFB4F7;
+    background: #ffb4f7;
 
     animation: AnimBackDiv4 infinite alternate-reverse 2s;
   }
@@ -137,7 +137,7 @@
     width: 50%;
     height: 30%;
 
-    background: #FFD0DF;
+    background: #ffd0df;
 
     animation: AnimBackDiv5 infinite alternate-reverse 1.5s;
   }
@@ -163,7 +163,7 @@
 
     border: 50%;
 
-    background: #FFECC6;
+    background: #ffecc6;
 
     animation: AnimBackDiv6 infinite alternate 2s;
   }
@@ -237,7 +237,7 @@
 
   .cartsTitle {
     text-align: center;
-    
+
     padding: 0px 50px;
     font-size: 40px;
     font-weight: bold;
@@ -280,20 +280,12 @@
       border-radius: 20px;
       overflow: hidden;
 
-      background-size: cover;
-    }
-
-    .subsCart1 {
-      background-image: url("../../../../public/CART\ 1.png");
-    }
-
-    .subsCart2 {
-      background-image: url("../../../../public/CART\ 2.png");
-    }
-
-    .subsCart3 {
-      background-image: url("../../../../public/CART\ 3.png");
-    }
+      background: rgba(255, 255, 255, 0.2); /* Цвет фона с прозрачностью */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+      backdrop-filter: blur(20px); /* Эффект матового стекла */
+     
+      box-sizing: border-box;
+      }
   }
 }
 
@@ -354,18 +346,6 @@
 
         background-size: contain;
         background-repeat: no-repeat;
-      }
-
-      .subsCart1 {
-        background-image: url("../../../../public/CART\ 1.png");
-      }
-
-      .subsCart2 {
-        background-image: url("../../../../public/CART\ 2.png");
-      }
-
-      .subsCart3 {
-        background-image: url("../../../../public/CART\ 3.png");
       }
     }
   }
