@@ -12,7 +12,7 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 import styles from "./Subs.module.scss"
-import Cart from './Cart';
+import { style } from 'framer-motion/client';
 
 
 function SubCarts() {
@@ -22,231 +22,6 @@ function SubCarts() {
             setMobile(true)
         }
     }, [])
-
-    const text1 = {
-        title: {
-            text: "Basis",
-            pos: {
-                x: 0,
-                y: 1.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.0,
-                h: 0.55
-            }
-        },
-        price: {
-            text: "5€",
-            pos: {
-                x: 0,
-                y: 0.6,
-                z: 0
-            },
-            sizes: {
-                w: 0.9,
-                h: 0.78
-            }
-        },
-        desc1: {
-            text: "Website-Installation",
-            pos: {
-                x: 0,
-                y: -0.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.6,
-                h: 0.4
-            }
-        },
-        desc2: {
-            text: "Konfiguration & Einrichtung",
-            pos: {
-                x: 0,
-                y: -0.4,
-                z: 0
-            },
-            sizes: {
-                w: 1.9,
-                h: 0.4
-            }
-        },
-        desc3: {
-            text: "Qualitätsgarantie",
-            pos: {
-                x: 0,
-                y: -0.6,
-                z: 0
-            },
-            sizes: {
-                w: 1.5,
-                h: 0.4
-            }
-        },
-        select: {
-            text: "Select",
-            pos: {
-                x: 0,
-                y: -1.3,
-                z: 0
-            },
-            sizes: {
-                w: 1.0,
-                h: 0.5
-            }
-        },
-    }
-
-    const text2 = {
-        title: {
-            text: "Standard",
-            pos: {
-                x: 0,
-                y: 1.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.6,
-                h: 0.55
-            }
-        },
-        price: {
-            text: "10€",
-            pos: {
-                x: 0,
-                y: 0.6,
-                z: 0
-            },
-            sizes: {
-                w: 1.2,
-                h: 0.78
-            }
-        },
-        desc1: {
-            text: "Erweiterter Schutz",
-            pos: {
-                x: 0,
-                y: -0.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.6,
-                h: 0.4
-            }
-        },
-        desc2: {
-            text: "Website-Support",
-            pos: {
-                x: 0,
-                y: -0.4,
-                z: 0
-            },
-            sizes: {
-                w: 1.4,
-                h: 0.45
-            }
-        },
-        desc3: {
-            text: "Premium-Garantie",
-            pos: {
-                x: 0,
-                y: -0.6,
-                z: 0
-            },
-            sizes: {
-                w: 1.6,
-                h: 0.40
-            }
-        },
-        select: {
-            text: "Select",
-            pos: {
-                x: 0,
-                y: -1.3,
-                z: 0
-            },
-            sizes: {
-                w: 1.0,
-                h: 0.5
-            }
-        },
-    }
-
-    const text3 = {
-        title: {
-            text: "Premium",
-            pos: {
-                x: 0,
-                y: 1.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.65,
-                h: 0.55
-            }
-        },
-        price: {
-            text: "25€",
-            pos: {
-                x: 0,
-                y: 0.6,
-                z: 0
-            },
-            sizes: {
-                w: 1.2,
-                h: 0.78
-            }
-        },
-        desc1: {
-            text: "Aktive Unterstützung",
-            pos: {
-                x: 0,
-                y: -0.2,
-                z: 0
-            },
-            sizes: {
-                w: 1.6,
-                h: 0.4
-            }
-        },
-        desc2: {
-            text: "Rund-um-die-Uhr-Monitoring",
-            pos: {
-                x: 0,
-                y: -0.4,
-                z: 0
-            },
-            sizes: {
-                w: 1.9,
-                h: 0.4
-            }
-        },
-        desc3: {
-            text: "Intelligente Automation",
-            pos: {
-                x: 0,
-                y: -0.6,
-                z: 0
-            },
-            sizes: {
-                w: 1.8,
-                h: 0.4
-            }
-        },
-        select: {
-            text: "Select",
-            pos: {
-                x: 0,
-                y: -1.3,
-                z: 0
-            },
-            sizes: {
-                w: 1.0,
-                h: 0.5
-            }
-        },
-    }
 
     return (
         <div className={styles.carts}>
@@ -270,31 +45,48 @@ function SubCarts() {
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={`${styles.subsCart}`}>
-                            <Cart texts={text1}></Cart>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={`${styles.subsCart}`}>
-                            <Cart texts={text2}></Cart>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={`${styles.subsCart}`}>
-                            <Cart texts={text3}></Cart>
                         </div>
                     </SwiperSlide>
                 </Swiper>
             ) : (
                 <div className={styles.subs}>
                     <div className={`${styles.subsCart}`}>
-                        <Cart texts={text1}
-                        ></Cart>
+                        <p className={styles.scTitle}>Basis</p>
+                        <p className={styles.scPrice}>5€</p>
+
+                        <p className={styles.scDesc1}>Website-Installation</p>
+                        <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
+                        <p className={styles.scDesc3}>Qualitätsgarantie</p>
+
+                        <p className={styles.scSelect}>Select</p>
                     </div>
                     <div className={`${styles.subsCart}`}>
-                        <Cart texts={text2}></Cart>
+                        <p className={styles.scTitle}>Standard</p>
+                        <p className={styles.scPrice}>10€</p>
+
+                        <p className={styles.scDesc1}>Erweiterter Schutzn</p>
+                        <p className={styles.scDesc2}>Premium-Garantie</p>
+                        <p className={styles.scDesc3}>Website-Support</p>
+
+                        <p className={styles.scSelect}>Select</p>
                     </div>
                     <div className={`${styles.subsCart}`}>
-                        <Cart texts={text3}></Cart>
+                        <p className={styles.scTitle}>Premium</p>
+                        <p className={styles.scPrice}>25€</p>
+
+                        <p className={styles.scDesc1}>Aktive Unterstützung</p>
+                        <p className={styles.scDesc2}>Rund-um-die-Uhr-Monitoring</p>
+                        <p className={styles.scDesc3}>Intelligente Automation</p>
+
+                        <p className={styles.scSelect}>Select</p>
                     </div>
                 </div>
             )}
