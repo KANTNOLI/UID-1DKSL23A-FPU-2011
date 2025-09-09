@@ -17,35 +17,7 @@ function Why() {
             </div>
 
             <div className={styles.cont}>
-                <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Kundenorientierte Denkweise</p>
-
-                    <p className={styles.whyContDesc}>Ihr Komfort, nicht nur unser Gewinn</p>
-                </div>
-
-                <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Aktuelle Designlösungen</p>
-
-                    <p className={styles.whyContDesc}>Schöne, benutzerzentrierte Oberflächen</p>
-                </div>
-
-                <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Komplex? Wir lieben das!</p>
-
-                    <p className={styles.whyContDesc}>Kein Projekt ist „zu schwierig“</p>
-                </div>
-
-                <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Sauberer Code</p>
-
-                    <p className={styles.whyContDesc}>Einfach zu warten, auch ohne uns</p>
-                </div>
-
-                <div className={styles.whyCont}>
-                    <p className={styles.whyContTitle}>Transparenz</p>
-
-                    <p className={styles.whyContDesc}>Die volle Kontrolle bleibt in Ihren Händen</p>
-                </div>
+                
             </div>
 
             <p className={styles.title}>Warum wir?</p>
@@ -56,3 +28,4 @@ function Why() {
 }
 
 export default Why;
+
