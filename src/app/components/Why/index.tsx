@@ -57,8 +57,8 @@ function Why() {
                         stretch: 0,
                         depth: 100,
                         modifier: 1,
-                        slideShadows: false,
-                    }}
+                            slideShadows: false,
+                        }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={styles.contDiv}>
