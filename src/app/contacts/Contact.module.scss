@@ -1,0 +1,150 @@
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 100%;
+  height: auto;
+
+  padding: 50px;
+  box-sizing: border-box;
+
+  .title {
+    text-align: center;
+    font-size: 40px;
+    width: 500px;
+
+    font-family: var(--paytone_one);
+    color: white;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 50px;
+  width: 400px;
+  height: fit-content;
+
+  .formDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .iBtn {
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+
+    border: 2px solid white;
+    border-radius: 10px;
+
+    font-weight: bold;
+    font-size: 14px;
+    font-family: var(--m_plus_1p);
+    color: white;
+
+    background-color: rgba(0, 0, 0, 0.489);
+    backdrop-filter: blur(20px);
+
+    transition: .05s ease;
+  }
+
+  .iBtn:hover{
+    opacity: 0.8;
+  }
+
+  .iBtn:active{
+    transform: scale(0.95);
+  }
+}
+
+.iBody1 {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+
+  .iTitle1 {
+    position: absolute;
+    top: -23px;
+    left: 15px;
+
+    font-weight: 500;
+    font-size: 15px;
+    font-family: var(--m_plus_1p);
+
+    color: white;
+    z-index: 6;
+  }
+
+  .iInput1 {
+    width: 190px;
+    height: 38px;
+
+    border: 2px solid white;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    font-family: var(--m_plus_1p);
+    color: white;
+
+    padding-left: 10px;
+    padding-bottom: 3px;
+    box-sizing: border-box;
+
+    background-color: rgba(0, 0, 0, 0.489);
+    backdrop-filter: blur(20px);
+
+    z-index: 5;
+  }
+}
+
+.iBody2 {
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+
+  .iTitle {
+    position: absolute;
+    top: -23px;
+    left: 15px;
+
+    font-weight: 500;
+    font-size: 15px;
+    font-family: var(--m_plus_1p);
+
+    color: white;
+    z-index: 6;
+  }
+
+  .iInput {
+    width: 100%;
+    height: 300px;
+
+    border: 2px solid white;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 14px;
+    font-family: var(--m_plus_1p);
+    color: white;
+
+    padding: 5px 10px 5px 10px;
+    box-sizing: border-box;
+
+    resize: none;
+
+    background-color: rgba(0, 0, 0, 0.489);
+    backdrop-filter: blur(20px);
+
+    z-index: 5;
+  }
+}
+
