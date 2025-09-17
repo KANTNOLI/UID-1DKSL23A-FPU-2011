@@ -19,12 +19,6 @@ function Why() {
 
     useEffect(() => {
 
-        console.log(Mobile);
-
-    }, [Mobile])
-
-    useEffect(() => {
-
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas])
 
@@ -50,7 +44,7 @@ function Why() {
                     grabCursor={true}
                     initialSlide={1}
                     centeredSlides={true}
-                    loop={true}
+                    loop={Mobile > 700}
                     pagination={Mobile < 700}
                     coverflowEffect={{
                         rotate: -30,
