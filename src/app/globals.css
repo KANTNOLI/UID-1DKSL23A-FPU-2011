@@ -19,6 +19,16 @@
   /* font-family: var(--khula); */
 }
 
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f5ecffc3; /* Светло-синяя "тень-обводка" */
+}
+
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f5ecffc3; /* Светло-синяя "тень-обводка" */
+}
+
 body {
   background-color: black;
 }
@@ -27,6 +37,17 @@ body {
   overflow-x: hidden;
 } */
 *::selection {
-   color: #050505;
-   background-color: #BB8DF5;
+  color: #050505;
+  background-color: #bb8df5;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Для Firefox */
+}
+
+/* Для WebKit браузеров (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
