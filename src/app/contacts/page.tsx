@@ -4,6 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import style from "./Contact.module.scss"
 import Frame3D from "../components/Frame3D";
 
+import axios from "axios"
+
 interface SendDataIntf {
     type: string,
     mail: string,
@@ -86,7 +88,11 @@ export default function Home() {
                 return -1
             }
 
-            console.log(Body);
+            axios.post(`http://localhost:3000/sendMessageHelp`, Body).then((res) => {
+                console.log(res);
+            })
+
+            // console.log(Body);
         },
         [Mail, Phone, Desc],
     )
