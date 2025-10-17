@@ -44,7 +44,7 @@ function SubCarts() {
                     }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <a href='/http://localhost:7777/product?s=1' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Basis</p>
                             <p className={styles.scPrice}>5€</p>
 
@@ -56,7 +56,7 @@ function SubCarts() {
                         </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <a href='/http://localhost:7777/product?s=2' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Standard</p>
                             <p className={styles.scPrice}>10€</p>
 
@@ -68,7 +68,7 @@ function SubCarts() {
                         </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <a href='/http://localhost:7777/product?s=3' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Premium</p>
                             <p className={styles.scPrice}>25€</p>
 
