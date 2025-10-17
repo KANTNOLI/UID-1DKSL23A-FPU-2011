@@ -23,6 +23,7 @@ interface OrderIntf {
 
 
 import style from "./Product.module.scss"
+import axios from "axios";
 
 export default function Home() {
     const [Order, setOrder] = useState<OrderIntf>({
@@ -108,7 +109,9 @@ export default function Home() {
                 return -1
             }
 
-            console.log(Body);
+            axios.post(`http://localhost:3000/sendMessageClient`, Body).then((res) => {
+                console.log(res);
+            })
         },
         [Mail, Phone, Desc],
     )
