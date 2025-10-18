@@ -1,25 +1,19 @@
 'use client'
 
-// import { motion } from 'framer-motion'
-
 import { useEffect, useRef, useState } from "react";
-import styles from "./Main.module.scss"
+
 import Frame3D from "../Frame3D";
+
+import styles from "./Main.module.scss"
 
 function Main() {
     const [Sizes, setSizes] = useState<DOMRect>()
-    const [WinW, setWinW] = useState<number>(0)
-
 
     const canvas = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setWinW(window.innerWidth)
-
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas])
-
-
 
     return (<section className={styles.main}>
         <p className={styles.mainTitle}>Chazen</p>
