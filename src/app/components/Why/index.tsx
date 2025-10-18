@@ -1,26 +1,17 @@
 'use client'
 
 import { useEffect, useRef, useState } from "react"
-import styles from "./Why.module.scss"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { EffectCoverflow, Pagination } from "swiper/modules"
-import Frame3D from "../Frame3D";
+
+import styles from "./Why.module.scss"
 
 function Why() {
-    const [Sizes, setSizes] = useState<DOMRect>()
     const [Mobile, setMobile] = useState<number>(0)
 
-    const canvas = useRef<HTMLDivElement>(null)
     useEffect(() => {
         setMobile(window.innerWidth)
-
-
     }, [])
-
-    useEffect(() => {
-
-        setSizes(canvas.current?.getBoundingClientRect())
-    }, [canvas])
 
     return (
         <section className={styles.why}>
@@ -51,8 +42,8 @@ function Why() {
                         stretch: 0,
                         depth: 100,
                         modifier: 1,
-                            slideShadows: false,
-                        }}
+                        slideShadows: false,
+                    }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={styles.contDiv}>
