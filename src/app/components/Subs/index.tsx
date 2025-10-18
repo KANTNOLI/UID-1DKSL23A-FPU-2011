@@ -1,4 +1,3 @@
-import IdeaToWork from "../IdeaToWork";
 import SubCarts from "./SubCarts";
 import styles from "./Subs.module.scss"
 
