@@ -29,7 +29,7 @@ interface OrderIntf {
 
 export default function Home() {
     const searchParams = useSearchParams()
-    const s = searchParams.get('s') // subs
+    const s = searchParams.get('s') as string
 
     const [Order, setOrder] = useState<OrderIntf>({
         subs: s || "basic",
