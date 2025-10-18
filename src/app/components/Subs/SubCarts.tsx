@@ -1,18 +1,16 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import { EffectCoverflow, Pagination } from 'swiper/modules';
-
-import 'swiper/css';
-
 import styles from "./Subs.module.scss"
-
 
 function SubCarts() {
     const [Mobile, setMobile] = useState<boolean>(false)
