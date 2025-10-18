@@ -4,9 +4,11 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import axios from "axios"
 
 import Frame3D from "../components/Frame3D";
+import { motion, useInView } from "framer-motion"
 
 import style from "./Contact.module.scss"
 import { Metadata } from "next";
+import Typed from "typed.js";
 
 interface SendDataIntf {
     type: string,
@@ -103,65 +105,116 @@ export default function Home() {
     )
 
     //
-
     const [Sizes, setSizes] = useState<DOMRect>()
-    const [WinW, setWinW] = useState<number>(0)
-
-
     const canvas = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setWinW(window.innerWidth)
-
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas])
 
+    const title = useRef(null);
+    const isInView = useInView(title, {
+        once: true, // Сработает только один раз
+    });
 
+    useEffect(() => {
+        if (isInView) {
+            const typed = new Typed(title.current, {
+                strings: ['Need assistance?'],
+                typeSpeed: 30,
+                startDelay: 100,
+                showCursor: false,
+            });
+
+            return () => typed.destroy();
+        }
+    }, [isInView]);
+
+
+    const title2 = useRef(null);
+    const isInView2 = useInView(title, {
+        once: true, // Сработает только один раз
+    });
+
+    useEffect(() => {
+        if (isInView2) {
+            const typed = new Typed(title2.current, {
+                strings: ['Just fill out the form!'],
+                typeSpeed: 20,
+                startDelay: 800,
+                showCursor: false,
+            });
+
+            return () => typed.destroy();
+        }
+    }, [isInView2]);
 
     return (
         <section className={style.body}>
-            <p className={style.title}>Need assistance?</p>
-            <p className={style.title}>Just fill out the form!</p>
-
+            <p ref={title} className={style.title}></p>
+            <p ref={title2} className={style.title}></p>
 
             <div className={style.form}>
-                {/* // */}
 
-                <div ref={canvas} className={style.mCanvas}>
-                    <Frame3D position={{  x: 0, y: 1, z: 2.5  }} height={Sizes?.height} width={Sizes?.width} modelPath="./man2.glb"></Frame3D>
-                </div>
+                <motion.div
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                    ref={canvas} className={style.mCanvas}>
+                    <Frame3D position={{ x: 0, y: 1, z: 2.5 }} height={Sizes?.height} width={Sizes?.width} modelPath="./man2.glb"></Frame3D>
+                </motion.div>
 
                 {/* // */}
                 <div className={style.formDiv}>
-                    <div className={style.iBody1}>
+                    <motion.div
+                        initial={{ opacity: 0, x: -25 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                        className={style.iBody1}>
                         <p className={style.iTitle1}>* Ihre E-Mail</p>
                         <input
                             ref={MainInput}
                             value={Mail}
                             onChange={(e) => setMail(e.target.value)}
                             className={style.iInput1} type="text" placeholder="MyE-Mail23@mail.com" />
-                    </div>
+                    </motion.div>
 
-                    <div className={style.iBody1}>
+                    <motion.div
+                        initial={{ opacity: 0, x: 25 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                        className={style.iBody1}>
                         <p className={style.iTitle1}>* Ihre Telefonnummer</p>
                         <input
                             ref={PhoneInput}
                             value={Phone ? Phone : ""}
                             onChange={(e) => setPhone(+e.target.value > 0 ? +e.target.value : null)}
                             className={style.iInput1} type="number" placeholder="+49123456789" />
-                    </div>
+                    </motion.div>
                 </div>
 
-                <div className={style.iBody2}>
+                <motion.div initial={{ opacity: 0, y: -25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }} className={style.iBody2}>
                     <p className={style.iTitle}>* Wie können wir Ihnen helfen??</p>
                     <textarea
                         ref={DescInput}
                         value={Desc}
                         onChange={(e) => setDesc(e.target.value)}
                         className={style.iInput} placeholder="In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben" />
-                </div>
+                </motion.div>
 
-                <button onClick={() => sendData()} className={style.iBtn}>Senden</button>
+                <motion.button initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }} onClick={() => sendData()} className={style.iBtn}>Senden</motion.button>
             </div>
 
         </section>
