@@ -15,19 +15,24 @@ interface addons {
     setup: boolean,
 }
 
-
 interface OrderIntf {
     subs: string,
+    types: string,
     addons: addons,
 }
 
 
 import style from "./Product.module.scss"
 import axios from "axios";
+import { useSearchParams } from "next/navigation";
 
 export default function Home() {
+    const searchParams = useSearchParams()
+    const s = searchParams.get('s') // subs
+
     const [Order, setOrder] = useState<OrderIntf>({
-        subs: "basic",
+        subs: s || "basic",
+        types: "Landingpage",
         addons: {
             model: false,
             setup: true,
@@ -109,11 +114,19 @@ export default function Home() {
                 return -1
             }
 
+            const str = `\n\nprice: ${Pay}\nsub: ${Order.subs}\ntype: ${Order.types}\nmodel?: ${Order.addons.model ? "yes" : "no"}\nsetup?: ${Order.addons.setup ? "yes" : "no"}`
+
+
+            Body.desc = `${str}\n\nТЕКСТ:\n${Body.desc}\n`
+
             axios.post(`http://localhost:3000/sendMessageClient`, Body).then((res) => {
-                console.log(res);
+
+                setMail("")
+                setPhone(null)
+                setDesc("")
             })
         },
-        [Mail, Phone, Desc],
+        [Mail, Phone, Desc, Pay, Order, setMail, setPhone, setDesc],
     )
 
     //
@@ -130,7 +143,6 @@ export default function Home() {
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas, Pay])
 
-
     const setOrderPrice = useCallback(
         (title: string | boolean, type: string) => {
             switch (type) {
@@ -139,6 +151,15 @@ export default function Home() {
                         setOrder(prev => ({
                             ...prev,
                             subs: title
+                        }))
+                    }
+                    break;
+                }
+                case "types": {
+                    if (typeof (title) == "string") {
+                        setOrder(prev => ({
+                            ...prev,
+                            types: title
                         }))
                     }
                     break;
@@ -169,27 +190,42 @@ export default function Home() {
         [Order, setOrder],
     )
 
-
-
     useEffect(() => {
 
-        let price = 995;
+        let price = 0;
 
         if (Order.subs == "Premium") {
             price += 25
         } else if (Order.subs == "Standard") {
             price += 10
         } else {
-            price += 5
+            price += 0
+        }
+
+        if (Order.types == "Landingpage") {
+            price += 1000
+        } else if (Order.types == "WebsitVisitenkarte") {
+            price += 1500
+        } else if (Order.types == "CorporateWebsite") {
+            price += 3000
+        } else if (Order.types == "OnlineShop") {
+            price += 5000
+        } else if (Order.types == "BlogMedienportal") {
+            price += 2500
+        } else if (Order.types == "PortfolioWebsite") {
+            price += 2000
+        } else if (Order.types == "OnlineService") {
+            price += 6000
+        } else {
+            price += 8000
         }
 
         if (Order.addons.model) {
-            price += 200
+            price += 500
         }
 
         setPay(price)
-
-        console.log(Pay);
+        console.log(JSON.stringify(Order));
 
     }, [Order])
 
@@ -199,7 +235,7 @@ export default function Home() {
         <section className={style.body}>
 
             <section className={style.order}>
-                <p className={style.formTitle}>Nachricht senden <span>{Pay}€~</span></p>
+                <p className={`${style.formTitle} ${style.pin}`}>Minimaler Preis <span>{Pay}€~</span></p>
 
                 <p className={style.formTitle}>Abonnement-Pakete</p>
                 <div className={style.orderPart}>
@@ -208,7 +244,7 @@ export default function Home() {
                             {Order.subs == "basic" ? <div className={style.oPNActive}></div> : ""}
                         </div>
 
-                        <p className={style.oPT}>Basic 5€</p>
+                        <p className={style.oPT}>Basic (Gratis)</p>
                     </div>
 
                     <li className={style.orderPartTitle}>Website-Installation</li>
@@ -244,6 +280,149 @@ export default function Home() {
                     <li className={style.orderPartTitle}>Intelligente Automation</li>
                 </div>
 
+
+                {/* // */}
+
+
+                <p className={style.formTitle}>Site types</p>
+
+
+                {/* Landingpage*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("Landingpage", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "Landingpage" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Landingpage 1000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Einzelseitige Website für Werbekampagnen</li>
+                    <li className={style.orderPartTitle}>Lead-Generierungsformular und Call-to-Action</li>
+                    <li className={style.orderPartTitle}>Responsives Design für alle Geräte</li>
+                    <li className={style.orderPartTitle}>Basis SEO-Optimierung</li>
+                </div>
+
+                {/* WebsitVisitenkarte*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("WebsitVisitenkarte", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "WebsitVisitenkarte" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Website-Visitenkarte 1500€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Bis zu 5 Hauptseiten (Homepage, Leistungen, Kontakte)</li>
+                    <li className={style.orderPartTitle}>Responsives Design und Basis-SEO</li>
+                    <li className={style.orderPartTitle}>Integration von Kontaktformularen</li>
+                    <li className={style.orderPartTitle}>Anbindung an Analytics</li>
+                </div>
+
+
+                {/* CorporateWebsite*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("CorporateWebsite", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "CorporateWebsite" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Corporate Website 3000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Mehrseitige Struktur mit Blog</li>
+                    <li className={style.orderPartTitle}>Erweitertes Navigationssystem</li>
+                    <li className={style.orderPartTitle}>Integration mit CRM und Diensten</li>
+                    <li className={style.orderPartTitle}>Vollständige SEO-Optimierung</li>
+                </div>
+
+
+                {/* OnlineShop*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("OnlineShop", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "OnlineShop" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Online-Shop 5000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Produktkatalog mit Filtern</li>
+                    <li className={style.orderPartTitle}>Warenkorb und Zahlungssystem</li>
+                    <li className={style.orderPartTitle}>Kundenkonto</li>
+                    <li className={style.orderPartTitle}>Bestell- und Lagerverwaltung</li>
+                </div>
+
+
+                {/* BlogMedienportal*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("BlogMedienportal", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "BlogMedienportal" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Blog/Medienportal 2500€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Kategorie- und Tag-System</li>
+                    <li className={style.orderPartTitle}>Kommentare und Abonnements</li>
+                    <li className={style.orderPartTitle}>Mediengalerien und Player</li>
+                    <li className={style.orderPartTitle}>Integration mit sozialen Netzwerken</li>
+                </div>
+
+
+                {/* PortfolioWebsite*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("PortfolioWebsite", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "PortfolioWebsite" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Portfolio-Website 2000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Visuell orientiertes Design</li>
+                    <li className={style.orderPartTitle}>Arbeits- und Projektgalerien</li>
+                    <li className={style.orderPartTitle}>Minimalistische Struktur</li>
+                    <li className={style.orderPartTitle}>Fokus auf Präsentation</li>
+                </div>
+
+
+                {/* OnlineService*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("OnlineService", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "OnlineService" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Online-Service 6000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Web-App mit Funktionalität</li>
+                    <li className={style.orderPartTitle}>Buchungs-/Terminvereinbarungssystem</li>
+                    <li className={style.orderPartTitle}>Persönliche Benutzerkonten</li>
+                    <li className={style.orderPartTitle}>Integration externer APIs</li>
+                </div>
+
+
+                {/* Bildungsplattform*/}
+                <div className={style.orderPart}>
+                    <div onClick={() => setOrderPrice("Bildungsplattform", "types")} className={style.oP}>
+                        <div className={style.oPN}>
+                            {Order.types == "Bildungsplattform" ? <div className={style.oPNActive}></div> : ""}
+                        </div>
+
+                        <p className={style.oPT}>Bildungsplattform 8000€</p>
+                    </div>
+
+                    <li className={style.orderPartTitle}>Kurs- und Unterrichtssystem</li>
+                    <li className={style.orderPartTitle}>Persönliche Studentenaccounts</li>
+                    <li className={style.orderPartTitle}>Tests und Zertifikate</li>
+                    <li className={style.orderPartTitle}>Fortschrittsverfolgungssystem</li>
+                </div>
+
+
+
                 {/* // */}
 
                 <p className={style.formTitle}>Add-ons</p>
@@ -269,7 +448,7 @@ export default function Home() {
                                 {Order.addons.setup ? <div className={style.oPNActive}></div> : ""}
                             </div>
 
-                            <p className={style.oPT}>Setup to server</p>
+                            <p className={style.oPT}>Setup to server (Gratis)</p>
                         </div>
 
                         <li className={style.orderPartTitle}>Aktive Unterstützung</li>
@@ -282,9 +461,9 @@ export default function Home() {
             <section className={style.form}>
                 <p className={style.formTitle}>Nachricht senden</p>
 
-                {/* <div ref={canvas} className={style.mCanvas}>
-                    <Frame3D position={{ x: 0, y: 0.1, z: 0.4 }} height={Sizes?.height} width={Sizes?.width} modelPath="./lisa.glb"></Frame3D>
-                </div> */}
+                <div ref={canvas} className={style.mCanvas}>
+                    <Frame3D position={{ x: 0, y: 1, z: 3 }} height={Sizes?.height} width={Sizes?.width} modelPath="./man.glb"></Frame3D>
+                </div>
 
                 {/* // */}
                 <div className={style.formDiv}>
