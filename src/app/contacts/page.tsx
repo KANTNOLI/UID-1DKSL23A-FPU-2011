@@ -89,7 +89,10 @@ export default function Home() {
             }
 
             axios.post(`http://localhost:3000/sendMessageHelp`, Body).then((res) => {
-                console.log(res);
+
+                setMail("")
+                setPhone(null)
+                setDesc("")
             })
 
             // console.log(Body);
@@ -123,7 +126,7 @@ export default function Home() {
                 {/* // */}
 
                 <div ref={canvas} className={style.mCanvas}>
-                    <Frame3D position={{ x: 0, y: 0.1, z: 0.4 }} height={Sizes?.height} width={Sizes?.width} modelPath="./lisa.glb"></Frame3D>
+                    <Frame3D position={{  x: 0, y: 1, z: 2.5  }} height={Sizes?.height} width={Sizes?.width} modelPath="./man2.glb"></Frame3D>
                 </div>
 
                 {/* // */}
