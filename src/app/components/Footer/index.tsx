@@ -23,7 +23,7 @@ function Footer() {
             </div>
 
 
-            <p className={styles.footerIP}>Sole Proprietor: Max Mustermann, Example Street 1, 10115 Berlin, Germany. Tax Number: 12/345/67890, VAT ID: DE123456789</p>
+            <p className={styles.footerIP}>Sole Proprietor: Zakhar D. Gusev 193907304 office 1, 5-2 Maksima Goretskogo Street, Minsk, 220123, Belarus</p>
         </footer>
     );
 }
