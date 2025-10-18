@@ -1,10 +1,11 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import style from "./Contact.module.scss"
+import axios from "axios"
+
 import Frame3D from "../components/Frame3D";
 
-import axios from "axios"
+import style from "./Contact.module.scss"
 
 interface SendDataIntf {
     type: string,

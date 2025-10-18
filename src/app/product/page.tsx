@@ -1,7 +1,12 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import axios from "axios";
+
 import Frame3D from "../components/Frame3D";
+
+import style from "./Product.module.scss"
 
 interface SendDataIntf {
     type: string,
@@ -20,11 +25,6 @@ interface OrderIntf {
     types: string,
     addons: addons,
 }
-
-
-import style from "./Product.module.scss"
-import axios from "axios";
-import { useSearchParams } from "next/navigation";
 
 export default function Home() {
     const searchParams = useSearchParams()
