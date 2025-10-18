@@ -1,16 +1,16 @@
 'use client';
 
-
 import { useEffect, useState } from "react";
-import styles from "./Header.module.scss"
+
 import Navigate from "./navigate";
+
+import styles from "./Header.module.scss"
 
 function Header() {
     const [Mobile, setMobile] = useState<boolean>(false)
     const [MenuActive, setMenuActive] = useState<boolean>(false)
 
     useEffect(() => {
-    
         if (window.innerWidth < 1000) {
             setMobile(true)
         }
