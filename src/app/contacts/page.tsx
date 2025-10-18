@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import axios from "axios"
@@ -6,6 +6,7 @@ import axios from "axios"
 import Frame3D from "../components/Frame3D";
 
 import style from "./Contact.module.scss"
+import { Metadata } from "next";
 
 interface SendDataIntf {
     type: string,
