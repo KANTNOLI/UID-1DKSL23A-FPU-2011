@@ -1,15 +1,15 @@
 'use client';
 
 import { usePathname } from "next/navigation";
-import styles from "./Header.module.scss";
 import { useEffect, useState } from "react";
+
+import styles from "./Header.module.scss";
 
 interface props {
     Mobile: boolean,
     Active: boolean,
     setActive: () => unknown
 }
-
 
 function Navigate({ Mobile, Active, setActive }: props) {
     const [OpenPage, setOpenPage] = useState<number>(-1)
@@ -37,22 +37,13 @@ function Navigate({ Mobile, Active, setActive }: props) {
             case "":
                 setOpenPage(0)
                 break;
-
             default:
                 setOpenPage(-1)
                 break;
         }
-
-
     }, [OpenPage])
 
-
-    useEffect(() => {
-
-    }, [Mobile, Active])
-
     return (
-
         <nav className={Active ? styles.headerNavMobile : Mobile ? styles.headerOff : styles.headerNav}>
             {pageRender.map((page, id) => (
                 <a key={id} onClick={() => { setActive(); setOpenPage(id) }} href={page.path}

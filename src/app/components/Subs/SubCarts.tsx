@@ -1,19 +1,18 @@
 "use client"
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
+import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
-import { EffectCoverflow, Pagination } from 'swiper/modules';
-
-import 'swiper/css';
-
 import styles from "./Subs.module.scss"
-import { style } from 'framer-motion/client';
 
+import { motion } from "framer-motion"
 
 function SubCarts() {
     const [Mobile, setMobile] = useState<boolean>(false)
@@ -25,7 +24,13 @@ function SubCarts() {
 
     return (
         <div className={styles.carts}>
-            <p className={styles.cartsTitle}>Abonnement-Pakete</p>
+            <motion.p
+                initial={{ opacity: 0, y: -25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                className={styles.cartsTitle}>Abonnement-Pakete</motion.p>
 
             {Mobile ? (
                 <Swiper className={styles.subs}
@@ -44,19 +49,31 @@ function SubCarts() {
                     }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <motion.a
+                            initial={{ opacity: 0, x: -25 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                            href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Basis</p>
-                            <p className={styles.scPrice}>5€</p>
+                            <p className={styles.scPrice}>0€</p>
 
                             <p className={styles.scDesc1}>Website-Installation</p>
                             <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
                             <p className={styles.scDesc3}>Qualitätsgarantie</p>
 
                             <p className={styles.scSelect}>Select</p>
-                        </a>
+                        </motion.a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <motion.a
+                            initial={{ opacity: 0, y: 25 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                            href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Standard</p>
                             <p className={styles.scPrice}>10€</p>
 
@@ -65,10 +82,16 @@ function SubCarts() {
                             <p className={styles.scDesc3}>Website-Support</p>
 
                             <p className={styles.scSelect}>Select</p>
-                        </a>
+                        </motion.a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/2' className={`${styles.subsCart}`}>
+                        <motion.a
+                            initial={{ opacity: 0, x: 25 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                            href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Premium</p>
                             <p className={styles.scPrice}>25€</p>
 
@@ -77,22 +100,34 @@ function SubCarts() {
                             <p className={styles.scDesc3}>Intelligente Automation</p>
 
                             <p className={styles.scSelect}>Select</p>
-                        </a>
+                        </motion.a>
                     </SwiperSlide>
                 </Swiper>
             ) : (
                 <div className={styles.subs}>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    <motion.a
+                        initial={{ opacity: 0, x: -25 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                        href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Basis</p>
-                        <p className={styles.scPrice}>5€</p>
+                        <p className={styles.scPrice}>0€</p>
 
                         <p className={styles.scDesc1}>Website-Installation</p>
                         <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
                         <p className={styles.scDesc3}>Qualitätsgarantie</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </a>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    </motion.a>
+                    <motion.a
+                        initial={{ opacity: 0, y: 25 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                        href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Standard</p>
                         <p className={styles.scPrice}>10€</p>
 
@@ -101,8 +136,14 @@ function SubCarts() {
                         <p className={styles.scDesc3}>Website-Support</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </a>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    </motion.a>
+                    <motion.a
+                        initial={{ opacity: 0, x: 25 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                        href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Premium</p>
                         <p className={styles.scPrice}>25€</p>
 
@@ -111,7 +152,7 @@ function SubCarts() {
                         <p className={styles.scDesc3}>Intelligente Automation</p>
 
                         <p className={styles.scSelect}>Select</p>
-                    </a>
+                    </motion.a>
                 </div>
             )}
 

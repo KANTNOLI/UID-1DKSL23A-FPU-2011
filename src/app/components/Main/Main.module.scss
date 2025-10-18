@@ -10,6 +10,7 @@
   overflow: hidden;
 
   .mainTitle {
+    height: 330px;
     font-family: var(--paytone_one);
 
     font-size: 220px;
@@ -135,7 +136,6 @@
     width: 100%;
     height: auto;
 
-
     .mainTitle {
       font-family: var(--paytone_one);
 
@@ -256,7 +256,6 @@
       font-weight: 600;
       color: var(--color-white);
       text-align: center;
-
     }
   }
 }

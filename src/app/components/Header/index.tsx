@@ -1,16 +1,18 @@
 'use client';
 
-
 import { useEffect, useState } from "react";
-import styles from "./Header.module.scss"
+
 import Navigate from "./navigate";
+
+import styles from "./Header.module.scss"
+
+import { motion } from "framer-motion"
 
 function Header() {
     const [Mobile, setMobile] = useState<boolean>(false)
     const [MenuActive, setMenuActive] = useState<boolean>(false)
 
     useEffect(() => {
-    
         if (window.innerWidth < 1000) {
             setMobile(true)
         }
@@ -25,9 +27,15 @@ function Header() {
                     <p className={MenuActive ? styles.menuP3Active : ""}></p>
                 </div>}
 
-            <Navigate Mobile={Mobile} Active={MenuActive} setActive={() => {setMenuActive(false)}}/>
+            <Navigate Mobile={Mobile} Active={MenuActive} setActive={() => { setMenuActive(false) }} />
 
-            <img className={styles.headerLogo} src="./logo.jpg" alt="logo.jpg" />
+            <motion.img
+                initial={{ opacity: 0, x: 25 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+
+                className={styles.headerLogo} src="./logo.jpg" alt="logo.jpg" />
         </section>
     );
 }
