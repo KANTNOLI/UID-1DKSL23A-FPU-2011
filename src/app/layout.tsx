@@ -25,8 +25,11 @@ const fontKhula = Khula({
 
 
 export const metadata: Metadata = {
-  title: "KANTNOLI",
-  description: "KANTNOLI",
+  title: {
+    default: "Chazen",
+    template: "%s | Chazen",
+  },
+  description: "Chazen",
   icons: "./logo.jpg"
 };
 
