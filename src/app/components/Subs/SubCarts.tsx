@@ -12,7 +12,6 @@ import { EffectCoverflow, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 import styles from "./Subs.module.scss"
-import { style } from 'framer-motion/client';
 
 
 function SubCarts() {
@@ -44,7 +43,7 @@ function SubCarts() {
                     }}
                     modules={[EffectCoverflow, Pagination]}>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/http://localhost:7777/product?s=1' className={`${styles.subsCart}`}>
+                        <a href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Basis</p>
                             <p className={styles.scPrice}>5€</p>
 
@@ -56,7 +55,7 @@ function SubCarts() {
                         </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/http://localhost:7777/product?s=2' className={`${styles.subsCart}`}>
+                        <a href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Standard</p>
                             <p className={styles.scPrice}>10€</p>
 
@@ -68,7 +67,7 @@ function SubCarts() {
                         </a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
-                        <a href='/http://localhost:7777/product?s=3' className={`${styles.subsCart}`}>
+                        <a href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
                             <p className={styles.scTitle}>Premium</p>
                             <p className={styles.scPrice}>25€</p>
 
@@ -82,7 +81,7 @@ function SubCarts() {
                 </Swiper>
             ) : (
                 <div className={styles.subs}>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    <a href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Basis</p>
                         <p className={styles.scPrice}>5€</p>
 
@@ -92,7 +91,7 @@ function SubCarts() {
 
                         <p className={styles.scSelect}>Select</p>
                     </a>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    <a href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Standard</p>
                         <p className={styles.scPrice}>10€</p>
 
@@ -102,7 +101,7 @@ function SubCarts() {
 
                         <p className={styles.scSelect}>Select</p>
                     </a>
-                    <a href='/2' className={`${styles.subsCart}`}>
+                    <a href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
                         <p className={styles.scTitle}>Premium</p>
                         <p className={styles.scPrice}>25€</p>
 
