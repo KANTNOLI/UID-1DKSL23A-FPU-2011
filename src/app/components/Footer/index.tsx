@@ -17,7 +17,7 @@ function Footer() {
         if (isInView) {
             const typed = new Typed(title.current, {
                 strings: ['Sole Proprietor: Zakhar D. Huseu 193907304 office 1, 5-2 Maksima Goretskogo Street, Minsk, 220123, Belarus'],
-                typeSpeed: 10,
+                typeSpeed: 5,
                 startDelay: 500,
                 showCursor: false,
             });
