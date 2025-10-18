@@ -22,7 +22,6 @@ function Footer() {
                 </a>
             </div>
 
-
             <p className={styles.footerIP}>Sole Proprietor: Zakhar D. Gusev 193907304 office 1, 5-2 Maksima Goretskogo Street, Minsk, 220123, Belarus</p>
         </footer>
     );
