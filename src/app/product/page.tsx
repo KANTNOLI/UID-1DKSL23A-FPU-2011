@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import axios from "axios";
 
 import Frame3D from "../components/Frame3D";
+import { motion } from "framer-motion"
 
 import style from "./Product.module.scss"
 
@@ -229,7 +230,37 @@ export default function Home() {
 
     }, [Order])
 
+    const fadeDef = {
+        viewport: { once: true },
+        transition: { duration: 0.5, ease: "easeInOut" as const }
+    }
 
+    const animations = {
+        fadeYM: {
+            initial: { opacity: 0, y: -25 },
+            whileInView: { opacity: 1, y: 0 },
+            ...fadeDef
+        },
+        fadeYP: {
+            initial: { opacity: 0, y: 25 },
+            whileInView: { opacity: 1, y: 0 },
+            ...fadeDef
+        },
+        fadeXM: {
+            initial: { opacity: 0, x: -25 },
+            whileInView: { opacity: 1, x: 0 },
+            ...fadeDef
+        },
+        fadeXP: {
+            initial: { opacity: 0, x: 25 },
+            whileInView: { opacity: 1, x: 0 },
+            ...fadeDef
+        }
+    }
+
+
+    // {...animations.fadeXP}
+    // transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
 
     return (
         <section className={style.body}>
@@ -459,43 +490,58 @@ export default function Home() {
             </section>
 
             <section className={style.form}>
-                <p className={style.formTitle}>Nachricht senden</p>
+                <motion.p
+                    {...animations.fadeYM}
+                    className={style.formTitle}>Nachricht senden</motion.p>
 
-                <div ref={canvas} className={style.mCanvas}>
+                <motion.div
+                    {...animations.fadeYP}
+                    ref={canvas} className={style.mCanvas}>
                     <Frame3D position={{ x: 0, y: 1, z: 3 }} height={Sizes?.height} width={Sizes?.width} modelPath="./man.glb"></Frame3D>
-                </div>
+                </motion.div>
 
                 {/* // */}
                 <div className={style.formDiv}>
-                    <div className={style.iBody1}>
+                    <motion.div
+                        {...animations.fadeXP}
+                        className={style.iBody1}>
                         <p className={style.iTitle1}>* Ihre E-Mail</p>
                         <input
                             ref={MainInput}
                             value={Mail}
                             onChange={(e) => setMail(e.target.value)}
                             className={style.iInput1} type="text" placeholder="MyE-Mail23@mail.com" />
-                    </div>
+                    </motion.div>
 
-                    <div className={style.iBody1}>
+                    <motion.div
+                        {...animations.fadeXP}
+                        transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
+                        className={style.iBody1}>
                         <p className={style.iTitle1}>* Ihre Telefonnummer</p>
                         <input
                             ref={PhoneInput}
                             value={Phone ? Phone : ""}
                             onChange={(e) => setPhone(+e.target.value > 0 ? +e.target.value : null)}
                             className={style.iInput1} type="number" placeholder="+49123456789" />
-                    </div>
+                    </motion.div>
                 </div>
 
-                <div className={style.iBody2}>
+                <motion.div
+                    {...animations.fadeXP}
+                    transition={{ delay: 0.2, duration: 0.5, ease: "easeInOut" }}
+                    className={style.iBody2}>
                     <p className={style.iTitle}>* Wie können wir Ihnen helfen??</p>
                     <textarea
                         ref={DescInput}
                         value={Desc}
                         onChange={(e) => setDesc(e.target.value)}
                         className={style.iInput} placeholder="In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben" />
-                </div>
+                </motion.div>
 
-                <button onClick={() => sendData()} className={style.iBtn}>Bestellung abschicken</button>
+                <motion.button
+                    {...animations.fadeXP}
+                    transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+                    onClick={() => sendData()} className={style.iBtn}>Bestellung abschicken</motion.button>
             </section>
         </section>
     );
