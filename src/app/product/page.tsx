@@ -266,225 +266,285 @@ export default function Home() {
         <section className={style.body}>
 
             <section className={style.order}>
-                <p className={`${style.formTitle} ${style.pin}`}>Minimaler Preis <span>{Pay}€~</span></p>
+                <motion.p
+                    {...animations.fadeXM}
+                    className={`${style.formTitle} ${style.pin}`}>Minimaler Preis <span>{Pay}€~</span></motion.p>
 
-                <p className={style.formTitle}>Abonnement-Pakete</p>
+                <motion.p
+                    {...animations.fadeXM}
+                    className={style.formTitle}>Abonnement-Pakete</motion.p>
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("basic", "subs")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div
+                            {...animations.fadeXM}
+                            className={style.oPN}>
                             {Order.subs == "basic" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Basic (Gratis)</p>
+                        <motion.p
+                            {...animations.fadeXP}
+                            className={style.oPT}>Basic (Gratis)</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Website-Installation</li>
-                    <li className={style.orderPartTitle}>Konfiguration & Einrichtung</li>
-                    <li className={style.orderPartTitle}>Qualitätsgarantie</li>
+                    <motion.li
+                        {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+                        className={style.orderPartTitle}>Website-Installation</motion.li>
+                    <motion.li
+                        {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+                        className={style.orderPartTitle}>Konfiguration & Einrichtung</motion.li>
+                    <motion.li
+                        {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
+                        className={style.orderPartTitle}>Qualitätsgarantie</motion.li>
                 </div>
 
                 <div className={style.orderPart}>
                     <div className={style.oP}>
-                        <div onClick={() => setOrderPrice("Standard", "subs")} className={style.oPN}>
+                        <motion.div {...animations.fadeXM} onClick={() => setOrderPrice("Standard", "subs")} className={style.oPN}>
                             {Order.subs == "Standard" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Standard 10€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Standard 10€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Erweiterter Schutzn</li>
-                    <li className={style.orderPartTitle}>Premium-Garantie</li>
-                    <li className={style.orderPartTitle}>Website-Support</li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweiterter Schutzn</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Premium-Garantie</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Website-Support</motion.li>
                 </div>
 
                 <div className={style.orderPart}>
                     <div className={style.oP}>
-                        <div onClick={() => setOrderPrice("Premium", "subs")} className={style.oPN}>
+                        <motion.div {...animations.fadeXM} onClick={() => setOrderPrice("Premium", "subs")} className={style.oPN}>
                             {Order.subs == "Premium" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Premium 25€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Premium 25€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Aktive Unterstützung</li>
-                    <li className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</li>
-                    <li className={style.orderPartTitle}>Intelligente Automation</li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Aktive Unterstützung</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Intelligente Automation</motion.li>
                 </div>
 
 
                 {/* // */}
 
 
-                <p className={style.formTitle}>Site types</p>
+                <motion.p   {...animations.fadeXM} className={style.formTitle}>Site types</motion.p>
 
 
                 {/* Landingpage*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("Landingpage", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "Landingpage" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Landingpage 1000€</p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>Landingpage 1000€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Einzelseitige Website für Werbekampagnen</li>
-                    <li className={style.orderPartTitle}>Lead-Generierungsformular und Call-to-Action</li>
-                    <li className={style.orderPartTitle}>Responsives Design für alle Geräte</li>
-                    <li className={style.orderPartTitle}>Basis SEO-Optimierung</li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Einzelseitige Website für Werbekampagnen</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Lead-Generierungsformular und Call-to-Action</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Responsives Design für alle Geräte</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Basis SEO-Optimierung</motion.li>
                 </div>
 
                 {/* WebsitVisitenkarte*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("WebsitVisitenkarte", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "WebsitVisitenkarte" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Website-Visitenkarte 1500€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Website-Visitenkarte 1500€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Bis zu 5 Hauptseiten (Homepage, Leistungen, Kontakte)</li>
-                    <li className={style.orderPartTitle}>Responsives Design und Basis-SEO</li>
-                    <li className={style.orderPartTitle}>Integration von Kontaktformularen</li>
-                    <li className={style.orderPartTitle}>Anbindung an Analytics</li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Bis zu 5 Hauptseiten (Homepage, Leistungen, Kontakte)</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Responsives Design und Basis-SEO</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration von Kontaktformularen</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Anbindung an Analytics</motion.li>
                 </div>
 
 
                 {/* CorporateWebsite*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("CorporateWebsite", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "CorporateWebsite" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Corporate Website 3000€</p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>Corporate Website 3000€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Mehrseitige Struktur mit Blog</li>
-                    <li className={style.orderPartTitle}>Erweitertes Navigationssystem</li>
-                    <li className={style.orderPartTitle}>Integration mit CRM und Diensten</li>
-                    <li className={style.orderPartTitle}>Vollständige SEO-Optimierung</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Mehrseitige Struktur mit Blog</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweitertes Navigationssystem</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration mit CRM und Diensten</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Vollständige SEO-Optimierung</motion.li>
                 </div>
 
 
                 {/* OnlineShop*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("OnlineShop", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div  {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "OnlineShop" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Online-Shop 5000€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Online-Shop 5000€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Produktkatalog mit Filtern</li>
-                    <li className={style.orderPartTitle}>Warenkorb und Zahlungssystem</li>
-                    <li className={style.orderPartTitle}>Kundenkonto</li>
-                    <li className={style.orderPartTitle}>Bestell- und Lagerverwaltung</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Produktkatalog mit Filtern</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Warenkorb und Zahlungssystem</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kundenkonto</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Bestell- und Lagerverwaltung</motion.li>
                 </div>
 
 
                 {/* BlogMedienportal*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("BlogMedienportal", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "BlogMedienportal" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Blog/Medienportal 2500€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Blog/Medienportal 2500€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Kategorie- und Tag-System</li>
-                    <li className={style.orderPartTitle}>Kommentare und Abonnements</li>
-                    <li className={style.orderPartTitle}>Mediengalerien und Player</li>
-                    <li className={style.orderPartTitle}>Integration mit sozialen Netzwerken</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kategorie- und Tag-System</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kommentare und Abonnements</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Mediengalerien und Player</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration mit sozialen Netzwerken</motion.li>
                 </div>
 
 
                 {/* PortfolioWebsite*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("PortfolioWebsite", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "PortfolioWebsite" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Portfolio-Website 2000€</p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>Portfolio-Website 2000€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Visuell orientiertes Design</li>
-                    <li className={style.orderPartTitle}>Arbeits- und Projektgalerien</li>
-                    <li className={style.orderPartTitle}>Minimalistische Struktur</li>
-                    <li className={style.orderPartTitle}>Fokus auf Präsentation</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Visuell orientiertes Design</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Arbeits- und Projektgalerien</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Minimalistische Struktur</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Fokus auf Präsentation</motion.li>
                 </div>
 
 
                 {/* OnlineService*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("OnlineService", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "OnlineService" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Online-Service 6000€</p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>Online-Service 6000€</motion.p>
                     </div>
 
                     <li className={style.orderPartTitle}>Web-App mit Funktionalität</li>
-                    <li className={style.orderPartTitle}>Buchungs-/Terminvereinbarungssystem</li>
-                    <li className={style.orderPartTitle}>Persönliche Benutzerkonten</li>
-                    <li className={style.orderPartTitle}>Integration externer APIs</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Buchungs-/Terminvereinbarungssystem</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Persönliche Benutzerkonten</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration externer APIs</motion.li>
                 </div>
 
 
                 {/* Bildungsplattform*/}
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("Bildungsplattform", "types")} className={style.oP}>
-                        <div className={style.oPN}>
+                        <motion.div  {...animations.fadeXM} className={style.oPN}>
                             {Order.types == "Bildungsplattform" ? <div className={style.oPNActive}></div> : ""}
-                        </div>
+                        </motion.div>
 
-                        <p className={style.oPT}>Bildungsplattform 8000€</p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>Bildungsplattform 8000€</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Kurs- und Unterrichtssystem</li>
-                    <li className={style.orderPartTitle}>Persönliche Studentenaccounts</li>
-                    <li className={style.orderPartTitle}>Tests und Zertifikate</li>
-                    <li className={style.orderPartTitle}>Fortschrittsverfolgungssystem</li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kurs- und Unterrichtssystem</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Persönliche Studentenaccounts</motion.li>
+                    <motion.li {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Tests und Zertifikate</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Fortschrittsverfolgungssystem</motion.li>
                 </div>
 
 
 
                 {/* // */}
 
-                <p className={style.formTitle}>Add-ons</p>
+                <motion.p  {...animations.fadeXM} className={style.formTitle}>Add-ons</motion.p>
 
                 <div className={style.orderPart}>
                     <div className={style.orderPart}>
                         <div className={style.oP}>
-                            <div onClick={() => setOrderPrice("1", "model")} className={style.oPN}>
+                            <motion.div {...animations.fadeXM} onClick={() => setOrderPrice("1", "model")} className={style.oPN}>
                                 {Order.addons.model ? <div className={style.oPNActive}></div> : ""}
-                            </div>
+                            </motion.div>
 
-                            <p className={style.oPT}>3D Models</p>
+                            <motion.p  {...animations.fadeXP} className={style.oPT}>3D Models</motion.p>
                         </div>
 
-                        <li className={style.orderPartTitle}>Erweiterter Schutzn</li>
-                        <li className={style.orderPartTitle}>Premium-Garantie</li>
-                        <li className={style.orderPartTitle}>Website-Support</li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweiterter Schutzn</motion.li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Premium-Garantie</motion.li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Website-Support</motion.li>
                     </div>
 
                     <div className={style.orderPart}>
                         <div className={style.oP}>
-                            <div onClick={() => setOrderPrice("1", "setup")} className={style.oPN}>
+                            <motion.div {...animations.fadeXM} onClick={() => setOrderPrice("1", "setup")} className={style.oPN}>
                                 {Order.addons.setup ? <div className={style.oPNActive}></div> : ""}
-                            </div>
+                            </motion.div>
 
-                            <p className={style.oPT}>Setup to server (Gratis)</p>
+                            <motion.p {...animations.fadeXP} className={style.oPT}>Setup to server (Gratis)</motion.p>
                         </div>
 
-                        <li className={style.orderPartTitle}>Aktive Unterstützung</li>
-                        <li className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</li>
-                        <li className={style.orderPartTitle}>Intelligente Automation</li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Aktive Unterstützung</motion.li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</motion.li>
+                        <motion.li {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Intelligente Automation</motion.li>
                     </div>
                 </div>
             </section>
