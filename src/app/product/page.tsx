@@ -130,17 +130,10 @@ export default function Home() {
         [Mail, Phone, Desc, Pay, Order, setMail, setPhone, setDesc],
     )
 
-    //
-
     const [Sizes, setSizes] = useState<DOMRect>()
-    const [WinW, setWinW] = useState<number>(0)
-
-
     const canvas = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setWinW(window.innerWidth)
-
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas, Pay])
 

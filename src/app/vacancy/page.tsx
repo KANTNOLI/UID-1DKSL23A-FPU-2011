@@ -43,7 +43,7 @@ export default function Home() {
             return () => typed.destroy();
         }
     }, [isInView2]); // 👈 Зависимость от isInView
-
+    
     return (
         <section className={style.body}>
             <p ref={title} className={style.work}></p>
