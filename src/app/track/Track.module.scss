@@ -122,6 +122,34 @@
     height: 1000px;
   }
 
+  .logs {
+    display: flex;
+    flex-direction: column;
+
+    width: 910px;
+    min-height: 300px;
+
+    .logsTitle:first-child {
+      margin-top: 50px;
+    }
+
+    .logsTitle {
+      margin-top: 20px;
+      font-family: var(--paytone_one);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .logsDesc {
+      margin-left: 15px;
+      font-family: var(--m_plus_1p);
+      color: rgb(162, 162, 162);
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
   // .work {
   //   font-family: var(--paytone_one);
   //   color: white;
