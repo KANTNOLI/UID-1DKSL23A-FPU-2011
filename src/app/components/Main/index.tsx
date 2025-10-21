@@ -24,6 +24,7 @@ function Main() {
             strings: ['Chazen'],
             typeSpeed: 70,
             startDelay: 500,
+            showCursor: false,
         });
 
         return () => typed.destroy();
