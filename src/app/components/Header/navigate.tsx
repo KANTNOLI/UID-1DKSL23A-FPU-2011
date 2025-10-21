@@ -14,16 +14,32 @@ interface props {
 function Navigate({ Mobile, Active, setActive }: props) {
     const [OpenPage, setOpenPage] = useState<number>(-1)
 
+    const pathname = usePathname(); // вернет '/product'
+    const segment = pathname.split('/')[1]; // вернет 'product'
+
+
     const pageRender = [
         { path: "/", name: "Startseite", },
         { path: "/product", name: "Produkt" },
         { path: "/vacancy", name: "Stellenangebot" },
-        { path: "/contacts", name: "Kontakte" },]
+        { path: "/contacts", name: "Kontakte" }]
 
-    const pathname = usePathname(); // вернет '/product'
-    const segment = pathname.split('/')[1]; // вернет 'product'
+    if (segment == "track" || segment == "admin") {
+        pageRender.push({
+            path: "/track",
+            name: "Bestellstatus"
+        })
+    }
+
 
     useEffect(() => {
+        if (segment == "track" || segment == "admin") {
+            pageRender.push({
+                path: "/track",
+                name: "Bestellstatus"
+            })
+        }
+
         switch (segment) {
             case "product":
                 setOpenPage(1)
@@ -34,6 +50,9 @@ function Navigate({ Mobile, Active, setActive }: props) {
             case "contacts":
                 setOpenPage(3)
                 break;
+            case "track":
+                setOpenPage(4)
+                break;
             case "":
                 setOpenPage(0)
                 break;
@@ -41,7 +60,7 @@ function Navigate({ Mobile, Active, setActive }: props) {
                 setOpenPage(-1)
                 break;
         }
-    }, [OpenPage])
+    }, [OpenPage, pathname])
 
     return (
         <nav className={Active ? styles.headerNavMobile : Mobile ? styles.headerOff : styles.headerNav}>
