@@ -8,7 +8,6 @@ import { Geologica, Cascadia_Code, Sansation } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 
-
 const fontPaytone = Cascadia_Code({
   variable: "--paytone_one",
   weight: ["400", "700", "600"],
@@ -17,7 +16,7 @@ const fontPaytone = Cascadia_Code({
 
 const fontHuninn2 = Sansation({
   variable: "--Huninn",
-  weight: ["400"],
+  weight: ["400", "700"],
   subsets: ["latin"]
 });
 const fontGeologica = Geologica({
