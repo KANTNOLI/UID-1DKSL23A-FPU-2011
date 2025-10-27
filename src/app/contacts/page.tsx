@@ -150,8 +150,8 @@ export default function Home() {
 
     return (
         <section className={style.body}>
-            <p ref={title} className={style.title}></p>
-            <p ref={title2} className={style.title}></p>
+            <p ref={title} className={style.title}> </p>
+            <p ref={title2} className={style.title}> </p>
 
             <div className={style.form}>
 

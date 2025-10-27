@@ -4,31 +4,31 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
 
-import { Paytone_One, M_PLUS_1, Khula } from "next/font/google";
+import { Geologica, Cascadia_Code, Sansation } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 
-const fontPaytone = Paytone_One({
+const fontPaytone = Cascadia_Code({
   variable: "--paytone_one",
+  weight: ["400", "700", "600"],
+  subsets: ["latin"]
+});
+
+const fontHuninn2 = Sansation({
+  variable: "--Huninn",
   weight: ["400"],
   subsets: ["latin"]
 });
-const fontMPLUS1 = M_PLUS_1({
-  variable: "--m_plus_1p",
-  subsets: ["latin"]
-});
-const fontKhula = Khula({
+const fontGeologica = Geologica({
   variable: "--khula",
-  weight: ["400", "600"],
+  weight: ['400', "700", "600", "900"],
   subsets: ["latin"]
 });
 
 
 export const metadata: Metadata = {
-  title: {
-    default: "Chazen",
-    template: "%s | Chazen",
-  },
+  title: "Chazen",
   description: "Chazen",
   icons: "./logo.jpg"
 };
@@ -40,12 +40,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fontPaytone.variable} ${fontMPLUS1.variable} ${fontKhula.variable}`}>
+      <body className={`${fontPaytone.variable} ${fontGeologica.variable} ${fontHuninn2.variable}`}>
         <Header />
         <Main></Main>
         {children}
         <Footer />
       </body>
+
+      {/* <Script
+        defer
+        src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "dc4bc6e2892c427fa524df704044edc9"}'
+        strategy="afterInteractive"
+      /> */}
     </html>
   );
 }
