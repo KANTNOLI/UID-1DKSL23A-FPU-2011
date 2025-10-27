@@ -28,7 +28,8 @@ function Header() {
         }
     }, [MenuActive]);
 
-    // 
+    // Lang choose
+    
 
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
