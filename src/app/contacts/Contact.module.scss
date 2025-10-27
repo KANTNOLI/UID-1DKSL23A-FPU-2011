@@ -184,13 +184,17 @@
     width: 100%;
     height: auto;
 
-    padding: 50px;
+    padding: 25px;
     box-sizing: border-box;
 
     .title {
       text-align: center;
-      font-size: 32px;
-      width: 500px;
+
+      font-size: 25px;
+      max-width: 100%;
+      width: 400px;
+      min-height: 35px;
+      height: auto;
 
       font-family: var(--paytone_one);
       color: white;
@@ -246,12 +250,13 @@
   .iBody1 {
     margin-top: 40px;
     position: relative;
-    width: fit-content;
+    width: 100%;
+    max-width: 550px;
     height: fit-content;
 
     .iTitle1 {
-      position: absolute;
-      top: -23px;
+      position: relative;
+      top: -5px;
       left: 15px;
 
       font-weight: 500;
@@ -294,8 +299,7 @@
     height: fit-content;
 
     .iTitle {
-      position: absolute;
-      top: -23px;
+      position: relative;
       left: 15px;
 
       font-weight: 500;
@@ -307,6 +311,7 @@
     }
 
     .iInput {
+      margin-top: -18px;
       width: 100%;
       height: 300px;
 
