@@ -85,27 +85,18 @@ const Frame3D: React.FC<Frame3DProps> = ({
     varying vec3 vNormal;
     varying vec3 vViewDir;
     
-    // Функция для получения цвета из градиента на основе позиции
     vec3 getGradientColor(float pos) {
-      // Цвета из предоставленной палитры
-      vec3 color0 = vec3(1.0, 0.705, 0.968);    // #FFB4F7
-      vec3 color1 = vec3(1.0, 0.816, 0.875);    // #FFD0DF
-      vec3 color2 = vec3(1.0, 0.925, 0.776);    // #FFECC6
-      vec3 color3 = vec3(1.0, 0.619, 0.925);    // #FF9EEC 
-      vec3 color4 = vec3(0.733, 0.553, 0.961);  // #BB8DF5
-      vec3 color5 = vec3(0.745, 0.678, 1.0);    // #BEADFF
-      vec3 color6 = vec3(0.812, 0.553, 0.992);  // #CF8DFD
-      vec3 color7 = vec3(1.0, 0.494, 0.964);    // #FF7EF6
+      // Цвета 
+      vec3 color1 = vec3(0.733, 0.553, 0.961);  // #BB8DF5 (фиолетовый)
+      vec3 color2 = vec3(0.4, 0.2, 0.9);        // #6633E5 (темно-фиолетовый)  
+      vec3 color3 = vec3(0.2, 0.6, 1.0);        // #3399FF (синий)
+      vec3 color0 = vec3(0.8, 0.3, 0.9);        // #CC4DE5 (пурпурный)
       
-      // Позиции цветов в градиенте
+      // Позиции
       float p0 = 0.0;
-      float p1 = 0.13;
-      float p2 = 0.24;
-      float p3 = 0.38;
-      float p4 = 0.51;
-      float p5 = 0.67;
-      float p6 = 0.84;
-      float p7 = 0.93;
+      float p1 = 0.25;
+      float p2 = 0.5;
+      float p3 = 0.75;
       
       // Интерполяция между цветами
       if (pos < p1) {
@@ -114,16 +105,8 @@ const Frame3D: React.FC<Frame3DProps> = ({
         return mix(color1, color2, (pos - p1) / (p2 - p1));
       } else if (pos < p3) {
         return mix(color2, color3, (pos - p2) / (p3 - p2));
-      } else if (pos < p4) {
-        return mix(color3, color4, (pos - p3) / (p4 - p3));
-      } else if (pos < p5) {
-        return mix(color4, color5, (pos - p4) / (p5 - p4));
-      } else if (pos < p6) {
-        return mix(color5, color6, (pos - p5) / (p6 - p5));
-      } else if (pos < p7) {
-        return mix(color6, color7, (pos - p6) / (p7 - p6));
       } else {
-        return mix(color7, color0, (pos - p7) / (1.0 - p7));
+        return mix(color3, color0, (pos - p3) / (1.0 - p3));
       }
     }
     
