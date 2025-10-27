@@ -1,0 +1,169 @@
+.body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+
+  padding-bottom: 100px;
+
+  .mainTitle {
+    font-family: var(--paytone_one);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+
+    span {
+      font-family: var(--khula);
+      color: #bb8df5;
+      text-align: center;
+      font-weight: bold;
+      font-size: 30px;
+    }
+  }
+
+  .track {
+    margin-top: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 980px;
+    height: 80px;
+
+    .trackType {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      width: 138px;
+      height: 100%;
+
+      .tTypeImgs {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 70px;
+        height: 70px;
+
+        .tTIsL {
+          position: absolute;
+          width: 70px;
+          height: auto;
+
+          z-index: 1;
+        }
+        .tTIsP {
+          position: absolute;
+          // top: 15px;
+          // left: 27px;
+
+          width: auto;
+          min-width: 14px;
+          height: auto;
+          min-height: 14px;
+
+          z-index: 2;
+        }
+      }
+
+      .tTypeTitleOff {
+        font-family: var(--Huninn);
+        color: white;
+        text-align: center;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .tTypeTitleOn {
+        font-family: var(--Huninn);
+        color: #bb8df5;
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .tTypePWait {
+        position: absolute;
+        top: 23px;
+        left: 105px;
+
+        display: block;
+        width: 68px;
+        height: 2px;
+
+        border-bottom: white 2px dotted;
+      }
+
+      .tTypePReady {
+        position: absolute;
+        top: 23px;
+        left: 105px;
+
+        display: block;
+        width: 68px;
+        height: 2px;
+
+        border-bottom: #bb8df5 2px solid;
+      }
+    }
+  }
+
+  .mainCanvas {
+    width: 700px;
+    height: 1000px;
+  }
+
+  .logs {
+    display: flex;
+    flex-direction: column;
+
+    width: 910px;
+    min-height: 300px;
+
+    .logsTitle:first-child {
+      margin-top: 50px;
+    }
+
+    .logsTitle {
+      margin-top: 20px;
+      font-family: var(--paytone_one);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .logsDesc {
+      margin-left: 15px;
+      font-family: var(--Huninn);
+      color: rgb(162, 162, 162);
+      font-weight: 500;
+      font-size: 16px;
+    }
+  }
+
+  // .work {
+  //   font-family: var(--paytone_one);
+  //   color: white;
+  //   text-align: center;
+  //   font-weight: bold;
+  //   font-size: 22px;
+  //   max-width: 300px;
+  // }
+
+  // .work2 {
+  //   font-family: var(--khula);
+  //   color: rgba(255, 255, 255, 0.622);
+  //   text-align: center;
+  //   font-weight: bold;
+  //   font-size: 18px;
+  // }
+}

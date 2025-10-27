@@ -67,14 +67,12 @@ export default function Home() {
                 setTimeout(() => {
                     MainInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("mail", 1);
                 return -1
             } else if (!emailRegex.test(Mail)) {
                 MainInput.current?.classList.add(style.warn)
                 setTimeout(() => {
                     MainInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("mail", 2);
                 return -1
             }
 
@@ -88,21 +86,18 @@ export default function Home() {
                 setTimeout(() => {
                     PhoneInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("phone", 1);
                 return -1
             } else if (digitsOnly.length < 5 || digitsOnly.length > 15) {
                 PhoneInput.current?.classList.add(style.warn)
                 setTimeout(() => {
                     PhoneInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("phone", 2);
                 return -1
             } else if (!/^\d+$/.test(digitsOnly)) {
                 PhoneInput.current?.classList.add(style.warn)
                 setTimeout(() => {
                     PhoneInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("phone", 3);
                 return -1
             }
 
@@ -111,7 +106,6 @@ export default function Home() {
                 setTimeout(() => {
                     DescInput.current?.classList.remove(style.warn)
                 }, 500);
-                console.log("desc", 1);
                 return -1
             }
 
@@ -120,7 +114,7 @@ export default function Home() {
 
             Body.desc = `${str}\n\nТЕКСТ:\n${Body.desc}\n`
 
-            axios.post(`http://localhost:3000/sendMessageClient`, Body).then((res) => {
+            axios.post(`https://api.chazen.de/sendMessageClient`, Body).then((res) => {
 
                 setMail("")
                 setPhone(null)
@@ -130,17 +124,10 @@ export default function Home() {
         [Mail, Phone, Desc, Pay, Order, setMail, setPhone, setDesc],
     )
 
-    //
-
     const [Sizes, setSizes] = useState<DOMRect>()
-    const [WinW, setWinW] = useState<number>(0)
-
-
     const canvas = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        setWinW(window.innerWidth)
-
         setSizes(canvas.current?.getBoundingClientRect())
     }, [canvas, Pay])
 
@@ -226,8 +213,6 @@ export default function Home() {
         }
 
         setPay(price)
-        console.log(JSON.stringify(Order));
-
     }, [Order])
 
     const fadeDef = {

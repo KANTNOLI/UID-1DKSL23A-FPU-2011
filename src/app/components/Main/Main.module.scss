@@ -11,10 +11,10 @@
 
   .mainTitle {
     height: 330px;
-    font-family: var(--paytone_one);
+    font-family: var(--khula);
+    font-weight: 900;
 
     font-size: 220px;
-    font-size: bold;
     text-transform: uppercase;
     color: var(--color-white);
 
@@ -74,10 +74,10 @@
     height: auto;
 
     .mainTitle {
-      font-family: var(--paytone_one);
+      height: 230px;
+      font-family: var(--khula);
 
       font-size: 150px;
-      font-size: bold;
       text-transform: uppercase;
       color: var(--color-white);
 
@@ -137,7 +137,8 @@
     height: auto;
 
     .mainTitle {
-      font-family: var(--paytone_one);
+      height: 150px;
+      font-family: var(--khula);
 
       font-size: 100px;
       font-size: bold;
@@ -209,7 +210,8 @@
     height: auto;
 
     .mainTitle {
-      font-family: var(--paytone_one);
+      height: 100px;
+      font-family: var(--khula);
 
       font-size: 80px;
       font-size: bold;
@@ -274,8 +276,9 @@
     height: auto;
 
     .mainTitle {
+      height: 100px;
       white-space: nowrap;
-      font-family: var(--paytone_one);
+      font-family: var(--khula);
 
       font-size: 80px;
       font-size: bold;
@@ -290,6 +293,76 @@
       top: -80px;
       width: 300px;
       height: 500px;
+
+      z-index: 2;
+    }
+
+    .mainDescL {
+      opacity: 0;
+      font-family: var(--khula);
+      position: absolute;
+      top: 40%;
+      left: auto;
+
+      width: 260px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+    }
+
+    .mainDescR {
+      opacity: 0;
+      font-family: var(--khula);
+      position: absolute;
+      top: 70%;
+      right: auto;
+
+      width: 280px;
+
+      line-height: 23px;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-white);
+      text-align: center;
+
+      z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .main {
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    height: auto;
+
+    .mainTitle {
+      height: 100px;
+      white-space: nowrap;
+      font-family: var(--khula);
+
+      font-size: 50px;
+      text-transform: uppercase;
+      color: var(--color-white);
+
+      z-index: 1;
+    }
+
+    .mainCanvas {
+      position: relative;
+      top: -100px;
+      width: 300px;
+      height: 600px;
 
       z-index: 2;
     }

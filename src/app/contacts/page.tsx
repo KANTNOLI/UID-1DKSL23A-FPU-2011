@@ -92,8 +92,7 @@ export default function Home() {
                 return -1
             }
 
-            axios.post(`http://localhost:3000/sendMessageHelp`, Body).then((res) => {
-
+            axios.post(`https://api.chazen.de/sendMessageHelp`, Body).then((res) => {
                 setMail("")
                 setPhone(null)
                 setDesc("")
@@ -151,8 +150,8 @@ export default function Home() {
 
     return (
         <section className={style.body}>
-            <p ref={title} className={style.title}></p>
-            <p ref={title2} className={style.title}></p>
+            <p ref={title} className={style.title}> </p>
+            <p ref={title2} className={style.title}> </p>
 
             <div className={style.form}>
 

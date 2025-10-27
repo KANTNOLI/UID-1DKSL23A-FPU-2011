@@ -7,7 +7,7 @@ import Frame3D from "../Frame3D";
 import styles from "./Main.module.scss"
 
 import { motion } from "framer-motion"
-import Typed from 'typed.js';
+import Typed from 'typed.js'; 
 
 function Main() {
     const [Sizes, setSizes] = useState<DOMRect>()
@@ -24,6 +24,7 @@ function Main() {
             strings: ['Chazen'],
             typeSpeed: 70,
             startDelay: 500,
+            showCursor: false,
         });
 
         return () => typed.destroy();
