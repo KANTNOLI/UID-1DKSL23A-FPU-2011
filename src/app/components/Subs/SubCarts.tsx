@@ -13,14 +13,23 @@ import 'swiper/css/pagination';
 import styles from "./Subs.module.scss"
 
 import { motion } from "framer-motion"
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
 function SubCarts() {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.Subs
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
+
     const [Mobile, setMobile] = useState<boolean>(false)
     useEffect(() => {
         if (window.innerWidth < 1300) {
             setMobile(true)
         }
-    }, [])
+    }, [LanguageGetting])
 
     return (
         <div className={styles.carts}>
@@ -30,7 +39,7 @@ function SubCarts() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
 
-                className={styles.cartsTitle}>Abonnement-Pakete</motion.p>
+                className={styles.cartsTitle}>{LANG_.title}</motion.p>
 
             {Mobile ? (
                 <Swiper className={styles.subs}
@@ -56,14 +65,14 @@ function SubCarts() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
-                            <p className={styles.scTitle}>Basis</p>
-                            <p className={styles.scPrice}>0€</p>
+                            <p className={styles.scTitle}>{LANG_.cart1.title}</p>
+                            <p className={styles.scPrice}>{LANG_.cart1.price}</p>
 
-                            <p className={styles.scDesc1}>Website-Installation</p>
-                            <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
-                            <p className={styles.scDesc3}>Qualitätsgarantie</p>
+                            <p className={styles.scDesc1}>{LANG_.cart1.desc1}</p>
+                            <p className={styles.scDesc2}>{LANG_.cart1.desc2}</p>
+                            <p className={styles.scDesc3}>{LANG_.cart1.desc3}</p>
 
-                            <p className={styles.scSelect}>Select</p>
+                            <p className={styles.scSelect}>{LANG_.select}</p>
                         </motion.a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
@@ -74,14 +83,14 @@ function SubCarts() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
-                            <p className={styles.scTitle}>Standard</p>
-                            <p className={styles.scPrice}>10€</p>
+                            <p className={styles.scTitle}>{LANG_.cart2.title}</p>
+                            <p className={styles.scPrice}>{LANG_.cart2.price}</p>
 
-                            <p className={styles.scDesc1}>Erweiterter Schutzn</p>
-                            <p className={styles.scDesc2}>Premium-Garantie</p>
-                            <p className={styles.scDesc3}>Website-Support</p>
+                            <p className={styles.scDesc1}>{LANG_.cart2.desc1}</p>
+                            <p className={styles.scDesc2}>{LANG_.cart2.desc2}</p>
+                            <p className={styles.scDesc3}>{LANG_.cart2.desc3}</p>
 
-                            <p className={styles.scSelect}>Select</p>
+                            <p className={styles.scSelect}>{LANG_.select}</p>
                         </motion.a>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
@@ -92,14 +101,14 @@ function SubCarts() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
-                            <p className={styles.scTitle}>Premium</p>
-                            <p className={styles.scPrice}>25€</p>
+                            <p className={styles.scTitle}>{LANG_.cart3.title}</p>
+                            <p className={styles.scPrice}>{LANG_.cart3.price}</p>
 
-                            <p className={styles.scDesc1}>Aktive Unterstützung</p>
-                            <p className={styles.scDesc2}>Rund-um-die-Uhr-Monitoring</p>
-                            <p className={styles.scDesc3}>Intelligente Automation</p>
+                            <p className={styles.scDesc1}>{LANG_.cart3.desc1}</p>
+                            <p className={styles.scDesc2}>{LANG_.cart3.desc2}</p>
+                            <p className={styles.scDesc3}>{LANG_.cart3.desc3}</p>
 
-                            <p className={styles.scSelect}>Select</p>
+                            <p className={styles.scSelect}>{LANG_.select}</p>
                         </motion.a>
                     </SwiperSlide>
                 </Swiper>
@@ -112,14 +121,14 @@ function SubCarts() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
 
                         href='http://localhost:7777/product?s=basic' className={`${styles.subsCart}`}>
-                        <p className={styles.scTitle}>Basis</p>
-                        <p className={styles.scPrice}>0€</p>
+                        <p className={styles.scTitle}>{LANG_.cart1.title}</p>
+                        <p className={styles.scPrice}>{LANG_.cart1.price}</p>
 
-                        <p className={styles.scDesc1}>Website-Installation</p>
-                        <p className={styles.scDesc2}>Konfiguration & Einrichtung</p>
-                        <p className={styles.scDesc3}>Qualitätsgarantie</p>
+                        <p className={styles.scDesc1}>{LANG_.cart1.desc1}</p>
+                        <p className={styles.scDesc2}>{LANG_.cart1.desc2}</p>
+                        <p className={styles.scDesc3}>{LANG_.cart1.desc3}</p>
 
-                        <p className={styles.scSelect}>Select</p>
+                        <p className={styles.scSelect}>{LANG_.select}</p>
                     </motion.a>
                     <motion.a
                         initial={{ opacity: 0, y: 25 }}
@@ -128,14 +137,14 @@ function SubCarts() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
 
                         href='http://localhost:7777/product?s=Standard' className={`${styles.subsCart}`}>
-                        <p className={styles.scTitle}>Standard</p>
-                        <p className={styles.scPrice}>10€</p>
+                        <p className={styles.scTitle}>{LANG_.cart2.title}</p>
+                        <p className={styles.scPrice}>{LANG_.cart2.price}</p>
 
-                        <p className={styles.scDesc1}>Erweiterter Schutzn</p>
-                        <p className={styles.scDesc2}>Premium-Garantie</p>
-                        <p className={styles.scDesc3}>Website-Support</p>
+                        <p className={styles.scDesc1}>{LANG_.cart2.desc1}</p>
+                        <p className={styles.scDesc2}>{LANG_.cart2.desc2}</p>
+                        <p className={styles.scDesc3}>{LANG_.cart2.desc3}</p>
 
-                        <p className={styles.scSelect}>Select</p>
+                        <p className={styles.scSelect}>{LANG_.select}</p>
                     </motion.a>
                     <motion.a
                         initial={{ opacity: 0, x: 25 }}
@@ -144,14 +153,14 @@ function SubCarts() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
 
                         href='http://localhost:7777/product?s=Premium' className={`${styles.subsCart}`}>
-                        <p className={styles.scTitle}>Premium</p>
-                        <p className={styles.scPrice}>25€</p>
+                        <p className={styles.scTitle}>{LANG_.cart3.title}</p>
+                        <p className={styles.scPrice}>{LANG_.cart3.price}</p>
 
-                        <p className={styles.scDesc1}>Aktive Unterstützung</p>
-                        <p className={styles.scDesc2}>Rund-um-die-Uhr-Monitoring</p>
-                        <p className={styles.scDesc3}>Intelligente Automation</p>
+                        <p className={styles.scDesc1}>{LANG_.cart3.desc1}</p>
+                        <p className={styles.scDesc2}>{LANG_.cart3.desc2}</p>
+                        <p className={styles.scDesc3}>{LANG_.cart3.desc3}</p>
 
-                        <p className={styles.scSelect}>Select</p>
+                        <p className={styles.scSelect}>{LANG_.select}</p>
                     </motion.a>
                 </div>
             )}
