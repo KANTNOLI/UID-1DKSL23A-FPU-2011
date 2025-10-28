@@ -10,6 +10,11 @@ import { motion } from "framer-motion"
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+interface LangIntf {
+    name: string,
+    shortName: string
+}
+
 function Header() {
     const [Mobile, setMobile] = useState<boolean>(false)
     const [MenuActive, setMenuActive] = useState<boolean>(false)
@@ -29,7 +34,25 @@ function Header() {
     }, [MenuActive]);
 
     // Lang choose
-    
+    const langArray: LangIntf[] = [{
+        name: "Deutsch",
+        shortName: "De"
+    }, {
+        name: "English",
+        shortName: "En"
+    }, {
+        name: "Русский",
+        shortName: "Ru"
+    }]
+
+    const langKeys = {
+        "De": "Deutsch",
+        "En": "English",
+        "Ru": "Русский"
+    }
+
+
+    const [LangChoose, setLangChoose] = useState<string>("De");
 
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -71,12 +94,12 @@ function Header() {
 
             <div ref={dropdownRef} className={styles.lang}>
                 <button className={styles.dropdownBtn} onClick={toggleDropdown}>
-                    de
+                    {LangChoose}
                 </button>
                 <div className={`${styles.dropdownContent} ${isOpen ? styles.show : ''}`}>
-                    <div >Deutsch</div>
-                    <div >English</div>
-                    <div >Русский</div>
+                    {langArray.map((l, lID) => (
+                        <div key={lID} className={l.shortName == LangChoose ? `${styles.langActive}` : ""}>{l.name}</div>
+                    ))}
                 </div>
             </div>
         </section>
