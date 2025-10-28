@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 import styles from "./Header.module.scss";
 
@@ -12,22 +14,29 @@ interface props {
 }
 
 function Navigate({ Mobile, Active, setActive }: props) {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.Header
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
+
+
     const [OpenPage, setOpenPage] = useState<number>(-1)
 
     const pathname = usePathname(); // вернет '/product'
     const segment = pathname.split('/')[1]; // вернет 'product'
 
-
     const pageRender = [
-        { path: "/", name: "Startseite", },
-        { path: "/product", name: "Produkt" },
-        { path: "/vacancy", name: "Stellenangebot" },
-        { path: "/contacts", name: "Kontakte" }]
+        { path: "/", name: LANG_.home, },
+        { path: "/product", name: LANG_.product },
+        { path: "/vacancy", name: LANG_.vacancy },
+        { path: "/contacts", name: LANG_.contacts }]
 
     if (segment == "track" || segment == "admin") {
         pageRender.push({
             path: "/track",
-            name: "Bestellstatus"
+            name: LANG_.track
         })
     }
 
@@ -60,7 +69,7 @@ function Navigate({ Mobile, Active, setActive }: props) {
                 setOpenPage(-1)
                 break;
         }
-    }, [OpenPage, pathname])
+    }, [OpenPage, pathname, LanguageGetting])
 
     return (
         <nav className={Active ? styles.headerNavMobile : Mobile ? styles.headerOff : styles.headerNav}>
