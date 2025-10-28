@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Navigate from "./navigate";
 
@@ -9,10 +9,22 @@ import styles from "./Header.module.scss"
 import { motion } from "framer-motion"
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { useDispatch, useSelector } from "react-redux";
+
+import type { RootState } from '../../../redux/store'
+import { setLanguage } from "@/redux/features/language/dataSlice";
 
 interface LangIntf {
     name: string,
     shortName: string
+}
+
+type LangType = "De" | "En" | "Ru"
+
+interface Languages {
+    De: LangIntf;
+    En: LangIntf;
+    Ru: LangIntf;
 }
 
 function Header() {
@@ -32,27 +44,31 @@ function Header() {
             enableBodyScroll(document.body);
         }
     }, [MenuActive]);
+    //
+    //
+    //
 
-    // Lang choose
-    const langArray: LangIntf[] = [{
-        name: "Deutsch",
-        shortName: "De"
-    }, {
-        name: "English",
-        shortName: "En"
-    }, {
-        name: "Русский",
-        shortName: "Ru"
-    }]
-
-    const langKeys = {
-        "De": "Deutsch",
-        "En": "English",
-        "Ru": "Русский"
-    }
+    const UserSettings = useSelector((state: RootState) => state.data)
+    const Dispatch = useDispatch()
 
 
-    const [LangChoose, setLangChoose] = useState<string>("De");
+    const LangList: LangType[] = ["De", "En", "Ru"]
+    const languages: Languages = {
+        De: {
+            name: "Deutsch",
+            shortName: "De"
+        },
+        En: {
+            name: "English",
+            shortName: "En"
+        },
+        Ru: {
+            name: "Русский",
+            shortName: "Ru"
+        }
+    };
+
+    const [LangChoose, setLangChoose] = useState<LangType>(UserSettings.language);
 
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -69,9 +85,43 @@ function Header() {
             }
         };
 
+        const handleItemClick = () => {
+            setIsOpen(false);
+        };
+
         document.addEventListener('mousedown', handleClickOutside);
-        return () => document.removeEventListener('mousedown', handleClickOutside);
+
+        const dropdownElement = dropdownRef.current;
+        if (dropdownElement) {
+            dropdownElement.addEventListener('click', handleItemClick);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            if (dropdownElement) {
+                dropdownElement.removeEventListener('click', handleItemClick);
+            }
+        };
     }, []);
+
+    const handleSetLanguage = useCallback(
+        (chooseLang: LangType) => {
+            if (LangChoose != chooseLang) {
+                Dispatch(setLanguage(chooseLang))
+                setLangChoose(chooseLang)
+            }
+        },
+        [setLangChoose, UserSettings, setLanguage, Dispatch],
+    )
+
+    useEffect(() => {
+        console.log(UserSettings.language);
+
+        return () => {
+
+        }
+    }, [UserSettings])
+
 
     return (
         <section className={styles.header}>
@@ -97,8 +147,9 @@ function Header() {
                     {LangChoose}
                 </button>
                 <div className={`${styles.dropdownContent} ${isOpen ? styles.show : ''}`}>
-                    {langArray.map((l, lID) => (
-                        <div key={lID} className={l.shortName == LangChoose ? `${styles.langActive}` : ""}>{l.name}</div>
+                    {LangList.map((shortLang, lID) => (
+                        <div onClick={() => handleSetLanguage(shortLang)}
+                            key={lID} className={shortLang == LangChoose ? `${styles.langActive}` : ""}>{languages[shortLang].name}</div>
                     ))}
                 </div>
             </div>
