@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import { Geologica, Cascadia_Code, Sansation } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { StoreProvider } from "./StoreProvider";
 
 const fontPaytone = Cascadia_Code({
   variable: "--paytone_one",
@@ -40,10 +41,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fontPaytone.variable} ${fontGeologica.variable} ${fontHuninn2.variable}`}>
-        <Header />
-        <Main></Main>
-        {children}
-        <Footer />
+        <StoreProvider>
+          <Header />
+          <Main></Main>
+          {children}
+          <Footer />
+        </StoreProvider>
       </body>
 
       {/* <Script
