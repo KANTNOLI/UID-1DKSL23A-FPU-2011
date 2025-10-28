@@ -7,7 +7,6 @@ import Frame3D from "../components/Frame3D";
 import { motion, useInView } from "framer-motion"
 
 import style from "./Contact.module.scss"
-import { Metadata } from "next";
 import Typed from "typed.js";
 
 interface SendDataIntf {
@@ -17,8 +16,16 @@ interface SendDataIntf {
     desc: string,
 }
 
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 export default function Home() {
-    // mail phone desc type 3 2 1
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.contacts
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
 
     const MainInput = useRef<HTMLInputElement>(null)
     const PhoneInput = useRef<HTMLInputElement>(null)
@@ -119,7 +126,7 @@ export default function Home() {
     useEffect(() => {
         if (isInView) {
             const typed = new Typed(title.current, {
-                strings: ['Need assistance?'],
+                strings: [LANG_.title1],
                 typeSpeed: 30,
                 startDelay: 100,
                 showCursor: false,
@@ -127,7 +134,7 @@ export default function Home() {
 
             return () => typed.destroy();
         }
-    }, [isInView]);
+    }, [isInView, LanguageGetting]);
 
 
     const title2 = useRef(null);
@@ -138,7 +145,7 @@ export default function Home() {
     useEffect(() => {
         if (isInView2) {
             const typed = new Typed(title2.current, {
-                strings: ['Just fill out the form!'],
+                strings: [LANG_.title2],
                 typeSpeed: 20,
                 startDelay: 800,
                 showCursor: false,
@@ -146,12 +153,12 @@ export default function Home() {
 
             return () => typed.destroy();
         }
-    }, [isInView2]);
+    }, [isInView2, LanguageGetting]);
 
     return (
         <section className={style.body}>
-            <p ref={title} className={style.title}> </p>
-            <p ref={title2} className={style.title}> </p>
+            <p ref={title} className={style.title}></p>
+            <p ref={title2} className={style.title}></p>
 
             <div className={style.form}>
 
@@ -174,12 +181,12 @@ export default function Home() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
 
                         className={style.iBody1}>
-                        <p className={style.iTitle1}>* Ihre E-Mail</p>
+                        <p className={style.iTitle1}>* {LANG_.mail.title}</p>
                         <input
                             ref={MainInput}
                             value={Mail}
                             onChange={(e) => setMail(e.target.value)}
-                            className={style.iInput1} type="text" placeholder="MyE-Mail23@mail.com" />
+                            className={style.iInput1} type="text" placeholder={LANG_.mail.placeholder} />
                     </motion.div>
 
                     <motion.div
@@ -189,12 +196,12 @@ export default function Home() {
                         transition={{ duration: 0.5, ease: "easeInOut" }}
 
                         className={style.iBody1}>
-                        <p className={style.iTitle1}>* Ihre Telefonnummer</p>
+                        <p className={style.iTitle1}>* {LANG_.phone.title}</p>
                         <input
                             ref={PhoneInput}
                             value={Phone ? Phone : ""}
                             onChange={(e) => setPhone(+e.target.value > 0 ? +e.target.value : null)}
-                            className={style.iInput1} type="number" placeholder="+49123456789" />
+                            className={style.iInput1} type="number" placeholder={LANG_.phone.placeholder} />
                     </motion.div>
                 </div>
 
@@ -202,18 +209,18 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, ease: "easeInOut" }} className={style.iBody2}>
-                    <p className={style.iTitle}>* Wie können wir Ihnen helfen??</p>
+                    <p className={style.iTitle}>* {LANG_.desc.title}</p>
                     <textarea
                         ref={DescInput}
                         value={Desc}
                         onChange={(e) => setDesc(e.target.value)}
-                        className={style.iInput} placeholder="In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben" />
+                        className={style.iInput} placeholder={LANG_.desc.placeholder} />
                 </motion.div>
 
                 <motion.button initial={{ opacity: 0, y: 25 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }} onClick={() => sendData()} className={style.iBtn}>Senden</motion.button>
+                    transition={{ duration: 0.5, ease: "easeInOut" }} onClick={() => sendData()} className={style.iBtn}>{LANG_.send}</motion.button>
             </div>
 
         </section>
