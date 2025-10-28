@@ -27,7 +27,17 @@ interface OrderIntf {
     addons: addons,
 }
 
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 export default function Home() {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.product
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
+
     const searchParams = useSearchParams()
     const s = searchParams.get('s') as string
 
@@ -183,37 +193,37 @@ export default function Home() {
         let price = 0;
 
         if (Order.subs == "Premium") {
-            price += 25
+            price += LANG_.subs.C3Price
         } else if (Order.subs == "Standard") {
-            price += 10
+            price += LANG_.subs.C2Price
         } else {
             price += 0
         }
 
         if (Order.types == "Landingpage") {
-            price += 1000
+            price += LANG_.site.S1Price
         } else if (Order.types == "WebsitVisitenkarte") {
-            price += 1500
-        } else if (Order.types == "CorporateWebsite") {
-            price += 3000
+            price += LANG_.site.S2Price
+        } else if (Order.types == "CorporateWebseite") {
+            price += LANG_.site.S3Price
         } else if (Order.types == "OnlineShop") {
-            price += 5000
+            price += LANG_.site.S4Price
         } else if (Order.types == "BlogMedienportal") {
-            price += 2500
-        } else if (Order.types == "PortfolioWebsite") {
-            price += 2000
+            price += LANG_.site.S5Price
+        } else if (Order.types == "PortfolioWebseite") {
+            price += LANG_.site.S6Price
         } else if (Order.types == "OnlineService") {
-            price += 6000
+            price += LANG_.site.S7Price
         } else {
-            price += 8000
+            price += LANG_.site.S8Price
         }
 
         if (Order.addons.model) {
-            price += 500
+            price += LANG_.addons.A1Price
         }
 
         setPay(price)
-    }, [Order])
+    }, [Order, LanguageGetting])
 
     const fadeDef = {
         viewport: { once: true },
@@ -243,7 +253,6 @@ export default function Home() {
         }
     }
 
-
     // {...animations.fadeXP}
     // transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
 
@@ -253,11 +262,11 @@ export default function Home() {
             <section className={style.order}>
                 <motion.p
                     {...animations.fadeXM}
-                    className={`${style.formTitle} ${style.pin}`}>Minimaler Preis <span>{Pay}€~</span></motion.p>
+                    className={`${style.formTitle} ${style.pin}`}>{LANG_.price} <span>{Pay}{LANG_.priceDigit}~</span></motion.p>
 
                 <motion.p
                     {...animations.fadeXM}
-                    className={style.formTitle}>Abonnement-Pakete</motion.p>
+                    className={style.formTitle}>{LANG_.subs.title}</motion.p>
                 <div className={style.orderPart}>
                     <div onClick={() => setOrderPrice("basic", "subs")} className={style.oP}>
                         <motion.div
@@ -268,21 +277,21 @@ export default function Home() {
 
                         <motion.p
                             {...animations.fadeXP}
-                            className={style.oPT}>Basic (Gratis)</motion.p>
+                            className={style.oPT}>{LANG_.subs.C1Title} {LANG_.subs.C1Price} {LANG_.subs.C1PriceDigit}</motion.p>
                     </div>
 
                     <motion.li
                         {...animations.fadeXP}
                         transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-                        className={style.orderPartTitle}>Website-Installation</motion.li>
+                        className={style.orderPartTitle}>{LANG_.subs.C1Desc1}</motion.li>
                     <motion.li
                         {...animations.fadeXP}
                         transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-                        className={style.orderPartTitle}>Konfiguration & Einrichtung</motion.li>
+                        className={style.orderPartTitle}>{LANG_.subs.C1Desc2}</motion.li>
                     <motion.li
                         {...animations.fadeXP}
                         transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-                        className={style.orderPartTitle}>Qualitätsgarantie</motion.li>
+                        className={style.orderPartTitle}>{LANG_.subs.C1Desc3}</motion.li>
                 </div>
 
                 <div className={style.orderPart}>
@@ -291,15 +300,15 @@ export default function Home() {
                             {Order.subs == "Standard" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Standard 10€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C2Title} {LANG_.subs.C2Price} {LANG_.subs.C2PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweiterter Schutzn</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C2Desc1}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Premium-Garantie</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C2Desc2}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Website-Support</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C2Desc3}</motion.li>
                 </div>
 
                 <div className={style.orderPart}>
@@ -308,22 +317,22 @@ export default function Home() {
                             {Order.subs == "Premium" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Premium 25€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C3Title} {LANG_.subs.C3Price} {LANG_.subs.C3PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Aktive Unterstützung</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C3Desc1}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C3Desc2}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Intelligente Automation</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.subs.C3Desc3}</motion.li>
                 </div>
 
 
                 {/* // */}
 
 
-                <motion.p   {...animations.fadeXM} className={style.formTitle}>Site types</motion.p>
+                <motion.p   {...animations.fadeXM} className={style.formTitle}>{LANG_.site.title}</motion.p>
 
 
                 {/* Landingpage*/}
@@ -333,17 +342,17 @@ export default function Home() {
                             {Order.types == "Landingpage" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>Landingpage 1000€</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S1Title} {LANG_.site.S1Price} {LANG_.site.S1PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Einzelseitige Website für Werbekampagnen</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S1Desc1}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Lead-Generierungsformular und Call-to-Action</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S1Desc2}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Responsives Design für alle Geräte</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S1Desc3}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Basis SEO-Optimierung</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S1Desc4}</motion.li>
                 </div>
 
                 {/* WebsitVisitenkarte*/}
@@ -353,38 +362,38 @@ export default function Home() {
                             {Order.types == "WebsitVisitenkarte" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Website-Visitenkarte 1500€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S2Title} {LANG_.site.S2Price} {LANG_.site.S2PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Bis zu 5 Hauptseiten (Homepage, Leistungen, Kontakte)</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S2Desc1}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Responsives Design und Basis-SEO</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S2Desc2}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration von Kontaktformularen</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S2Desc3}</motion.li>
                     <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Anbindung an Analytics</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S2Desc4}</motion.li>
                 </div>
 
 
-                {/* CorporateWebsite*/}
+                {/* CorporateWebseite*/}
                 <div className={style.orderPart}>
-                    <div onClick={() => setOrderPrice("CorporateWebsite", "types")} className={style.oP}>
+                    <div onClick={() => setOrderPrice("CorporateWebseite", "types")} className={style.oP}>
                         <motion.div {...animations.fadeXM} className={style.oPN}>
-                            {Order.types == "CorporateWebsite" ? <div className={style.oPNActive}></div> : ""}
+                            {Order.types == "CorporateWebseite" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>Corporate Website 3000€</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S3Title} {LANG_.site.S3Price} {LANG_.site.S3PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Mehrseitige Struktur mit Blog</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S3Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweitertes Navigationssystem</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S3Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration mit CRM und Diensten</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S3Desc3}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Vollständige SEO-Optimierung</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S3Desc4}</motion.li>
                 </div>
 
 
@@ -395,17 +404,17 @@ export default function Home() {
                             {Order.types == "OnlineShop" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Online-Shop 5000€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S4Title} {LANG_.site.S4Price} {LANG_.site.S4PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Produktkatalog mit Filtern</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S4Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Warenkorb und Zahlungssystem</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S4Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kundenkonto</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S4Desc3}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Bestell- und Lagerverwaltung</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S4Desc4}</motion.li>
                 </div>
 
 
@@ -416,38 +425,38 @@ export default function Home() {
                             {Order.types == "BlogMedienportal" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Blog/Medienportal 2500€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S5Title} {LANG_.site.S5Price} {LANG_.site.S5PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kategorie- und Tag-System</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S5Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kommentare und Abonnements</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S5Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Mediengalerien und Player</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S5Desc3}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration mit sozialen Netzwerken</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S5Desc4}</motion.li>
                 </div>
 
 
-                {/* PortfolioWebsite*/}
+                {/* PortfolioWebseite*/}
                 <div className={style.orderPart}>
-                    <div onClick={() => setOrderPrice("PortfolioWebsite", "types")} className={style.oP}>
+                    <div onClick={() => setOrderPrice("PortfolioWebseite", "types")} className={style.oP}>
                         <motion.div {...animations.fadeXM} className={style.oPN}>
-                            {Order.types == "PortfolioWebsite" ? <div className={style.oPNActive}></div> : ""}
+                            {Order.types == "PortfolioWebseite" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>Portfolio-Website 2000€</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S6Title} {LANG_.site.S6Price} {LANG_.site.S6PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Visuell orientiertes Design</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S6Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Arbeits- und Projektgalerien</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S6Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Minimalistische Struktur</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S6Desc3}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Fokus auf Präsentation</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S6Desc4}</motion.li>
                 </div>
 
 
@@ -458,16 +467,17 @@ export default function Home() {
                             {Order.types == "OnlineService" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>Online-Service 6000€</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S7Title} {LANG_.site.S7Price} {LANG_.site.S7PriceDigit}</motion.p>
                     </div>
 
-                    <li className={style.orderPartTitle}>Web-App mit Funktionalität</li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Buchungs-/Terminvereinbarungssystem</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S7Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Persönliche Benutzerkonten</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S7Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Integration externer APIs</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S7Desc3}</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S7Desc4}</motion.li>
                 </div>
 
 
@@ -478,24 +488,24 @@ export default function Home() {
                             {Order.types == "Bildungsplattform" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>Bildungsplattform 8000€</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S8Title} {LANG_.site.S8Price} {LANG_.site.S8PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Kurs- und Unterrichtssystem</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S8Desc1}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Persönliche Studentenaccounts</motion.li>
-                    <motion.li {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Tests und Zertifikate</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S8Desc2}</motion.li>
                     <motion.li  {...animations.fadeXP}
-                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Fortschrittsverfolgungssystem</motion.li>
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S8Desc3}</motion.li>
+                    <motion.li  {...animations.fadeXP}
+                        transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.site.S8Desc4}</motion.li>
                 </div>
 
 
 
                 {/* // */}
 
-                <motion.p  {...animations.fadeXM} className={style.formTitle}>Add-ons</motion.p>
+                <motion.p  {...animations.fadeXM} className={style.formTitle}>{LANG_.addons.title}</motion.p>
 
                 <div className={style.orderPart}>
                     <div className={style.orderPart}>
@@ -504,15 +514,15 @@ export default function Home() {
                                 {Order.addons.model ? <div className={style.oPNActive}></div> : ""}
                             </motion.div>
 
-                            <motion.p  {...animations.fadeXP} className={style.oPT}>3D Models</motion.p>
+                            <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A1Title} {LANG_.addons.A1Price} {LANG_.addons.A1PriceDigit}</motion.p>
                         </div>
 
                         <motion.li  {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Erweiterter Schutzn</motion.li>
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A1Desc1}</motion.li>
                         <motion.li  {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Premium-Garantie</motion.li>
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A1Desc2}</motion.li>
                         <motion.li  {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Website-Support</motion.li>
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A1Desc3}</motion.li>
                     </div>
 
                     <div className={style.orderPart}>
@@ -521,15 +531,15 @@ export default function Home() {
                                 {Order.addons.setup ? <div className={style.oPNActive}></div> : ""}
                             </motion.div>
 
-                            <motion.p {...animations.fadeXP} className={style.oPT}>Setup to server (Gratis)</motion.p>
+                            <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A2Title} {LANG_.addons.A2Price} {LANG_.addons.A2PriceDigit}</motion.p>
                         </div>
 
                         <motion.li  {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Aktive Unterstützung</motion.li>
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A2Desc1}</motion.li>
                         <motion.li  {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Rund-um-die-Uhr-Monitoring</motion.li>
-                        <motion.li {...animations.fadeXP}
-                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>Intelligente Automation</motion.li>
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A2Desc2}</motion.li>
+                        <motion.li  {...animations.fadeXP}
+                            transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }} className={style.orderPartTitle}>{LANG_.addons.A2Desc3}</motion.li>
                     </div>
                 </div>
             </section>
@@ -537,7 +547,7 @@ export default function Home() {
             <section className={style.form}>
                 <motion.p
                     {...animations.fadeYM}
-                    className={style.formTitle}>Nachricht senden</motion.p>
+                    className={style.formTitle}>{LANG_.form.title}</motion.p>
 
                 <motion.div
                     {...animations.fadeYP}
@@ -550,24 +560,24 @@ export default function Home() {
                     <motion.div
                         {...animations.fadeXP}
                         className={style.iBody1}>
-                        <p className={style.iTitle1}>* Ihre E-Mail</p>
+                        <p className={style.iTitle1}>* {LANG_.form.mail.title}</p>
                         <input
                             ref={MainInput}
                             value={Mail}
                             onChange={(e) => setMail(e.target.value)}
-                            className={style.iInput1} type="text" placeholder="MyE-Mail23@mail.com" />
+                            className={style.iInput1} type="text" placeholder={LANG_.form.mail.placeholder} />
                     </motion.div>
 
                     <motion.div
                         {...animations.fadeXP}
                         transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
                         className={style.iBody1}>
-                        <p className={style.iTitle1}>* Ihre Telefonnummer</p>
+                        <p className={style.iTitle1}>* {LANG_.form.phone.title}</p>
                         <input
                             ref={PhoneInput}
                             value={Phone ? Phone : ""}
                             onChange={(e) => setPhone(+e.target.value > 0 ? +e.target.value : null)}
-                            className={style.iInput1} type="number" placeholder="+49123456789" />
+                            className={style.iInput1} type="number" placeholder={LANG_.form.phone.placeholder} />
                     </motion.div>
                 </div>
 
@@ -575,18 +585,18 @@ export default function Home() {
                     {...animations.fadeXP}
                     transition={{ delay: 0.2, duration: 0.5, ease: "easeInOut" }}
                     className={style.iBody2}>
-                    <p className={style.iTitle}>* Wie können wir Ihnen helfen??</p>
+                    <p className={style.iTitle}>* {LANG_.form.desc.title}</p>
                     <textarea
                         ref={DescInput}
                         value={Desc}
                         onChange={(e) => setDesc(e.target.value)}
-                        className={style.iInput} placeholder="In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben" />
+                        className={style.iInput} placeholder={LANG_.form.desc.placeholder} />
                 </motion.div>
 
                 <motion.button
                     {...animations.fadeXP}
                     transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-                    onClick={() => sendData()} className={style.iBtn}>Bestellung abschicken</motion.button>
+                    onClick={() => sendData()} className={style.iBtn}>{LANG_.form.send}</motion.button>
             </section>
         </section>
     );
