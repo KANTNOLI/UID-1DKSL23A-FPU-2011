@@ -237,6 +237,7 @@
 }
 
 .dropdownContent div {
+  cursor: pointer;
   display: block;
   padding: 8px 16px;
 
@@ -247,8 +248,9 @@
 }
 
 .dropdownContent div:hover {
-  background: #f5f5f5;
+  background: #ff7ef631;
 }
+
 
 .dropdownContent div:last-child {
   border-radius: 0 0 5px 5px;
@@ -261,4 +263,13 @@
 
 .show {
   display: block !important;
+}
+
+.langActive{
+  color: #ff7ef6  !important;
+}
+
+
+.langActive:hover {
+  background: #ffffff26 !important;
 }
