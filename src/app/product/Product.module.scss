@@ -261,12 +261,12 @@
   border-radius: 10px;
   border: 2px solid white;
 
-  backdrop-filter: blur(5px);    
+  backdrop-filter: blur(5px);
 
   padding: 10px 30px;
   box-sizing: border-box;
 
-  z-index: 1000;
+  z-index: 100;
 }
 
 @media (max-width: 1050px) {
@@ -509,5 +509,50 @@
   .warn {
     background-color: #6320a29d !important;
     transition: 0.5s ease !important;
+  }
+  .pin {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: start;
+    justify-content: space-around;
+
+    position: sticky;
+    text-align: center;
+    top: 10px;
+    min-height: 120px;
+
+    border-radius: 10px;
+    border: 2px solid white;
+
+    backdrop-filter: blur(5px);
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    z-index: 100;
+  }
+}
+
+@media (max-width: 600px) {
+  .pin {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    position: sticky;
+    text-align: center;
+    top: 80px;
+    min-height: 60px;
+
+    border-radius: 10px;
+    border: 2px solid white;
+
+    backdrop-filter: blur(5px);
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    z-index: 100;
   }
 }
