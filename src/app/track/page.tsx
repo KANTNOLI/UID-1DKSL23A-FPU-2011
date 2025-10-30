@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from "react";
-import Frame3D from "../components/Frame3D";
+// import Frame3D from "../components/Frame3D";
 import style from "./Track.module.scss"
 import { useSearchParams } from 'next/navigation';
 import axios from "axios";
@@ -31,11 +31,11 @@ export default function Home() {
         taskReady: 2, // 1-5
         logs: ["Laden..."]
     })
-    const [Sizes, setSizes] = useState<DOMRect>()
-    const canvas = useRef<HTMLDivElement>(null)
-    useEffect(() => {
-        setSizes(canvas.current?.getBoundingClientRect())
-    }, [canvas])
+    // const [Sizes, setSizes] = useState<DOMRect>()
+    // const canvas = useRef<HTMLDivElement>(null)
+    // useEffect(() => {
+    //     setSizes(canvas.current?.getBoundingClientRect())
+    // }, [canvas])
 
     const trackList: trackListIntf[] = [
         {
