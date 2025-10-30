@@ -12,7 +12,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { useDispatch, useSelector } from "react-redux";
 
 import type { RootState } from '../../../redux/store'
-import { setLanguage } from "@/redux/features/language/dataSlice";
+import { setForm, setLanguage } from "@/redux/features/language/dataSlice";
 
 interface LangIntf {
     name: string,
@@ -26,6 +26,19 @@ interface Languages {
     En: LangIntf;
     Ru: LangIntf;
 }
+
+interface dataState {
+    language: LangType;
+    mail: string;
+    phone?: number | null;
+    LanguageActive?: object;
+}
+
+interface GetForm {
+    mail: string;
+    phone: number;
+}
+
 
 function Header() {
     const [Mobile, setMobile] = useState<boolean>(false)
@@ -104,22 +117,34 @@ function Header() {
         };
     }, []);
 
+
+    const KEY_LS_SETTINGS = "@2JH/s8oFa3[a.asd2@"
+
     const handleSetLanguage = useCallback(
         (chooseLang: LangType) => {
             if (LangChoose != chooseLang) {
-                Dispatch(setLanguage(chooseLang))
-                setLangChoose(chooseLang)
+
+                const getData: dataState = JSON.parse(localStorage.getItem(KEY_LS_SETTINGS) + "")
+
+                if (getData) {
+
+                    Dispatch(setLanguage(chooseLang))
+                    Dispatch(setForm(getData as GetForm))
+                    setLangChoose(chooseLang)
+
+                    localStorage.setItem(KEY_LS_SETTINGS, JSON.stringify({
+                        language: chooseLang,
+                        mail: getData.mail,
+                        phone: getData.phone,
+                    }))
+                }
             }
         },
         [setLangChoose, UserSettings, setLanguage, Dispatch],
     )
 
     useEffect(() => {
-        console.log(UserSettings.language);
-
-        return () => {
-
-        }
+        setLangChoose(UserSettings.language)
     }, [UserSettings])
 
 
