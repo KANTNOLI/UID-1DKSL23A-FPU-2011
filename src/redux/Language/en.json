@@ -1,0 +1,235 @@
+{
+  "Header": {
+    "home": "Home",
+    "product": "Products", 
+    "vacancy": "Careers",
+    "contacts": "Contacts",
+    "track": "Order Status"
+  },
+  "Footer": {
+    "title": "Get In Touch",
+    "IP": "Sole Proprietor: Zakhar D. Huseu 193907304 Office 1, Maksima-Goretskogo Street 5-2, 220123 Minsk, Belarus"
+  },
+  "Main": {
+    "title": "Chazen",
+    "desc1": "Your goal is our mission. We handle every detail so you can focus on what matters",
+    "desc2": "From initial concept to perfect solution: Your vision leads us to exceptional results"
+  },
+  "IdeaToWork": {
+    "title": "From Idea to Launch",
+    "step1": {
+      "title": "Briefing & Client Meeting",
+      "desc": "Detailed discussion of your vision, goals, and requirements"
+    },
+    "step2": {
+      "title": "Design Concept",
+      "desc": "Development of modern UI/UX concept for your website"
+    },
+    "step3": {
+      "title": "Design Revision", 
+      "desc": "Collaborative design optimization based on your feedback"
+    },
+    "step4": {
+      "title": "Web Development",
+      "desc": "Professional programming using modern frameworks"
+    },
+    "step5": {
+      "title": "Testing Phase",
+      "desc": "Comprehensive quality assurance across all devices"
+    },
+    "step6": {
+      "title": "Launch & Setup",
+      "desc": "Project deployment and final technical adjustments"
+    },
+    "step7": {
+      "title": "Project Handover",
+      "desc": "Final approval and official project delivery"
+    }
+  },
+  "Subs": {
+    "title": "Subscription Plans",
+    "cart1": {
+      "title": "Basic",
+      "price": "$0",
+      "desc1": "Website Installation",
+      "desc2": "Configuration & Setup", 
+      "desc3": "Quality Guarantee"
+    },
+    "cart2": {
+      "title": "Standard",
+      "price": "$12",
+      "desc1": "Enhanced Protection",
+      "desc2": "Premium Warranty",
+      "desc3": "Website Support"
+    },
+    "cart3": {
+      "title": "Premium", 
+      "price": "$28",
+      "desc1": "Active Support",
+      "desc2": "24/7 Monitoring",
+      "desc3": "Smart Automation"
+    },
+    "select": "Select"
+  },
+  "Why": {
+    "title": "Why Choose Us?",
+    "cart1": {
+      "title": "Client-Focused Approach",
+      "desc1": "Your comfort is always our focus, as your success is our top priority",
+      "desc2": "We deliver sustainable solutions tailored precisely to your needs"
+    },
+    "cart2": {
+      "title": "Modern Design Solutions", 
+      "desc1": "Contemporary and aesthetically appealing interfaces that are not only visually compelling but also intuitive, perfectly showcasing your brand"
+    },
+    "cart3": {
+      "title": "Complexity? We Love It!",
+      "desc1": "No challenge is too great for us",
+      "desc2": "The most demanding projects inspire us and push our creative expertise"
+    },
+    "cart4": {
+      "title": "Clean Code",
+      "desc1": "Structured and well-documented programming ensures your website remains easy to maintain and scale long-term"
+    },
+    "cart5": {
+      "title": "Transparency",
+      "desc1": "Full visibility into all processes and decisions, so you always stay in control and informed"
+    }
+  },
+  "contacts": {
+    "title1": "Need Assistance?",
+    "title2": "Just Fill Out the Form!",
+    "mail": {
+      "title": "Your Email",
+      "placeholder": "your-email@example.com"
+    },
+    "phone": {
+      "title": "Your Phone Number", 
+      "placeholder": "+1 (555) 123-4567"
+    },
+    "desc": {
+      "title": "How Can We Help You?",
+      "placeholder": "In the description, you can include your social media contacts for faster communication"
+    },
+    "send": "Send Message"
+  },
+  "vacancy": {
+    "title1": "In Development! :D", 
+    "title2": "Current Openings on LinkedIn!"
+  },
+  "product": {
+    "form": {
+      "title": "Send Message",
+      "mail": {
+        "title": "Your Email",
+        "placeholder": "your-email@example.com"
+      },
+      "phone": {
+        "title": "Your Phone Number",
+        "placeholder": "+1 (555) 123-4567"
+      },
+      "desc": {
+        "title": "How Can We Help You?",
+        "placeholder": "In the description, you can include your social media contacts for faster communication"
+      },
+      "send": "Submit Order"
+    },
+    "price": "Estimated Price",
+    "priceDigit": "$",
+    "subs": {
+      "title": "Subscription Plans",
+      "C1Price": "(Free)",
+      "C1PriceDigit": "",
+      "C1Title": "Basic", 
+      "C1Desc1": "Website Installation",
+      "C1Desc2": "Configuration & Setup",
+      "C1Desc3": "Quality Guarantee",
+      "C2Price": 12,
+      "C2PriceDigit": "$",
+      "C2Title": "Standard",
+      "C2Desc1": "Enhanced Protection",
+      "C2Desc2": "Premium Warranty", 
+      "C2Desc3": "Website Support",
+      "C3Price": 28,
+      "C3PriceDigit": "$",
+      "C3Title": "Premium",
+      "C3Desc1": "Active Support",
+      "C3Desc2": "24/7 Monitoring",
+      "C3Desc3": "Smart Automation"
+    },
+    "site": {
+      "title": "Website Types",
+      "S1Price": 1100,
+      "S1PriceDigit": "$", 
+      "S1Title": "Landing Page",
+      "S1Desc1": "Single-page website for advertising campaigns",
+      "S1Desc2": "Lead generation form and call-to-action",
+      "S1Desc3": "Responsive design for all devices",
+      "S1Desc4": "Basic SEO optimization",
+      "S2Price": 1650,
+      "S2PriceDigit": "$",
+      "S2Title": "Business Card Website",
+      "S2Desc1": "Up to 5 main pages (Home, Services, Contacts)",
+      "S2Desc2": "Responsive design and basic SEO",
+      "S2Desc3": "Contact form integration", 
+      "S2Desc4": "Analytics integration",
+      "S3Price": 3300,
+      "S3PriceDigit": "$",
+      "S3Title": "Corporate Website",
+      "S3Desc1": "Multi-page structure with blog",
+      "S3Desc2": "Advanced navigation system",
+      "S3Desc3": "CRM and service integrations",
+      "S3Desc4": "Complete SEO optimization",
+      "S4Price": 5500,
+      "S4PriceDigit": "$",
+      "S4Title": "E-commerce Store",
+      "S4Desc1": "Product catalog with filters",
+      "S4Desc2": "Shopping cart and payment system",
+      "S4Desc3": "Customer accounts",
+      "S4Desc4": "Order and inventory management",
+      "S5Price": 2750,
+      "S5PriceDigit": "$",
+      "S5Title": "Blog/Media Portal",
+      "S5Desc1": "Category and tag system",
+      "S5Desc2": "Comments and subscriptions",
+      "S5Desc3": "Media galleries and players",
+      "S5Desc4": "Social media integration",
+      "S6Price": 2200,
+      "S6PriceDigit": "$",
+      "S6Title": "Portfolio Website",
+      "S6Desc1": "Visually-oriented design",
+      "S6Desc2": "Work and project galleries", 
+      "S6Desc3": "Minimalist structure",
+      "S6Desc4": "Presentation focus",
+      "S7Price": 6600,
+      "S7PriceDigit": "$",
+      "S7Title": "Online Service",
+      "S7Desc1": "Web app with functionality",
+      "S7Desc2": "Booking/scheduling system",
+      "S7Desc3": "Personal user accounts",
+      "S7Desc4": "External API integration",
+      "S8Price": 8800,
+      "S8PriceDigit": "$",
+      "S8Title": "Educational Platform",
+      "S8Desc1": "Course and lesson system",
+      "S8Desc2": "Personal student accounts",
+      "S8Desc3": "Tests and certificates",
+      "S8Desc4": "Progress tracking system"
+    },
+    "addons": {
+      "title": "Add-ons",
+      "A1Price": 550,
+      "A1PriceDigit": "$",
+      "A1Title": "3D Models",
+      "A1Desc1": "Enhanced Protection",
+      "A1Desc2": "Premium Warranty", 
+      "A1Desc3": "Website Support",
+      "A2Price": "(Free)",
+      "A2PriceDigit": "",
+      "A2Title": "Server Setup",
+      "A2Desc1": "Active Support",
+      "A2Desc2": "24/7 Monitoring",
+      "A2Desc3": "Smart Automation"
+    }
+  }
+}

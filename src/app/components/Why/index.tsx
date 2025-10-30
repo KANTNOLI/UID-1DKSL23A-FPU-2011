@@ -1,18 +1,27 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { EffectCoverflow, Pagination } from "swiper/modules"
 
 import styles from "./Why.module.scss"
 import { motion } from "framer-motion"
+import { useSelector } from "react-redux"
+import { RootState } from "@/redux/store"
 
 function Why() {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.Why
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
+
     const [Mobile, setMobile] = useState<number>(0)
 
     useEffect(() => {
         setMobile(window.innerWidth)
-    }, [])
+    }, [LanguageGetting])
 
     return (
         <section className={styles.why}>
@@ -53,9 +62,9 @@ function Why() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             className={styles.contDiv}>
-                            <p className={styles.contTitle}>Kundenorientierte Denkweise</p>
-                            <p className={styles.contDesc}>Ihr Komfort steht stets im Fokus unserer Arbeit, denn Ihr Erfolg ist unser größtes Anliegen</p>
-                            <p className={styles.contDesc}>Wir setzen auf nachhaltige Lösungen, die genau auf Ihre Bedürfnisse zugeschnitten sind</p>
+                            <p className={styles.contTitle}>{LANG_.cart1.title}</p>
+                            <p className={styles.contDesc}>{LANG_.cart1.desc1}</p>
+                            <p className={styles.contDesc}>{LANG_.cart1.desc2}</p>
                         </motion.div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
@@ -66,8 +75,8 @@ function Why() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             className={styles.contDiv}>
-                            <p className={styles.contTitle}>Aktuelle Designlösungen</p>
-                            <p className={styles.contDesc}>Moderne und ästhetisch ansprechende Oberflächen, die nicht nur visuell überzeugen, sondern auch intuitiv zu bedienen sind und Ihre Marke perfekt in Szene setzen</p>
+                            <p className={styles.contTitle}>{LANG_.cart2.title}</p>
+                            <p className={styles.contDesc}>{LANG_.cart2.desc1}</p>
                         </motion.div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
@@ -78,21 +87,21 @@ function Why() {
                             transition={{ duration: 0.5, ease: "easeInOut" }}
 
                             className={styles.contDiv}>
-                            <p className={styles.contTitle}>Komplex? Wir lieben das!</p>
-                            <p className={styles.contDesc}>Für uns gibt es keine unlösbaren Aufgaben</p>
-                            <p className={styles.contDesc}>Gerade die anspruchsvollsten Projekte begeistern uns und fordern unsere kreative Expertise heraus</p>
+                            <p className={styles.contTitle}>{LANG_.cart3.title}</p>
+                            <p className={styles.contDesc}>{LANG_.cart3.desc1}</p>
+                            <p className={styles.contDesc}>{LANG_.cart3.desc2}</p>
                         </motion.div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={styles.contDiv}>
-                            <p className={styles.contTitle}>Sauberer Code</p>
-                            <p className={styles.contDesc}>Durch strukturierte und klar dokumentierte Programmierung gewährleisten wir, dass Ihre Website auch langfristig leicht zu pflegen und zu erweitern bleibt</p>
+                            <p className={styles.contTitle}>{LANG_.cart4.title}</p>
+                            <p className={styles.contDesc}>{LANG_.cart4.desc1}</p>
                         </div>
                     </SwiperSlide>
                     <SwiperSlide className={styles.subsSwiper}>
                         <div className={styles.contDiv}>
-                            <p className={styles.contTitle}>Transparenz</p>
-                            <p className={styles.contDesc}>Volle Einsicht in alle Prozesse und Entscheidungen, damit Sie stets die Kontrolle behalten und jederzeit informiert sind</p>
+                            <p className={styles.contTitle}>{LANG_.cart5.title}</p>
+                            <p className={styles.contDesc}>{LANG_.cart5.desc1}</p>
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -102,7 +111,7 @@ function Why() {
                 <Frame3D position={{ x: 0, y: 0.15, z: 0.4 }} height={Sizes?.height} width={Sizes?.width} modelPath="./lisa.glb"></Frame3D>
             </div> */}
 
-            <p className={styles.title}>Warum wir?</p>
+            <p className={styles.title}>{LANG_.title}</p>
             <div className={styles.wave}>
             </div>
         </section>

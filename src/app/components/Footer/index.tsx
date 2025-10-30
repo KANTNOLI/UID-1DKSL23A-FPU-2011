@@ -6,17 +6,26 @@ import { motion } from "framer-motion"
 import { useInView } from 'framer-motion';
 import Typed from 'typed.js';
 
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 function Footer() {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.Footer
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
 
     const title = useRef(null);
     const isInView = useInView(title, {
-        once: true, // Сработает только один раз
+        once: true, 
     });
 
     useEffect(() => {
         if (isInView) {
             const typed = new Typed(title.current, {
-                strings: ['Sole Proprietor: Zakhar D. Huseu 193907304 office 1, 5-2 Maksima Goretskogo Street, Minsk, 220123, Belarus'],
+                strings: [LANG_.IP],
                 typeSpeed: 5,
                 startDelay: 500,
                 showCursor: false,
@@ -24,7 +33,7 @@ function Footer() {
 
             return () => typed.destroy();
         }
-    }, [isInView]); // 👈 Зависимость от isInView
+    }, [isInView, LanguageGetting]); 
 
     return (
         <footer className={styles.footer}>
@@ -34,7 +43,7 @@ function Footer() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
 
-                className={styles.footerTitle}>Kontaktieren Sie uns</motion.p>
+                className={styles.footerTitle}>{LANG_.title}</motion.p>
             <div className={styles.footerContacts}>
                 <motion.a
                     initial={{ opacity: 0, x: -10 }}

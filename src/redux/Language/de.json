@@ -1,0 +1,248 @@
+{
+  "Header": {
+    "home": "Startseite",
+    "product": "Produkt",
+    "vacancy": "Stellenangebot",
+    "contacts": "Kontakte",
+    "track": "Bestellstatus"
+  }, 
+  "Footer": {
+    "title": "Kontaktieren Sie uns",
+    "IP": "Einzelunternehmer: Zakhar D. Huseu 193907304 Büro 1, Maksima-Goretskogo-Straße 5-2, 220123 Minsk, Weißrussland"
+  },
+  "Main": {
+    "title": "Chazen",
+    "desc1": "Ihr Ziel ist unsere Mission. Wir kümmern uns um jedes Detail, damit Sie sich auf das Wesentliche konzentrieren können",
+    "desc2": "Von der ersten Idee bis zur perfekten Lösung: Ihr Vision führt uns zu außergewöhnlichen Ergebnissen"
+  },
+  "IdeaToWork": {
+    "title": "Von der Idee bis zum Launch",
+    "step1": {
+      "title": "Briefing & Kundengespräch",
+      "desc": "Detaillierte Besprechung Ihrer Vision, Ziele und Anforderungen"
+    },
+    "step2": {
+      "title": "Designentwurf",
+      "desc": "Entwicklung eines modernen UI/UX Konzepts für Ihre Website"
+    },
+    "step3": {
+      "title": "Designüberarbeitung",
+      "desc": "Gemeinsame Optimierung des Designs nach Ihrem Feedback"
+    },
+    "step4": {
+      "title": "Webentwicklung",
+      "desc": "Professionelle Programmierung mit modernen Frameworks"
+    },
+    "step5": {
+      "title": "Testphase",
+      "desc": "Gründliche Qualitätssicherung auf allen Endgeräten"
+    },
+    "step6": {
+      "title": "Launch & Einrichtung",
+      "desc": "Live-Schaltung und technische Feinanpassungen"
+    },
+    "step7": {
+      "title": "Projektabnahme",
+      "desc": "Finale Abnahme und offizielle Übergabe des Projekts"
+    }
+  },
+  "Subs": {
+    "title": "Abonnement-Pakete",
+    "cart1": {
+      "title": "Basis",
+      "price": "0€",
+      "desc1": "Website-Installation",
+      "desc2": "Konfiguration & Einrichtung",
+      "desc3": "Qualitätsgarantie"
+    },
+    "cart2": {
+      "title": "Standard",
+      "price": "10€",
+      "desc1": "Erweiterter Schutzn",
+      "desc2": "Premium-Garantie",
+      "desc3": "Website-Support"
+    },
+    "cart3": {
+      "title": "Premium",
+      "price": "25€",
+      "desc1": "Aktive Unterstützung",
+      "desc2": "Rund-um-die-Uhr-Monitoring",
+      "desc3": "Intelligente Automation"
+    },
+    "select": "Select"
+  },
+  "Why": {
+    "title": "Warum wir?",
+    "cart1": {
+      "title": "Kundenorientierte Denkweise",
+      "desc1": "Ihr Komfort steht stets im Fokus unserer Arbeit, denn Ihr Erfolg ist unser größtes Anliegen",
+      "desc2": "Wir setzen auf nachhaltige Lösungen, die genau auf Ihre Bedürfnisse zugeschnitten sind"
+    },
+    "cart2": {
+      "title": "Aktuelle Designlösungen",
+      "desc1": "Moderne und ästhetisch ansprechende Oberflächen, die nicht nur visuell überzeugen, sondern auch intuitiv zu bedienen sind und Ihre Marke perfekt in Szene setzen"
+    },
+    "cart3": {
+      "title": "Komplex? Wir lieben das!",
+      "desc1": "Für uns gibt es keine unlösbaren Aufgaben",
+      "desc2": "Gerade die anspruchsvollsten Projekte begeistern uns und fordern unsere kreative Expertise heraus"
+    },
+    "cart4": {
+      "title": "Sauberer Code",
+      "desc1": "Durch strukturierte und klar dokumentierte Programmierung gewährleisten wir, dass Ihre Website auch langfristig leicht zu pflegen und zu erweitern bleibt"
+    },
+    "cart5": {
+      "title": "Transparenz",
+      "desc1": "Volle Einsicht in alle Prozesse und Entscheidungen, damit Sie stets die Kontrolle behalten und jederzeit informiert sind"
+    }
+  },
+  "contacts": {
+    "title1": "Need assistance?",
+    "title2": "Just fill out the form!",
+    "mail": {
+      "title": "Ihre E-Mail",
+      "placeholder": "Ihre-E-Mail@beispiel.de"
+    },
+    "phone": {
+      "title": "Ihre Telefonnummer",
+      "placeholder": "+4917612345678"
+    },
+    "desc": {
+      "title": "Wie können wir Ihnen helfen??",
+      "placeholder": "In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben"
+    },
+    "send": "Senden"
+  },
+  "vacancy": {
+    "title1": "In Entwicklung! :D",
+    "title2": "Aktuelle Stellenangebote auf LinkedIn!"
+  },
+  "product": {
+    "form": {
+      "title": "Nachricht senden",
+      "mail": {
+        "title": "Ihre E-Mail",
+        "placeholder": "Ihre-E-Mail@beispiel.de"
+      },
+      "phone": {
+        "title": "Ihre Telefonnummer",
+        "placeholder": "+4917612345678"
+      },
+      "desc": {
+        "title": "Wie können wir Ihnen helfen??",
+        "placeholder": "In der Beschreibung können Sie Ihre Social-Media-Kontakte für eine schnellere Kontaktaufnahme angeben"
+      },
+      "send": "Bestellung abschicken"
+    },
+    "price": "Orientierungspreis",
+    "priceDigit": "€",
+    "subs": {
+      "title": "Abonnement-Pakete",
+
+      "C1Price": "(Gratis)",
+      "C1PriceDigit": "",
+      "C1Title": "Basic",
+      "C1Desc1": "Webseite-Installation",
+      "C1Desc2": "Konfiguration & Einrichtung",
+      "C1Desc3": "Qualitätsgarantie",
+
+      "C2Price": 10,
+      "C2PriceDigit": "€",
+      "C2Title": "Standard",
+      "C2Desc1": "Erweiterter Schutzn",
+      "C2Desc2": "Premium-Garantie",
+      "C2Desc3": "Webseite-Support",
+
+      "C3Price": 25,
+      "C3PriceDigit": "€",
+      "C3Title": "Premium",
+      "C3Desc1": "Aktive Unterstützung",
+      "C3Desc2": "Rund-um-die-Uhr-Monitoring",
+      "C3Desc3": "Intelligente Automation"
+    },
+    "site": {
+      "title": "Webseiten-Typen",
+
+      "S1Price": 1000,
+      "S1PriceDigit": "€",
+      "S1Title": "Landingpage",
+      "S1Desc1": "Einzelseitige Webseite für Werbekampagnen",
+      "S1Desc2": "Lead-Generierungsformular und Call-to-Action",
+      "S1Desc3": "Responsives Design für alle Geräte",
+      "S1Desc4": "Basis SEO-Optimierung",
+
+      "S2Price": 1500,
+      "S2PriceDigit": "€",
+      "S2Title": "Webseite-Visitenkarte ",
+      "S2Desc1": "Bis zu 5 Hauptseiten (Homepage, Leistungen, Kontakte)",
+      "S2Desc2": "Responsives Design und Basis-SEO",
+      "S2Desc3": "Integration von Kontaktformularen",
+      "S2Desc4": "Anbindung an Analytics",
+
+      "S3Price": 3000,
+      "S3PriceDigit": "€",
+      "S3Title": "Corporate Webseite",
+      "S3Desc1": "Mehrseitige Struktur mit Blog",
+      "S3Desc2": "Erweitertes Navigationssystem",
+      "S3Desc3": "Integration mit CRM und Diensten",
+      "S3Desc4": "Vollständige SEO-Optimierung",
+
+      "S4Price": 5000,
+      "S4PriceDigit": "€",
+      "S4Title": "Online-Shop",
+      "S4Desc1": "Produktkatalog mit Filtern",
+      "S4Desc2": "Warenkorb und Zahlungssystem",
+      "S4Desc3": "Kundenkonto",
+      "S4Desc4": "Bestell- und Lagerverwaltung",
+
+      "S5Price": 2500,
+      "S5PriceDigit": "€",
+      "S5Title": "Blog/Medienportal",
+      "S5Desc1": "Kategorie- und Tag-System",
+      "S5Desc2": "Kommentare und Abonnements",
+      "S5Desc3": "Mediengalerien und Player",
+      "S5Desc4": "Integration mit sozialen Netzwerken",
+
+      "S6Price": 2000,
+      "S6PriceDigit": "€",
+      "S6Title": "Portfolio-Webseite",
+      "S6Desc1": "Visuell orientiertes Design",
+      "S6Desc2": "Arbeits- und Projektgalerien",
+      "S6Desc3": "Minimalistische Struktur",
+      "S6Desc4": "Fokus auf Präsentation",
+
+      "S7Price": 6000,
+      "S7PriceDigit": "€",
+      "S7Title": "Online-Service",
+      "S7Desc1": "Web-App mit Funktionalität",
+      "S7Desc2": "Buchungs-/Terminvereinbarungssystem",
+      "S7Desc3": "Persönliche Benutzerkonten",
+      "S7Desc4": "Integration externer APIs",
+
+      "S8Price": 8000,
+      "S8PriceDigit": "€",
+      "S8Title": "Bildungsplattform",
+      "S8Desc1": "Kurs- und Unterrichtssystem",
+      "S8Desc2": "Persönliche Studentenaccounts",
+      "S8Desc3": "Tests und Zertifikate",
+      "S8Desc4": "Fortschrittsverfolgungssystem"
+    },
+    "addons": {
+      "title": "Add-ons",
+
+      "A1Price": 500,
+      "A1PriceDigit": "€",
+      "A1Title": "3D Models",
+      "A1Desc1": "Erweiterter Schutzn",
+      "A1Desc2": "Premium-Garantie",
+      "A1Desc3": "Webseite-Support",
+
+      "A2Price": "(Gratis)",
+      "A2PriceDigit": "",
+      "A2Title": "Setup to server",
+      "A2Desc1": "Aktive Unterstützung",
+      "A2Desc2": "Rund-um-die-Uhr-Monitoring",
+      "A2Desc3": "Intelligente Automation"
+    }
+  }
+}

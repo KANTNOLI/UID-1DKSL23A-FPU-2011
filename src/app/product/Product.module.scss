@@ -30,7 +30,7 @@
     font-weight: bold;
     font-size: 30px;
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     span {
       font-size: 16px;
@@ -67,6 +67,7 @@
         text-align: start;
         font-weight: bold;
         font-size: 26px;
+        margin-top: 10px;
         margin-left: 10px;
       }
 
@@ -75,7 +76,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        margin-top: 3px;
+        margin-top: 13px;
         cursor: pointer;
 
         display: block;
@@ -92,7 +93,7 @@
           width: 9px;
           height: 9px;
 
-          background-color: #FF7EF6;
+          background-color: #ff7ef6;
         }
       }
     }
@@ -102,7 +103,7 @@
 .form {
   margin-top: 50px;
   position: sticky;
-  top: 50px;
+  top: 80px;
 
   display: flex;
   align-items: center;
@@ -255,14 +256,17 @@
   position: sticky;
   text-align: center;
   top: 50px;
-  height: 60px;
+  min-height: 60px;
 
   border-radius: 10px;
   border: 2px solid white;
 
   backdrop-filter: blur(5px);
 
-  z-index: 1000;
+  padding: 10px 30px;
+  box-sizing: border-box;
+
+  z-index: 100;
 }
 
 @media (max-width: 1050px) {
@@ -291,7 +295,7 @@
       font-weight: bold;
       font-size: 24px;
 
-      margin-bottom: 30px;
+      margin-bottom: 20px;
 
       span {
         font-size: 14px;
@@ -328,6 +332,7 @@
           text-align: start;
           font-weight: bold;
           font-size: 22px;
+          margin-top: 10px;
           margin-left: 10px;
         }
 
@@ -336,7 +341,7 @@
           align-items: center;
           justify-content: center;
           position: relative;
-          margin-top: 3px;
+          margin-top: 13px;
           cursor: pointer;
 
           display: block;
@@ -353,7 +358,7 @@
             width: 9px;
             height: 9px;
 
-            background-color: white;
+            background-color: #ff7ef6;
           }
         }
       }
@@ -504,5 +509,50 @@
   .warn {
     background-color: #6320a29d !important;
     transition: 0.5s ease !important;
+  }
+  .pin {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: start;
+    justify-content: space-around;
+
+    position: sticky;
+    text-align: center;
+    top: 10px;
+    min-height: 120px;
+
+    border-radius: 10px;
+    border: 2px solid white;
+
+    backdrop-filter: blur(5px);
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    z-index: 100;
+  }
+}
+
+@media (max-width: 600px) {
+  .pin {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    position: sticky;
+    text-align: center;
+    top: 80px;
+    min-height: 60px;
+
+    border-radius: 10px;
+    border: 2px solid white;
+
+    backdrop-filter: blur(5px);
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    z-index: 100;
   }
 }

@@ -5,7 +5,16 @@ import style from "./Vacancy.module.scss"
 import { useInView } from "framer-motion";
 import Typed from "typed.js";
 
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 export default function Home() {
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.vacancy
+
+    useEffect(() => {
+        console.log("Change Language");
+    }, [LanguageGetting])
 
     const title = useRef(null);
     const isInView = useInView(title, {
@@ -15,7 +24,7 @@ export default function Home() {
     useEffect(() => {
         if (isInView) {
             const typed = new Typed(title.current, {
-                strings: ['In Entwicklung! :D'],
+                strings: [LANG_.title1],
                 typeSpeed: 30,
                 startDelay: 100,
                 showCursor: false,
@@ -23,7 +32,7 @@ export default function Home() {
 
             return () => typed.destroy();
         }
-    }, [isInView]); // 👈 Зависимость от isInView
+    }, [isInView, LanguageGetting]); // 👈 Зависимость от isInView
 
 
     const title2 = useRef(null);
@@ -34,7 +43,7 @@ export default function Home() {
     useEffect(() => {
         if (isInView2) {
             const typed = new Typed(title2.current, {
-                strings: ['Aktuelle Stellenangebote auf LinkedIn!'],
+                strings: [LANG_.title2],
                 typeSpeed: 10,
                 startDelay: 1000,
                 showCursor: false,
@@ -42,8 +51,8 @@ export default function Home() {
 
             return () => typed.destroy();
         }
-    }, [isInView2]); // 👈 Зависимость от isInView
-    
+    }, [isInView2, LanguageGetting]); // 👈 Зависимость от isInView
+
     return (
         <section className={style.body}>
             <p ref={title} className={style.work}></p>
