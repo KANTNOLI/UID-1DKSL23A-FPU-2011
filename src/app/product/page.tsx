@@ -277,7 +277,7 @@ export default function Home() {
 
                         <motion.p
                             {...animations.fadeXP}
-                            className={style.oPT}>{LANG_.subs.C1Title} {LANG_.subs.C1Price} {LANG_.subs.C1PriceDigit}</motion.p>
+                            className={style.oPT}>{LANG_.subs.C1Title} {LANG_.subs.C1Price}{LANG_.subs.C1PriceDigit}</motion.p>
                     </div>
 
                     <motion.li
@@ -300,7 +300,7 @@ export default function Home() {
                             {Order.subs == "Standard" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C2Title} {LANG_.subs.C2Price} {LANG_.subs.C2PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C2Title} {LANG_.subs.C2Price}{LANG_.subs.C2PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
@@ -317,7 +317,7 @@ export default function Home() {
                             {Order.subs == "Premium" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C3Title} {LANG_.subs.C3Price} {LANG_.subs.C3PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.subs.C3Title} {LANG_.subs.C3Price}{LANG_.subs.C3PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
@@ -342,7 +342,7 @@ export default function Home() {
                             {Order.types == "Landingpage" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S1Title} {LANG_.site.S1Price} {LANG_.site.S1PriceDigit}</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S1Title} {LANG_.site.S1Price}{LANG_.site.S1PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
@@ -362,7 +362,7 @@ export default function Home() {
                             {Order.types == "WebsitVisitenkarte" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S2Title} {LANG_.site.S2Price} {LANG_.site.S2PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S2Title} {LANG_.site.S2Price}{LANG_.site.S2PriceDigit}</motion.p>
                     </div>
 
                     <motion.li {...animations.fadeXP}
@@ -383,7 +383,7 @@ export default function Home() {
                             {Order.types == "CorporateWebseite" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S3Title} {LANG_.site.S3Price} {LANG_.site.S3PriceDigit}</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S3Title} {LANG_.site.S3Price}{LANG_.site.S3PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -404,7 +404,7 @@ export default function Home() {
                             {Order.types == "OnlineShop" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S4Title} {LANG_.site.S4Price} {LANG_.site.S4PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S4Title} {LANG_.site.S4Price}{LANG_.site.S4PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -425,7 +425,7 @@ export default function Home() {
                             {Order.types == "BlogMedienportal" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S5Title} {LANG_.site.S5Price} {LANG_.site.S5PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S5Title} {LANG_.site.S5Price}{LANG_.site.S5PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -446,7 +446,7 @@ export default function Home() {
                             {Order.types == "PortfolioWebseite" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S6Title} {LANG_.site.S6Price} {LANG_.site.S6PriceDigit}</motion.p>
+                        <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.site.S6Title} {LANG_.site.S6Price}{LANG_.site.S6PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -467,7 +467,7 @@ export default function Home() {
                             {Order.types == "OnlineService" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S7Title} {LANG_.site.S7Price} {LANG_.site.S7PriceDigit}</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S7Title} {LANG_.site.S7Price}{LANG_.site.S7PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -488,7 +488,7 @@ export default function Home() {
                             {Order.types == "Bildungsplattform" ? <div className={style.oPNActive}></div> : ""}
                         </motion.div>
 
-                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S8Title} {LANG_.site.S8Price} {LANG_.site.S8PriceDigit}</motion.p>
+                        <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.site.S8Title} {LANG_.site.S8Price}{LANG_.site.S8PriceDigit}</motion.p>
                     </div>
 
                     <motion.li  {...animations.fadeXP}
@@ -514,7 +514,7 @@ export default function Home() {
                                 {Order.addons.model ? <div className={style.oPNActive}></div> : ""}
                             </motion.div>
 
-                            <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A1Title} {LANG_.addons.A1Price} {LANG_.addons.A1PriceDigit}</motion.p>
+                            <motion.p  {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A1Title} {LANG_.addons.A1Price}{LANG_.addons.A1PriceDigit}</motion.p>
                         </div>
 
                         <motion.li  {...animations.fadeXP}
@@ -531,7 +531,7 @@ export default function Home() {
                                 {Order.addons.setup ? <div className={style.oPNActive}></div> : ""}
                             </motion.div>
 
-                            <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A2Title} {LANG_.addons.A2Price} {LANG_.addons.A2PriceDigit}</motion.p>
+                            <motion.p {...animations.fadeXP} className={style.oPT}>{LANG_.addons.A2Title} {LANG_.addons.A2Price}{LANG_.addons.A2PriceDigit}</motion.p>
                         </div>
 
                         <motion.li  {...animations.fadeXP}
