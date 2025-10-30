@@ -5,18 +5,13 @@ import LangDe from "../../Language/de.json" assert { type: "json" };
 import LangEn from "../../Language/en.json" assert { type: "json" };
 import LangRu from "../../Language/ru.json" assert { type: "json" };
 
-interface LangIntf {
-  name: string;
-  shortName: string;
-}
-
 type LangType = "De" | "En" | "Ru";
 
 interface dataState {
   language: LangType;
   mail: string;
-  phone: number | null;
   LanguageActive: object;
+  phone?: number | null;
 }
 
 interface GetForm {
@@ -25,10 +20,10 @@ interface GetForm {
 }
 
 const initialState: dataState = {
-  language: "Ru",
+  language: "De",
   mail: "test",
+  LanguageActive: LangDe,
   phone: 123312,
-  LanguageActive: LangRu,
 };
 
 export const dataSlice = createSlice({
