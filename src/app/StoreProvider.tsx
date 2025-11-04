@@ -41,7 +41,7 @@ function LStore() {
 
     if (!getData) {
       localStorage.setItem(KEY_LS_SETTINGS, JSON.stringify({
-        language: "De",
+        language: "En",
         mail: "",
         phone: null,
       }))
