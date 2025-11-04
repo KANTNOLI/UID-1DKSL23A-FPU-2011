@@ -22,6 +22,10 @@ interface trackDataIntf {
 }
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Chazen | Track Your Order Status"
+    }, [])
+
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
 
