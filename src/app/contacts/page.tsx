@@ -18,8 +18,13 @@ interface SendDataIntf {
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { BreadcrumbData } from "../breadcrumb-data";
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Chazen | Contact Our Web Development Team"
+    }, [])
+
     const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
     const LANG_ = LanguageGetting.contacts
 
@@ -157,6 +162,7 @@ export default function Home() {
 
     return (
         <section className={style.body}>
+            <BreadcrumbData pathname="/contacts" />
             <p ref={title} className={style.title}></p>
             <p ref={title2} className={style.title}></p>
 

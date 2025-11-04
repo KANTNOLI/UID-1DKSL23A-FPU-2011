@@ -7,8 +7,13 @@ import Typed from "typed.js";
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { BreadcrumbData } from "../breadcrumb-data";
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Chazen | Careers & Job Opportunities"
+    }, [])
+
     const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
     const LANG_ = LanguageGetting.vacancy
 
@@ -55,6 +60,7 @@ export default function Home() {
 
     return (
         <section className={style.body}>
+            <BreadcrumbData pathname="/vacancy" />
             <p ref={title} className={style.work}></p>
             <p ref={title2} className={style.work2}></p>
         </section>

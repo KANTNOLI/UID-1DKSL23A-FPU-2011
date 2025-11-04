@@ -29,8 +29,13 @@ interface OrderIntf {
 
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import { BreadcrumbData } from "../breadcrumb-data";
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Chazen | Website Development Packages & Pricing"
+    }, [])
+
     const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
     const LANG_ = LanguageGetting.product
 
@@ -258,6 +263,7 @@ export default function Home() {
 
     return (
         <section className={style.body}>
+            <BreadcrumbData pathname="/product" />
 
             <section className={style.order}>
                 <motion.p
