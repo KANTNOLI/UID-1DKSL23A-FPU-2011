@@ -20,10 +20,10 @@ interface GetForm {
 }
 
 const initialState: dataState = {
-  language: "De",
-  mail: "test",
+  language: "En",
+  mail: "",
   LanguageActive: LangDe,
-  phone: 123312,
+  phone: null,
 };
 
 export const dataSlice = createSlice({
