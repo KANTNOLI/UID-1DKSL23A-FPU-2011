@@ -14,7 +14,6 @@ const fontPaytone = Cascadia_Code({
   weight: ["400", "700", "600"],
   subsets: ["latin"]
 });
-
 const fontHuninn2 = Sansation({
   variable: "--Huninn",
   weight: ["400", "700"],
@@ -26,11 +25,27 @@ const fontGeologica = Geologica({
   subsets: ["latin"]
 });
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Chazen",
+  "description": "Custom Website Development Agency",
+  "url": "https://chazen.de",
+  "areaServed": "Worldwide",
+  "serviceType": [
+    "Website Development",
+    "Web Application Development",
+    "Landing Page Development",
+    "E-commerce Website Development",
+    "Corporate Website Development",
+    "Website Redesign"
+  ]
+}
 
 export const metadata: Metadata = {
-  title: "Chazen",
-  description: "Chazen",
-  icons: "./logo.jpg"
+  description: "Transform your ideas into powerful digital products with Chazen. We specialize in custom software development, web applications, and digital innovation.",
+  metadataBase: new URL('https://chazen.de'),
+  icons: "./favicon.ico"
 };
 
 export default function RootLayout({
@@ -40,6 +55,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+      </head>
       <body className={`${fontPaytone.variable} ${fontGeologica.variable} ${fontHuninn2.variable}`}>
         <StoreProvider>
           <Header />
