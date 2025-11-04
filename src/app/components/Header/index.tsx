@@ -122,23 +122,21 @@ function Header() {
 
     const handleSetLanguage = useCallback(
         (chooseLang: LangType) => {
-            if (LangChoose != chooseLang) {
+            const getData: dataState = JSON.parse(localStorage.getItem(KEY_LS_SETTINGS) + "")
 
-                const getData: dataState = JSON.parse(localStorage.getItem(KEY_LS_SETTINGS) + "")
+            if (getData) {
 
-                if (getData) {
+                Dispatch(setLanguage(chooseLang))
+                Dispatch(setForm(getData as GetForm))
+                setLangChoose(chooseLang)
 
-                    Dispatch(setLanguage(chooseLang))
-                    Dispatch(setForm(getData as GetForm))
-                    setLangChoose(chooseLang)
-
-                    localStorage.setItem(KEY_LS_SETTINGS, JSON.stringify({
-                        language: chooseLang,
-                        mail: getData.mail,
-                        phone: getData.phone,
-                    }))
-                }
+                localStorage.setItem(KEY_LS_SETTINGS, JSON.stringify({
+                    language: chooseLang,
+                    mail: getData.mail,
+                    phone: getData.phone,
+                }))
             }
+
         },
         [setLangChoose, UserSettings, setLanguage, Dispatch],
     )
