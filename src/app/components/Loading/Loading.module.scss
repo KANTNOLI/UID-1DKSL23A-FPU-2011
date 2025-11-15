@@ -1,0 +1,113 @@
+.load {
+  position: sticky;
+  top: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999999;
+  pointer-events: all;
+
+  .loadSideT {
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: calc(50vh - 2px);
+
+    background-color: black;
+  }
+
+  .loadSideB {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: calc(50vh - 2px);
+
+    background-color: black;
+  }
+
+  .loadSideTStart {
+    animation: SideTopAnim 1s ease-in-out;
+  }
+  .loadSideBStart {
+    animation: SideBottomAnim 1s ease-in-out;
+  }
+
+  .loadBarShadow {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.17);
+    height: 3px;
+    width: 100vw;
+  }
+  .loadBar {
+    background-color: #bb8df5;
+    height: 3px;
+    width: 0vw;
+  }
+
+  .loadBarStart {
+    animation: BarAnim 1s ease-in-out;
+  }
+  .loadBarShadowStart{
+    animation: BarShadowAnim 1s ease-in-out;
+  }
+}
+
+@keyframes SideTopAnim {
+  20% {
+    border-bottom: 2px #bb8df5 solid;
+    height: calc(50vh - 2px);
+  }
+  100% {
+    border-bottom: 2px #bb8df5 solid;
+    height: 0vw;
+  }
+}
+
+@keyframes SideBottomAnim {
+  20% {
+    border-top: 2px #bb8df5 solid;
+    height: calc(50vh - 2px);
+  }
+  100% {
+    border-top: 2px #bb8df5 solid;
+    height: 0vw;
+  }
+}
+
+@keyframes BarAnim {
+  0% {
+    width: 0vw;
+  }
+  19% {
+    width: 100vw;
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes BarShadowAnim {
+  0% {
+    opacity: 1;
+  }
+  19% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
