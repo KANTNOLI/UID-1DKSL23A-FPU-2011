@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import style from "./Track.module.scss"
 import { useSearchParams } from 'next/navigation';
 import axios from "axios";
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 type TrackVariateKey = "Planning" | "Payment" | "Architecture" | "Design" | "Approval" | "Implementation" | "Delivery";
 
@@ -14,20 +16,67 @@ interface trackListIntf {
     top: string
 }
 
+type active = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+type ready = 1 | 2 | 3 | 4 | 5;
+
 interface trackDataIntf {
     trackID: string,
-    taskActive: 1 | 2 | 3 | 4 | 5 | 6 | 7, // 1-7
-    taskReady: 1 | 2 | 3 | 4 | 5, // 1-5
+    taskActive: active, // 1-7
+    taskReady: ready, // 1-5
     logs: string[]
 }
 
+function GetLogs(taskActive: active, taskReady: ready, LANG_: any) {
+    const LogsSnippets = [
+        LANG_["task1-1"],
+        LANG_["task1-2"],
+        LANG_["task1-3"],
+        LANG_["task1-4"],
+        LANG_["task1-5"],
+        LANG_["task2-1"],
+        LANG_["task2-2"],
+        LANG_["task2-3"],
+        LANG_["task2-4"],
+        LANG_["task2-5"],
+        LANG_["task3-1"],
+        LANG_["task3-2"],
+        LANG_["task3-3"],
+        LANG_["task3-4"],
+        LANG_["task3-5"],
+        LANG_["task4-1"],
+        LANG_["task4-2"],
+        LANG_["task4-3"],
+        LANG_["task4-4"],
+        LANG_["task4-5"],
+        LANG_["task5-1"],
+        LANG_["task5-2"],
+        LANG_["task5-3"],
+        LANG_["task5-4"],
+        LANG_["task5-5"],
+        LANG_["task6-1"],
+        LANG_["task6-2"],
+        LANG_["task6-3"],
+        LANG_["task6-4"],
+        LANG_["task6-5"],
+        LANG_["task7-1"],
+        LANG_["task7-2"],
+        LANG_["task7-3"],
+        LANG_["task7-4"],
+        LANG_["task7-5"]]
+
+    return LogsSnippets.slice(0, ((taskActive - 1) * 5) + taskReady)
+}
+
 export default function Home() {
-    useEffect(() => {
-        document.title = "Chazen | Track Your Order Status"
-    }, [])
+    const LanguageGetting: any = useSelector((state: RootState) => state.data.LanguageActive)
+    const LANG_ = LanguageGetting.track
 
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
+
+    useEffect(() => {
+        document.title = `Chazen | Track ${id}`
+    }, [searchParams])
 
     const [DataTraking, setDataTraking] = useState<trackDataIntf>({
         trackID: "Laden...",
@@ -43,50 +92,42 @@ export default function Home() {
 
     const trackList: trackListIntf[] = [
         {
-            name: "Planning",
+            name: LANG_.Planning,
             left: "28px",
             top: "16px"
         },
         {
-            name: "Payment",
+            name: LANG_.Payment,
             left: "24px",
             top: "17px"
         },
         {
-            name: "Architecture",
+            name: LANG_.Architecture,
             left: "26px",
             top: "15px"
         },
         {
-            name: "Design",
+            name: LANG_.Design,
             left: "25px",
             top: "16px"
         },
         {
-            name: "Approval",
+            name: LANG_.Approval,
             left: "26px",
             top: "14px"
         },
         {
-            name: "Implementation",
+            name: LANG_.Implementation,
             left: "24px",
             top: "17px"
         },
         {
-            name: "Delivery",
+            name: LANG_.Delivery,
             left: "22px",
             top: "17px"
         }
     ]
-    const trackDesc = [
-        "Erstellung und Abstimmung des Lastenhefts, Planung von Terminen und Ressourcen",
-        "Warten auf Zahlungsbestätigung und Start der Projekt-Transaktion",
-        "Entwicklung der Systemarchitektur, Planung der Schemata und Datenstrukturen",
-        "Erstellung des visuellen Designs für Oberflächen, Stile und Layouts",
-        "Abstimmung und Freigabe des Designs mit dem Kunden, Einarbeitung von Änderungen",
-        "Programmierung, Testing, Integration der Systemkomponenten",
-        "Finale Projektübergabe und Inbetriebnahme"
-    ]
+    const trackDesc = [LANG_.desc1, LANG_.desc2, LANG_.desc3, LANG_.desc4, LANG_.desc5, LANG_.desc6, LANG_.desc7]
 
     useEffect(() => {
         const getTrakingData = async (TrackID: string) => {
@@ -97,9 +138,19 @@ export default function Home() {
         getTrakingData(id || "")
     }, [])
 
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
+    if (!isClient) {
+        return <div>Loading...</div>
+    }
+
     return (
         <section className={style.body}>
-            <p className={style.mainTitle}>Traking: <span>{DataTraking.trackID}</span></p>
+            <p className={style.mainTitle}>{LANG_.traking}: <span>{DataTraking.trackID}</span></p>
             {/* <div ref={canvas} className={style.mainCanvas}>
                 <Frame3D position={{ x: 0, y: 0.5, z: 1.8 }} height={Sizes?.height} width={Sizes?.width} modelPath="./aspider.glb"></Frame3D>
             </div> */}
@@ -127,14 +178,13 @@ export default function Home() {
             </div>
 
             <div className={style.logs}>
-                <p className={style.logsTitle}>Bestellschritt:</p>
+                <p className={style.logsTitle}>{LANG_.MainDesc}:</p>
                 <p className={style.logsDesc}>{trackDesc[DataTraking.taskActive - 1]}</p>
 
-                <p className={style.logsTitle}>Logdateien:</p>
-                {DataTraking.logs.map((logLine, logID) => (
+                <p className={style.logsTitle}>{LANG_.Logs}:</p>
+                {GetLogs(DataTraking.taskActive, DataTraking.taskReady, LANG_).map((logLine, logID) => (
                     <p key={logID} className={style.logsDesc}>{logLine}</p>
                 ))}
-
             </div>
 
         </section>

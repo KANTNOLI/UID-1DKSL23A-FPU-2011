@@ -1,7 +1,7 @@
 {
   "Header": {
     "home": "Home",
-    "product": "Products", 
+    "product": "Products",
     "vacancy": "Careers",
     "contacts": "Contacts",
     "track": "Order Status"
@@ -26,7 +26,7 @@
       "desc": "Development of modern UI/UX concept for your website"
     },
     "step3": {
-      "title": "Design Revision", 
+      "title": "Design Revision",
       "desc": "Collaborative design optimization based on your feedback"
     },
     "step4": {
@@ -52,7 +52,7 @@
       "title": "Basic",
       "price": "$0",
       "desc1": "Website Installation",
-      "desc2": "Configuration & Setup", 
+      "desc2": "Configuration & Setup",
       "desc3": "Quality Guarantee"
     },
     "cart2": {
@@ -63,7 +63,7 @@
       "desc3": "Website Support"
     },
     "cart3": {
-      "title": "Premium", 
+      "title": "Premium",
       "price": "$28",
       "desc1": "Active Support",
       "desc2": "24/7 Monitoring",
@@ -79,7 +79,7 @@
       "desc2": "We deliver sustainable solutions tailored precisely to your needs"
     },
     "cart2": {
-      "title": "Modern Design Solutions", 
+      "title": "Modern Design Solutions",
       "desc1": "Contemporary and aesthetically appealing interfaces that are not only visually compelling but also intuitive, perfectly showcasing your brand"
     },
     "cart3": {
@@ -104,7 +104,7 @@
       "placeholder": "your-email@example.com"
     },
     "phone": {
-      "title": "Your Phone Number", 
+      "title": "Your Phone Number",
       "placeholder": "+1 (555) 123-4567"
     },
     "desc": {
@@ -114,7 +114,7 @@
     "send": "Send Message"
   },
   "vacancy": {
-    "title1": "In Development! :D", 
+    "title1": "In Development! :D",
     "title2": "Current Openings on LinkedIn!"
   },
   "product": {
@@ -140,7 +140,7 @@
       "title": "Subscription Plans",
       "C1Price": "(Free)",
       "C1PriceDigit": "",
-      "C1Title": "Basic", 
+      "C1Title": "Basic",
       "C1Desc1": "Website Installation",
       "C1Desc2": "Configuration & Setup",
       "C1Desc3": "Quality Guarantee",
@@ -148,7 +148,7 @@
       "C2PriceDigit": "$",
       "C2Title": "Standard",
       "C2Desc1": "Enhanced Protection",
-      "C2Desc2": "Premium Warranty", 
+      "C2Desc2": "Premium Warranty",
       "C2Desc3": "Website Support",
       "C3Price": 28,
       "C3PriceDigit": "$",
@@ -160,7 +160,7 @@
     "site": {
       "title": "Website Types",
       "S1Price": 1100,
-      "S1PriceDigit": "$", 
+      "S1PriceDigit": "$",
       "S1Title": "Landing Page",
       "S1Desc1": "Single-page website for advertising campaigns",
       "S1Desc2": "Lead generation form and call-to-action",
@@ -171,7 +171,7 @@
       "S2Title": "Business Card Website",
       "S2Desc1": "Up to 5 main pages (Home, Services, Contacts)",
       "S2Desc2": "Responsive design and basic SEO",
-      "S2Desc3": "Contact form integration", 
+      "S2Desc3": "Contact form integration",
       "S2Desc4": "Analytics integration",
       "S3Price": 3300,
       "S3PriceDigit": "$",
@@ -198,7 +198,7 @@
       "S6PriceDigit": "$",
       "S6Title": "Portfolio Website",
       "S6Desc1": "Visually-oriented design",
-      "S6Desc2": "Work and project galleries", 
+      "S6Desc2": "Work and project galleries",
       "S6Desc3": "Minimalist structure",
       "S6Desc4": "Presentation focus",
       "S7Price": 6600,
@@ -222,7 +222,7 @@
       "A1PriceDigit": "$",
       "A1Title": "3D Models",
       "A1Desc1": "Enhanced Protection",
-      "A1Desc2": "Premium Warranty", 
+      "A1Desc2": "Premium Warranty",
       "A1Desc3": "Website Support",
       "A2Price": "(Free)",
       "A2PriceDigit": "",
@@ -231,5 +231,59 @@
       "A2Desc2": "24/7 Monitoring",
       "A2Desc3": "Smart Automation"
     }
+  },
+  "track": {
+    "traking": "Tracking",
+    "Planning": "Planning",
+    "Payment": "Payment",
+    "Architecture": "Architecture",
+    "Design": "Design",
+    "Approval": "Approval",
+    "Implementation": "Implementation",
+    "Delivery": "Delivery",
+    "desc1": "Creation and approval of technical specifications, planning of timelines and resources",
+    "desc2": "Waiting for payment confirmation and start of project transaction",
+    "desc3": "Development of system architecture, planning of schemas and data structures",
+    "desc4": "Creation of visual design for interfaces, styles and layouts",
+    "desc5": "Design approval and sign-off with client, implementation of changes",
+    "desc6": "Programming, testing, integration of system components",
+    "desc7": "Final project handover and commissioning",
+    "task1-1": "Goal discussion and requirements gathering",
+    "task1-2": "Market and competitor analysis",
+    "task1-3": "Project structure development",
+    "task1-4": "Detailed phase planning",
+    "task1-5": "Final plan approval",
+    "task2-1": "Invoice issuance",
+    "task2-2": "Waiting for payment",
+    "task2-3": "Receiving advance payment",
+    "task2-4": "Payment confirmation",
+    "task2-5": "Full project payment",
+    "task3-1": "Basic structure design",
+    "task3-2": "Data schema development",
+    "task3-3": "API endpoints creation",
+    "task3-4": "Architecture optimization",
+    "task3-5": "Technical schema approval",
+    "task4-1": "Moodboard and concept creation",
+    "task4-2": "Main screens development",
+    "task4-3": "All pages detailing",
+    "task4-4": "Interactive prototype",
+    "task4-5": "Final design approval",
+    "task5-1": "Initial project presentation",
+    "task5-2": "Feedback collection",
+    "task5-3": "Revisions implementation",
+    "task5-4": "Final demonstration",
+    "task5-5": "Full client approval",
+    "task6-1": "Environment setup",
+    "task6-2": "Basic functionality",
+    "task6-3": "Components integration",
+    "task6-4": "Functionality testing",
+    "task6-5": "Full implementation",
+    "task7-1": "Handover preparation",
+    "task7-2": "Final testing",
+    "task7-3": "Content filling",
+    "task7-4": "Hosting transfer",
+    "task7-5": "Official project delivery",
+    "MainDesc": "Order Stage",
+    "Logs": "Logs"
   }
 }

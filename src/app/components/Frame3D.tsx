@@ -176,16 +176,7 @@ const Frame3D: React.FC<Frame3DProps> = ({
         background: 'transparent'
       }}
     >
-      {loading && (
-        <div style={{
-          color: 'white',
-          padding: '20px',
-          textAlign: 'center',
-          fontSize: '14px'
-        }}>
-          
-        </div>
-      )}
+      {loading}
     </div>
   )
 }
